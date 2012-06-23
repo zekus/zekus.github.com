@@ -1,0 +1,22 @@
+---
+layout: post
+title: Google Website Optimiser and the bugged Techie Guide
+tags:
+- Altro
+- content-variation
+- content_variation
+- GWO
+- Javascript
+- techie guide
+- Web Optimiser
+status: publish
+type: post
+published: true
+meta: {}
+---
+I spent hours yesterday to implement the GWO that, instead, should take literally minutes!<br />You want to know why? The bugged <a target="_blank" href="http://www.google.com/en//websiteoptimizer/techieguide.pdf">Techie Guide</a>!!!<br /><br />On page 19, the script is completely wrong and drove me mad: variation-content should be <b>variation_content</b> and document.write(“&lt;/nosc” + “ript&gt;”) should be <b>document.write(“&lt;nosc” + “ript&gt;”)</b>;<br /><br />So, here is he complete correct script:<br />
+```
+
+&lt;script&gt;<br />var v = utmx(‘variation_content’, ‘Section1’);<br />if (v) {<br />document.write(<br />v.replace(“%%product_name%%”, “&lt;? print $product_name ?&gt;”).<br />replace(“%%product_price%%”, “&lt;? print $product_price ?&gt;”).<br />replace(“%%product_id%%”, “&lt;? print $product_id ?&gt;”));<br />document.write(“&lt;nosc” + “ript&gt;”);<br />}<br />&lt;/script&gt;<br />&lt;ul&gt;<br />&lt;li&gt;Product name: &lt;? print $product_name ?&gt;<br />&lt;li&gt;Product price: &lt;? print $product_price ?&gt;<br />&lt;li&gt;&lt;a href=’buy.php?prod-id=&lt;? print $product_id ?&gt;’&gt;<br />Buy Now&lt;/a&gt;<br />&lt;/ul&gt;<br />&lt;/noscript&gt;<br />
+```
+<br />Adapt it to your code and be happy!

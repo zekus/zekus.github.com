@@ -1,0 +1,53 @@
+---
+layout: post
+title: How LTSP works!
+tags:
+- Linux
+- LTSP
+status: draft
+type: post
+published: false
+meta: {}
+---
+It's important to understand how LTSP works because I spent a few hours to find an explanation. Now I want to share better this knowledge on the web because it is considered an implicit information by various wiki and tutorials around.
+<span>
+As convention it is used the word "server" to express the machine where the LTSP system is installed and "client" the chroot directory.</span>
+
+This is a clean and plain explanation for all dummy as me out there:
+<span>
+</span>
+<span>1. A minimal operating system boots on each thin client. this operating
+</span>
+<span>   system comes over the network and in the usual case has no applications
+</span>
+<span>   or user accounts whatsoever.
+</span>
+<span>
+</span>
+<span>2. X server (graphical system) starts up and a login screen program (LDM)
+</span>
+<span>   starts so you see a username prompt.  This runs on the thin client.
+</span>
+<span>
+</span>
+<span>3. When you provide username and password, LDM takes those details and
+</span>
+<span>   attempts to log you on to the server.  If successful, you see a desktop
+</span>
+<span>   which is running on the server but displaying on your thin client.
+</span>
+<span>
+</span>
+<span>All accounts are on the server.  You can create an account on the thin
+</span>
+<span>client, but that's only really useful for debugging.  You can press
+</span>
+<span>&lt;ctrl&gt;&lt;atl&gt;&lt;F1&gt; to get a text console on the thin client and login with
+</span>
+<span>your local thin client account.  This is really not for <strong class="highlight">users</strong> though.
+</span>
+<span>
+</span>
+<span>All user programs run on the server.  This is why WINE is visible when
+</span>
+<span>installed on the server but not when installed on the client.</span>

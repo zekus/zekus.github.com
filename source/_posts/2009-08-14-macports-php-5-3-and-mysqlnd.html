@@ -1,0 +1,17 @@
+---
+layout: post
+title: MacPorts, PHP 5.3 and Mysqlnd
+tags:
+- Altro
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+If you have recently upgraded to php 5.3 and you have done it using<br />
+```
+
+sudo port install php5 +apache2+macosx+mysqlnd+pear
+```
+<br />you should have noticed that you cannot use mysql anymore because of an error that, I'm sure, is driving you crazy<br />```PHP Warning: mysqli::mysqli(): [2002] No such file or directory (trying to connect via unix:///tmp/mysql.sock) in /Users/antonio/Sites/db.php on line 25<br /><br />PHP Warning: mysqli::mysqli(): (HY000/2002): No such file or directory in /Users/antonio/Sites/db.php on line 25```<br />The problem comes from php and unfortunately is only fixable changing the location of the mysql.sock from the usual macports directory <span style="font-weight: bold;">/opt/local/var/run/mysql5/mysqld.sock</span> to <span style="font-weight: bold;">/tmp/mysql.sock</span> editing the file <span style="font-weight: bold;">/opt/local/etc/my.cnf</span><br /><br />;)<br /><br /><div class="zemanta-pixie"><img class="zemanta-pixie-img" alt="" src="http://img.zemanta.com/pixy.gif?x-id=fd3d1936-a860-8902-9c80-550350a26902" /></div>

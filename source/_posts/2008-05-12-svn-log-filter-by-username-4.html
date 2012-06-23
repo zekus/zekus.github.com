@@ -1,0 +1,20 @@
+---
+layout: post
+title: ! 'svn log: filter by username'
+tags:
+- Linux
+- sed
+- SVN
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+<p>I've found this command useful to filter the svn log by username:<br />
+```
+
+svn log | sed -n '/username/,/-----$/ p'
+```
+<br />I hope is useful to anyone like it was for me ;)</p>
+<p>ps. It's really useful to read the <b>sed</b> manual as well!</p>

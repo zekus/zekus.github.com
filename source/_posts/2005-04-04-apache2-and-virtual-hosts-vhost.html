@@ -1,0 +1,14 @@
+---
+layout: post
+title: Apache2 and Virtual Hosts (VHost)
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/04/apache2-and-virtual-hosts-vhost.html
+---
+In this article, i'll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.<br /><br />First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br />After that you'll have all apache configuration files under /etc/apache2 directory.<br />Well DONT TOUCH ANY FILE THERE!<br />The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br />I created mysites.conf in my public_html for my personal comfort :)<br /><br />What about mysites.conf content? HERE to you a simple example:<br /><blockquote><br /><br />NameVirtualHost *<br /><br />&lt;virtualhost&gt;<br />ServerName localhost<br />ServerAlias linzekus<br />DocumentRoot /srv/www/htdocs<br />&lt;/virtualhost&gt;<br /><br />&lt;virtualhost&gt;<br />DocumentRoot /home/zekus/public_html/ontosofia/ontosophy<br />ServerName ontosophy<br />ServerAdmin antonio@linzekus<br />&lt;/virtualhost&gt;<br /><br /></blockquote><br />Thus, the last thing to do is adding all our virtual servers on /etc/hosts file to make them available. This file is only accessible via root and this is a sample:<br /><blockquote><br />#<br /># hosts         This file describes a number of hostname-to-address<br />#               mappings for the TCP/IP subsystem.  It is mostly<br />#               used at boot time, when no name servers are running.<br />#               On small systems, this file can be used instead of a<br />#               "named" name server.<br /># Syntax:<br />#<br /># IP-Address  Full-Qualified-Hostname  Short-Hostname<br />#<br /><br />127.0.0.1       localhost linzekus XXXX <span style="font-weight: bold; font-style: italic; color: rgb(51, 204, 0);"><-list all virtual hosts HERE</span><br /># special IPv6 addresses<br />::1  localhost ipv6-localhost ipv6-loopback<br />fe00::0         ipv6-localnet<br />ff00::0         ipv6-mcastprefix<br />ff02::1         ipv6-allnodes<br />ff02::2         ipv6-allrouters<br />ff02::3         ipv6-allhosts<br /></blockquote><br />What else now? Point your browser on the URL of your new virtual hosts like that:<br /><br /><div style="text-align: center;"><span style="font-weight: bold; font-style: italic;">http://xxxx</span><br /></div><br />Thats all folks!<br />good setting<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

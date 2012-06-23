@@ -1,0 +1,14 @@
+---
+layout: post
+title: CUPS and HOTPLUG
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/12/cups-and-hotplug.html
+---
+This is a really short HOWTO to configure hotplug to auto-enable usb printer on pluggin in :)<br /><br />1) <span style="font-style: italic; font-weight: bold;">lsusb -v</span> show, if printer is plugged in, his ID and VENDOR.<br /><br />2) create file printer.usermap in /etc/hotplug/usb/<br />Here we will paste this :<br /><blockquote style="color: rgb(153, 0, 0);"><span style="font-weight: bold;">printer</span>  0x0003  <span style="font-weight: bold;">0x[yourprinterid]</span>  <span style="font-weight: bold;">0x[yourprintervendorid]</span>  0x0000  0x0000  0x00  0x00  0x00  0x00  0x00  0x00  0x00000000</blockquote>3) create file printer in /etc/hotplug/usb/<br />Here create the script like this example that enable and accept jobs for a printer:<br /><blockquote style="color: rgb(153, 0, 0);">#!/bin/bash<br /><br />if [ "${ACTION}" = "add" ]<br />then<br />   lpadmin -p <em>printername</em> -E<br />fi</blockquote>4) dont forget to <span style="font-style: italic; font-weight: bold;">chmod</span><span style="font-weight: bold;"> </span>the file to make it executable :)<br /><br />happy hotpluggin<br />antonio<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

@@ -1,0 +1,28 @@
+---
+layout: post
+title: Ubuntu, Firefox, ATI and xorg overload
+tags:
+- ati
+- firefox
+- Linux
+- ubuntu
+- xorg
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+I was stuck with firefox and xorg on my Ubuntu machine: it was so slooooow. Today, finally, I've found a solution: just add the following option to your xorg.conf file under the device section:
+
+```
+
+
+Option "XAANoOffscreenPixmaps" "true"
+
+```
+
+
+then reboot your machine or your xorg server only (ctrl-alt-backspace) and ...
+
+breath deeply :O

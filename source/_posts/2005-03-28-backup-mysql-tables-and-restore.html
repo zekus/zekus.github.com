@@ -1,0 +1,14 @@
+---
+layout: post
+title: backup mysql tables and restore
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/03/backup-mysql-tables-and-restore.html
+---
+it's easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that's it.<br />If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:<br /><br />chmod -R 766 *<br />chmod -R 700 mysql/<br /><br />and all will work fine again!<br /><br />go backup guys! ;)<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

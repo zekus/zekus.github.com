@@ -1,0 +1,28 @@
+---
+layout: post
+title: Tips Installing software on SuSE 9.1
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2004/09/tips-installing-software-on-suse-91.html
+---
+To install RPM files with Yast from command line, type this : yast -i <\packagetoinstall\>.rpm
+<br />
+<br />If you downloaded source code from a program (tar.gz files) you can quickly make an RPM file from it.
+<br />To do this, first of all install the package "checkinstall", then unpack your source package and cd to the directory where you unpacked the tar.gz file.
+<br />Run the following commands:
+<br />
+<br />./configure
+<br />make
+<br />checkinstall #instead of make install
+<br />
+<br />When finished, you'll find your RPM in /usr/src/packages/RPMS/i686
+<br />
+<br />Now you can install it where you want with yast - i <\packagetoinstall\>.rpm or with rpm -i <\packagetoinstall\>.rpm. This allows your to easily uninstall it afterwards.
+<br />
+<br />bye<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

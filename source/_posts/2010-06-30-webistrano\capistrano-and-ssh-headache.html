@@ -1,0 +1,43 @@
+---
+layout: post
+title: Webistrano\Capistrano and SSH headache
+tags:
+- Altro
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '1'
+---
+In theory, installing and using these two amazing tools is quite easy and straight-forward BUT ... you really need to have a deep SSH knowledge to make it works! I you dont, well ... you can loose like a whole day trying to figure out how the hell the connection does not work using the "password" parameter!
+
+```
+
+connection failed for: localhost (Net::SSH::AuthenticationFailed: antonio)
+
+```
+
+
+According to a member of the #capistrano freenode channel
+<blockquote>codebeaker 15:28
+^ I can't support password users…
+(sorry)</blockquote>
+and then
+<blockquote>codebeaker 15:32
+basically as soon as I find the time, I'll be taking password support out
+because it causes so many problems, and is unreliable</blockquote>
+Well .. after a day of trying and reading all the documentation possible and google-ing in hope to find a solution. Can you immagine how angry and desperate someone can be?
+Let's cut the crap now and let's talk about the solution:
+
+create your ssh key
+```
+
+$ ssh-keygen
+```
+and dont use any password
+
+/etc/ssh/ssh_config (NOT sshd_config) is your friend:
+disable the password authentication and enable the rsaauthentication only (that's right, you cant have both or capistrano will refuse to work)
+
+retry capistrano or webistrano deploy:check task ... 
+enjoy!

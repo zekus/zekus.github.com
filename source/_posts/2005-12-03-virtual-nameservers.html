@@ -1,0 +1,39 @@
+---
+layout: post
+title: virtual nameservers
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/12/virtual-nameservers.html
+---
+Maybe nobody need these informations if not interested in webserver management :)
+<br />
+<br />Virtual nameservers:
+<br />I'm pointing my nameservers to the IPs of my webhost's nameservers.  So it sounds like 'virtual' is the correct term.  Using your example,
+<br />ns1.mydomain.com => IP of dnsmyhoster.com's DNS server #1
+<br />ns2.mydoman.com => IP of dnsmyhoster.com's DNS server #2
+<br />
+<br />Step 1.  Create the nameservers at the registrar (contact your registrar if you dont have direct access).
+<br />   NS1.mydomain.com => IP#1
+<br />   NS2.mydomain.com => IP#2
+<br />
+<br />Step 2.  Create the nameservers at the host.
+<br />It currently looks like this:
+<br />   example.com.  =>  ns1.dnsmadeeasy.com.  (type: NS)
+<br />   example.com.  =>  ns2.dnsmadeeasy.com.  (type: NS)
+<br />Should be changed like this:
+<br />   example.com.  =>  ns1.example.com.  (type: NS)
+<br />   example.com.  =>  ns2.example.com.  (type: NS)
+<br />
+<br />Step 3.  Add A records on the authoritative DNS servers at the host.
+<br />This looks easy enough.
+<br />   ns1.example.com.  =>  IP#1  (type: A record)
+<br />   ns2.example.com.  =>  IP#2  (type: A record)
+<br />
+<br />happy hosting
+<br />antonio<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

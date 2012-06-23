@@ -1,0 +1,24 @@
+---
+layout: post
+title: getting crazy with mysql and MacPort
+tags:
+- mac
+- mysql
+status: publish
+type: post
+published: true
+meta: {}
+---
+Have you ever had an error like this???
+
+```
+
+macbook-di-antonio-lorusso:var zekus$ sudo /opt/local/share/mysql5/mysql/mysql.server start
+Starting MySQL
+.../opt/local/share/mysql5/mysql/mysql.server: line 159: kill: (22793) - No such process
+ERROR!
+```
+
+
+Please check permissions because you have a problem with that!
+Check that the owner of <strong>/opt/local/var/db</strong>  and  <strong>/opt/local/var/run/mysql5</strong> is  <strong>_mysql</strong> group <strong>admin</strong>.

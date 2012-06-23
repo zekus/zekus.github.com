@@ -1,0 +1,19 @@
+---
+layout: post
+title: UTF-8, MySQL and PHP madness
+tags:
+- accent insensitive search
+- case insensitive
+- mysql
+- PHP
+- utf-8
+- utf8
+status: draft
+type: post
+published: false
+meta:
+  _edit_last: '1'
+---
+I had a lot of headache trying to store, search and display accented chanracters using MySQL and PHP and I'm going to briefly tell here how I finally did it:
+
+Create tables in mysql using the collation utf8_general_ci and the charset utf8

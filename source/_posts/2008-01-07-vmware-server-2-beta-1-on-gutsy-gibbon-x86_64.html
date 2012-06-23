@@ -1,0 +1,42 @@
+---
+layout: post
+title: VMWare Server 2 beta 1 on Gutsy Gibbon x86_64
+tags:
+- Linux
+- vmware
+status: draft
+type: post
+published: false
+meta: {}
+---
+Hi all, after long time again, I'm here for writing something about a new installation I made of VMWare server on a Gutsy Gibbon machine.
+
+First of all, I have to say that the deb package has disappeared from the Canonical's commercial repository (now "partners" repo) without a plausible explaination.
+Anyway, the installation with the official VMWare binary package is easy too. Here the steps:
+
+Make sure your build environment is set up this way: sudo apt-get install linux-headers-`uname -r` build-essential xinetd
+
+wget http://test
+
+Issues and Solutions I found
+
+The first irritating issue was concerning the server reboot: when you do that, vmware-hostd hangs and you need a "ctrl-alt-del" combination to force the machine reboot. This is a <a href="http://communities.vmware.com/thread/114232?tstart=45" title="http://communities.vmware.com/thread/114232?tstart=45" target="_blank">known issue</a> that will be solved in next release. At the moment, a workaround consists in editing /etc/init.d/vmware. Around the line 783 locate
+
+```
+
+# Stop host agent <br clear="all" /> vmware_stop_hostd() { <br clear="all" /> # Stop Host Agent <br clear="all" /> vmware_run_vimsh_cmd "`vmware_product_name` Host Agent" 'internalsvc/shutdown' <br clear="all" /> }
+```
+
+and change to
+
+```
+
+# Stop host agent <br clear="all" /> vmware_stop_hostd() { <br clear="all" /> # Stop Host Agent <br clear="all" /> <strong>((sleep 2 ; kill `pidof vmware-hostd`)&amp; ) &gt;/dev/null 2&gt;&amp;1</strong> <br clear="all" /> vmware_run_vimsh_cmd "`vmware_product_name` Host Agent" 'internalsvc/shutdown' <br clear="all" /> }
+```
+
+
+If you have any problem with vmware-hostd starting (as I have) running following command worked for me:
+sudo /usr/sbin/vmware-hostd -d /etc/vmware/hostd/config.xml
+if you want to initiate the autostart sequence, then use this
+
+sudo /usr/sbin/vmware-hostd -a -d /etc/vmware/hostd/config.xml

@@ -1,0 +1,25 @@
+---
+layout: post
+title: Cleanup the system memory cache on linux
+tags:
+- Altro
+- cache
+- clean
+- Linux
+- memory
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+what is that? you have done digited free in you linux shell and you see that all the memory is fulfilled by the cache?
+
+
+```
+
+sudo -s
+sync; echo 3 &gt; /proc/sys/vm/drop_caches
+```
+
+

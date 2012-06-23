@@ -1,0 +1,21 @@
+---
+layout: post
+title: Exclude files and directories from Apache Auth
+tags:
+- Altro
+- Apache
+- authentication
+- location
+- locationmatch
+- setenvif
+status: publish
+type: post
+published: true
+meta: {}
+---
+It would have made sense to use LocationMatch with a negative lookahead regex pattern like "^/(?!admin)" but that doesnt work. Neither work a rule like !"^/admin" so here is a workaround:<br /><br />
+```
+
+&lt;Location "/"&gt;<br />AuthType Basic<br />AuthName "Restricted Files"<br />AuthUserFile /var/www/clients/client12/web17/passwd<br />AuthGroupFile /dev/null<br />Require valid-user<br />SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow<br />SetEnvIf Request_URI "^/favicon.ico$" allow<br />Order allow,deny<br />Allow from env=allow<br />Satisfy Any<br />&lt;/Location&gt;
+```
+<br /><br />This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.

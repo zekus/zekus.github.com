@@ -1,0 +1,14 @@
+---
+layout: post
+title: Apache2 settings
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/03/apache2-settings.html
+---
+after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add following two lines on bottom to make UserDir and Alias work:<br />Include /etc/apache2/mod_userdir.conf<br />Include /etc/apache2/conf.d/*<br />UserDir permit you to use /home/<users>/public_html directory as server directories and make users publish their own files.<br />Alias permit to use any directory on you server for publish contents.<br />For more infos, consult apache documentation or contact me!<br /><br />bye<br />antonio<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

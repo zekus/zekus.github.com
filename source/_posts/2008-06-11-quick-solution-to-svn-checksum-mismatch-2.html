@@ -1,0 +1,18 @@
+---
+layout: post
+title: ! 'quick solution to "svn: Checksum mismatch ..."'
+tags:
+- checksum mismatch
+- commit
+- Development
+- Linux
+- SVN
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+If this error afflict your quiet development day, I'm sorry :D
+I had this problem today and I solved in few steps:
+<ol><li>make a backup of the working copy in a different directory</li><li>delete only the corrupted directory from your working copy</li><li>make an svn update</li><li>copy back only the modified files you need from the backup copy to the current working copy</li><li>commit your changes</li></ol>Now breath deeply and take a cold shower: I suppose you must be sweat! :D

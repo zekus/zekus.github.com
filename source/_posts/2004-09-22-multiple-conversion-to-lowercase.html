@@ -1,0 +1,20 @@
+---
+layout: post
+title: multiple conversion to lowercase
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2004/09/multiple-conversion-to-lowercase.html
+---
+This is a modified version of my script to change extensions, for lowercase (or uppercase inverting in script) multiple files in a directory recursively.
+<br /><blockquote>for i in $(find . -type f);
+<br />do mv $i $(echo $i | tr "[:upper:]" "[:lower:]");
+<br />done</blockquote>
+<br />hope to be useful as usual.
+<br />
+<br />good work!<div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

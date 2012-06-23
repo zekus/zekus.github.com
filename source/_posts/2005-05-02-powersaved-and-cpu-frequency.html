@@ -1,0 +1,17 @@
+---
+layout: post
+title: Powersaved and CPU frequency
+tags:
+- Linux
+status: publish
+type: post
+published: true
+meta:
+  blogger_blog: zekus.blogspot.com
+  blogger_author: zekus
+  blogger_permalink: /2005/05/powersaved-and-cpu-frequency.html
+---
+Sometimes, powersaved daemon, cannot recognize cpu correctly and load the necessary cpufreq module. To force loading of module concerning your CPU, modify <strong>/etc/sysconfig/powersave/cpufreq</strong> file adding the module to the voice <strong>POWERSAVE_CPUFREQD_MODULE=""</strong>.
+<br /><br />
+<br />Full list of available modules could be find <a href="http://www.kernel.org/pub/linux/utils/kernel/cpufreq/hardware.html">here</a>
+<br /><div class="blogger-post-footer"><a href="http://feeds.feedburner.com/zekussuse" title="Subscribe to my feed"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" style="border:0"/></a></div>

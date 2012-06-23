@@ -1,0 +1,20 @@
+---
+layout: post
+title: ! 'BASH: rename files'
+tags:
+- awk
+- bash
+- rename
+- shell
+- xargs
+status: publish
+type: post
+published: true
+meta: {}
+---
+A simple rename example using again the mighty awk and xargs<br />
+```
+
+ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old
+```
+<br /><br />Explanation:<br /><b>```ls -l *.xml```</b> -&gt; easy! list the xml files in a folder<br /><b>```awk '{print $9}'```</b> -&gt; output just the name of the file<br /><b>```xargs -t -i mv {} {}.old```</b> -&gt; rename it adding at the same filename the extension ".old"<br /><br />I know, I know ... my explanation is crap: blame my laziness :)

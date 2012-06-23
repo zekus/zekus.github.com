@@ -1,0 +1,24 @@
+---
+layout: post
+title: ! 'svn: Entry has unexpectedly changed special status'
+tags:
+- SVN
+status: publish
+type: post
+published: true
+meta:
+  _edit_last: '1'
+---
+If you have this error after tryin a commit, for sure you have replaced a standard file with a symlink or viceversa, haven't you?
+
+In that case, what you have to do is just <strong>svn add &lt;the resource changed&gt;</strong> and svn will replace the file with the new one!
+
+Were you already scared :D ?
+
+Anyway, the correct procedure to replace a real file with a symlink in svn is the following:
+<ol>
+	<li><strong>svn remove</strong> of the file you want to link</li>
+	<li><strong>ln -s &lt;link&gt;</strong></li>
+	<li><strong>svn add</strong> of the new link</li>
+</ol>
+;)
