@@ -1,0 +1,22 @@
+---
+date: '2005-02-04 03:24:00'
+layout: post
+slug: devloki
+status: publish
+title: /dev/loki
+wordpress_id: '40'
+categories:
+- Linux
+---
+
+this is the blog of the mantainer of GURU-rpm, a killer SuSE rpm mantainer!
+  
+
+  
+check it out!
+  
+
+  
+[/dev/loki](http://dev-loki.blogspot.com/)
+
+[![](http://www.feedburner.com/fb/images/pub/flchklt.gif)](http://feeds.feedburner.com/zekussuse)

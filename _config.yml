@@ -7,7 +7,7 @@ title: antoniolorusso.com
 subtitle: A life long learning experience.
 author: Antonio Lorusso
 simple_search: http://google.com/search
-description:
+description: notes about what I learn and decide to share
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -89,11 +89,11 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: antoniolorussocom
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-2445881-1
 
 # Facebook Like
 facebook_like: false

@@ -1,0 +1,24 @@
+---
+date: '2004-12-19 16:08:00'
+layout: post
+slug: winetips
+status: publish
+title: WineTips
+wordpress_id: '37'
+categories:
+- Linux
+---
+
+If you want configure wine easy, I suggest you this site
+  
+[
+
+> WineTips
+  
+
+
+](http://sidenet.ddo.jp/winetips/)I'm planning to mirror it! Stay tuned!
+  
+
+
+[![](http://www.feedburner.com/fb/images/pub/flchklt.gif)](http://feeds.feedburner.com/zekussuse)

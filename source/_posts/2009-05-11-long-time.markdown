@@ -1,0 +1,21 @@
+---
+comments: true
+date: '2009-05-11 22:58:28'
+layout: post
+slug: long-time
+status: publish
+title: long time
+wordpress_id: '203'
+categories:
+- Altro
+---
+
+Wow, I just noticed that my last post was 50 days old... I must have been busy, haven't I?  
+So, what am I doing? The first part time website in Ruby on Rails is going to be published and I was working on that almost every evening and weekend with Antonello.  
+I should have written something about Rails and Ruby in here but ... there is already a lot of material around the web.  
+  
+Maybe I'll post something on GIT that is a bit more obscure :)  
+  
+
+
+![](http://img.zemanta.com/pixy.gif?x-id=7e92c0b0-f27e-8f67-92ee-b92a9c7f3d71)
