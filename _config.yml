@@ -88,6 +88,9 @@ pinboard_count: 3
 delicious_user:
 delicious_count: 3
 
+# Linkedin
+linkedin_user: antoniolorusso
+
 # Disqus Comments
 disqus_short_name: antoniolorussocom
 disqus_show_comment_count: true
