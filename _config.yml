@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://yoursite.com
-title: My Octopress Blog
-subtitle: A blogging framework for hackers.
-author: Your Name
+url: http://zekus.github.com
+title: antoniolorusso.com
+subtitle: A life long learning experience.
+author: Antonio Lorusso
 simple_search: http://google.com/search
-description:
+description: notes about what I learn and decide to share
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -58,13 +58,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 # ----------------------- #
 
 # Github repositories
-github_user:
-github_repo_count: 0
+github_user: zekus
+github_repo_count: 4
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: antoniolorusso
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
@@ -72,12 +72,12 @@ twitter_show_follower_count: false
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: false
+google_plus_one: true
 google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user:
+googleplus_user: 102784234913032371944
 googleplus_hidden: false
 
 # Pinboard
@@ -88,12 +88,15 @@ pinboard_count: 3
 delicious_user:
 delicious_count: 3
 
+# Linkedin
+linkedin_user: antoniolorusso
+
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: antoniolorussocom
+disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-2445881-1
 
 # Facebook Like
 facebook_like: false

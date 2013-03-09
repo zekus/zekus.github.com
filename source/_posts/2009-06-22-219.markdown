@@ -1,0 +1,19 @@
+---
+comments: true
+date: '2009-06-22 23:20:30'
+layout: post
+slug: '219'
+status: publish
+title: 'Tech Talk: Linus Torvalds on git'
+wordpress_id: '219'
+categories:
+- GIT
+- Linux
+tags:
+- GIT
+- linus
+- Linux
+---
+
+Git explained by his the creator. I'm more convinced than ever!
+
