@@ -8,6 +8,7 @@ subtitle: A life long learning experience.
 author: Antonio Lorusso
 simple_search: http://google.com/search
 description: notes about what I learn and decide to share
+email: antonio.lorusso@gmail.com
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -18,8 +19,6 @@ date_format: "ordinal"
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
 subscribe_email:
-# RSS feeds can list your email address if you like
-email:
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -100,3 +99,6 @@ google_analytics_tracking_id: UA-2445881-1
 
 # Facebook Like
 facebook_like: false
+
+# Gravatar Email
+gravatar_email: antonio.lorusso@gmail.com
