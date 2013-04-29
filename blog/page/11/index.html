@@ -1,0 +1,693 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>antoniolorusso.com</title>
+	<meta name="author" content="Antonio Lorusso">
+
+	
+	<meta name="description" content="Sep 17th, 2005 Linux Comments NTFS HowTO Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9 &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://zekus.github.com/blog/page/11/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("antonio.lorusso@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'");
+	</script>
+</div>
+<h1><a href="/">antoniolorusso.com</a></h1>
+<p class="subtitle">A life long learning experience.</p>
+<nav id="main-nav"><ul class="main">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/vim-tricks-collection/">Vim Tricks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://careers.stackoverflow.com/antoniolorusso">Resume</a></li>
+  <li><a href="/su-questo-blog/">About</a></li>
+  <li><a href="/useful-regex/">Regex</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/102784234913032371944?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/antoniolorusso" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/zekus" title="GitHub">GitHub</a>
+		
+		
+		<a class="linkedin" href="http://www.linkedin.com/in/antoniolorusso">LinkedIn</a>
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
+	})(jQuery);
+</script>
+
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-17T01:19:00+02:00" data-updated="true" itemprop="datePublished">Sep 17<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/09/17/ntfs-howto/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/09/17/ntfs-howto/" itemprop="url">NTFS HowTO</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&#8217;s easy to configure it with YaST -> patition &#8230; and &#8230; you find a bad surprise: IT DOESN&#8217;T WORK !!!!<br/>
+Don&#8217;t disperate babe, you always have the command line ;) and my instructions!!!</p>
+
+<p>Open a shell and insert following commands:</p>
+
+<blockquote><p>mkdir /wherever/ntfs<br/>
+chown root:users /wherever/ntfs<br/>
+vim /etc/fstab</p></blockquote>
+
+<p>To the last line insert:</p>
+
+<blockquote><p>/dev/hda1  /wherever/ntfs  ntfs  ro,users,gid=users,umask=0002,nls=utf8  0  0</p></blockquote>
+
+<p>where &#8220;/dev/hda1&#8221; could be different according to your ntfs partition. Ex. &#8220;/dev/sda1&#8221; for USB disks.</p>
+
+<p>If yours it&#8217;s an external HD write this:</p>
+
+<blockquote><p>/dev/sdb1 /wherever/ntfs subfs ro,users,uid=1000,gid=100,umask=0002,nls=utf8 0 0</p></blockquote>
+
+<p>where &#8220;/dev/sdb1&#8221; could be different on your system and uid/gid too. To verify uid/gid just type &#8220;id&#8221; in a shell and find your user.</p>
+
+<p>That&#8217;s all folks!! Now you can mount your partition using &#8220;mount /dev/hda1&#8221;!!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-09-17T01:17:00+02:00" data-updated="true" itemprop="datePublished">Sep 17<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/09/17/suse-perfect-setup/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/09/17/suse-perfect-setup/" itemprop="url">SuSE Perfect Setup</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>this site describe very well a suse server setup wit 47 screenshots!!!!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-07-01T20:51:00+02:00" data-updated="true" itemprop="datePublished">Jul 1<span>st</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/07/01/media-error-resolved/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/07/01/media-error-resolved/" itemprop="url">/media Error Resolved</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Have you got any problem wit /media directory? cannot automatically mount cd or usb drives? well, your solution is in fstab ( /etc/fstab ).<br/>
+Check if in fstab that media directory is mounted Read-Only ( ro ). If so, edit it and change ro with rw ( read-write ). Well, now you can umount /media/ and mount it again ( mount /media/ )!!</p>
+
+<p>well done</p>
+
+<p>bye<br/>
+antonio</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-05-02T20:49:00+02:00" data-updated="true" itemprop="datePublished">May 2<span>nd</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/05/02/powersaved-and-cpu-frequency/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/05/02/powersaved-and-cpu-frequency/" itemprop="url">Powersaved and CPU Frequency</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Sometimes, powersaved daemon, cannot recognize cpu correctly and load the necessary cpufreq module. To force loading of module concerning your CPU, modify <strong>/etc/sysconfig/powersave/cpufreq</strong> file adding the module to the voice <strong>POWERSAVE_CPUFREQD_MODULE=&#8221;&#8221;</strong>.</p>
+
+<p>Full list of available modules could be find <a href="http://www.kernel.org/pub/linux/utils/kernel/cpufreq/hardware.html">here</a></p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-19T18:04:00+02:00" data-updated="true" itemprop="datePublished">Apr 19<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/04/19/name-resolution-does-not-work-with-several-concurrent-dhcp-clients/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/04/19/name-resolution-does-not-work-with-several-concurrent-dhcp-clients/" itemprop="url">Name Resolution Does Not Work With Several Concurrent DHCP Clients</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>If you have some problems getting your wireless card work on startup and make you go on internet, READ THIS!</p>
+
+<p>rapid solution ( in case you are lazy ):</p>
+
+<p>Set the following option in the file ifcfg of all network devices configured as DHCP clients. This file is located at /etc/sysconfig/network/</p>
+
+<p><em><strong>DHCLIENT_PRIMARY_DEVICE=yes</strong></em></p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-18T17:18:00+02:00" data-updated="true" itemprop="datePublished">Apr 18<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/04/18/kde-34-and-suse-92/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/04/18/kde-34-and-suse-92/" itemprop="url">Kde 3.4 and SuSE 9.2</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>As you can read in one of my previous post, changin installation sources, now you can  upgrade to Kde 3.4 directly via yast.</p>
+
+<blockquote><blockquote><blockquote><p>Easy!<br/>
+Go to Yast control center, then choose &#8216;Install/Remove packages&#8217;. In the new loaded panel choose &#8216;packet groups&#8217; from the drop-down menu and then &#8216;zzz.All&#8217; from left frame. Click with right button on right frame and hit &#8216;all in this list->update if a new version is available&#8217;.<br/>
+End!<br/>
+well done&#8230; enjoy your new Kde desktop!</p></blockquote></blockquote></blockquote>
+
+<p>bye<br/>
+Antonio</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-13T02:11:00+02:00" data-updated="true" itemprop="datePublished">Apr 13<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/04/13/netgear-wg511v2-marvell-chip-and-suse-92/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/04/13/netgear-wg511v2-marvell-chip-and-suse-92/" itemprop="url">NETGEAR WG511v2 (Marvell Chip) and SuSE 9.2</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Ladies and Gentlemen,<br/>
+we are here reunited to celebrate the fantastic NDISWRAPPER and his team for make wireless work on our linux boxes and my SuSE Laptop too :)<br/>
+Let&#8217;s go to show how to make this fuckin pcmcia card to work (Gates slaves!!)&#8230;. ohhhhhh shit, I dont wanna write now, it&#8217;s late! it&#8217;s 2:11 am and I&#8217;m sitting on a wc, havin my shit (yeeeessss i&#8217;m really on wireless, yeeeeeah!) and wanna go sleep soon so, check out this two links:</p>
+
+<p><a href="http://ndiswrapper.sourceforge.net/phpwiki/index.php?Installation">http://ndiswrapper.sourceforge.net/phpwiki/index.php?Installation</a> <br/>
+(HArd but worked for me!)<br/>
+<a href="http://ndiswrapper.sourceforge.net/phpwiki/index.php/Suse%20Professional%209.2">http://ndiswrapper.sourceforge.net/phpwiki/index.php/Suse%20Professional%209.2</a> <br/>
+(didnt work for netgear)</p>
+
+<p>you can mix up the two articles and you will be wireless soon!<br/>
+maybe next time I&#8217;ll make a summary mix for you.</p>
+
+<p>bye<br/>
+antonio</p>
+
+<p>TIP:<br/>
+if you get an error loading the module ndiswrapper (moprobe ndiswrapper), do this:<br/>
+rm /lib/modules/$(uname -r)/extra/ndiswrapper.ko<br/>
+cp /lib/modules/$(uname -r)/misc/ndiswrapper.ko /lib/modules/$(uname -r)/extra</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-04-04T21:37:00+02:00" data-updated="true" itemprop="datePublished">Apr 4<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/04/04/apache2-and-virtual-hosts-vhost/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/04/04/apache2-and-virtual-hosts-vhost/" itemprop="url">Apache2 and Virtual Hosts (VHost)</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>In this article, i&#8217;ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.</p>
+
+<p>First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br/>
+After that you&#8217;ll have all apache configuration files under /etc/apache2 directory.<br/>
+Well DONT TOUCH ANY FILE THERE!<br/>
+The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br/>
+I created mysites.conf in my public_html for my personal comfort :)</p>
+
+<p>What about mysites.conf content? HERE to you a simple example:</p>
+
+<blockquote></blockquote>
+
+<p>NameVirtualHost *</p>
+
+<p><virtualhost><br/>
+ServerName localhost<br/>
+ServerAlias linzekus<br/>
+DocumentRoot /srv/www/htdocs<br/>
+</virtualhost></p>
+
+<p><virtualhost><br/>
+DocumentRoot /home/zekus/public_html/ontosofia/ontosophy<br/>
+ServerName ontosophy<br/>
+ServerAdmin antonio@linzekus<br/>
+</virtualhost></p>
+
+<p>Thus, the last thing to do is adding all our virtual servers on /etc/hosts file to make them available. This file is only accessible via root and this is a sample:</p>
+
+<blockquote><h1></h1>
+
+<h1>hosts         This file describes a number of hostname-to-address</h1>
+
+<h1>mappings for the TCP/IP subsystem.  It is mostly</h1>
+
+<h1>used at boot time, when no name servers are running.</h1>
+
+<h1>On small systems, this file can be used instead of a</h1>
+
+<h1>&#8220;named&#8221; name server.</h1>
+
+<h1>Syntax:</h1>
+
+<h1></h1>
+
+<h1>IP-Address  Full-Qualified-Hostname  Short-Hostname</h1>
+
+<h1></h1></blockquote>
+
+<p>127.0.0.1       localhost linzekus XXXX &lt;-list all virtual hosts HERE</p>
+
+<h1>special IPv6 addresses</h1>
+
+<p>::1  localhost ipv6-localhost ipv6-loopback<br/>
+fe00::0         ipv6-localnet<br/>
+ff00::0         ipv6-mcastprefix<br/>
+ff02::1         ipv6-allnodes<br/>
+ff02::2         ipv6-allrouters<br/>
+ff02::3         ipv6-allhosts</p>
+
+<p>What else now? Point your browser on the URL of your new virtual hosts like that:</p>
+
+<p>http://xxxx</p>
+
+<p>Thats all folks!<br/>
+good setting</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-28T21:10:00+02:00" data-updated="true" itemprop="datePublished">Mar 28<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/03/28/backup-mysql-tables-and-restore/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/03/28/backup-mysql-tables-and-restore/" itemprop="url">Backup Mysql Tables and Restore</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>it&#8217;s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that&#8217;s it.<br/>
+If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:</p>
+
+<p>chmod -R 766 *<br/>
+chmod -R 700 mysql/</p>
+
+<p>and all will work fine again!</p>
+
+<p>go backup guys! ;)</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-18T02:50:00+01:00" data-updated="true" itemprop="datePublished">Mar 18<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/03/18/apache2-settings/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/03/18/apache2-settings/" itemprop="url">Apache2 Settings</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add following two lines on bottom to make UserDir and Alias work:<br/>
+Include /etc/apache2/mod_userdir.conf<br/>
+Include /etc/apache2/conf.d/*<br/>
+UserDir permit you to use /home//public_html directory as server directories and make users publish their own files.<br/>
+Alias permit to use any directory on you server for publish contents.<br/>
+For more infos, consult apache documentation or contact me!</p>
+
+<p>bye<br/>
+antonio</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+</div>
+<nav id="pagenavi">
+    
+        <a href="/blog/page/10/" class="prev">Prev</a>
+    
+    
+        <a href="/blog/page/12/" class="next">Next</a>
+    
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav></div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Antonio Lorusso
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'antoniolorussocom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2445881-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

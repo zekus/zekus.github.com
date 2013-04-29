@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.com/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://zekus.github.com/"/>
+  <updated>2013-04-29T12:13:07+02:00</updated>
+  <id>http://zekus.github.com/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Rails and PostgreSQL]]></title>
+    <link href="http://zekus.github.com/blog/2010/06/21/rails-and-postgresql/"/>
+    <updated>2010-06-21T23:17:54+02:00</updated>
+    <id>http://zekus.github.com/blog/2010/06/21/rails-and-postgresql</id>
+    <content type="html"><![CDATA[<p>Complaining, screaming, sweating, swearing .... why it doesnt work ... jeeeeeezzz
+<code>
+/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:76:in
+</code>
+establish_connection': Please install the postgres adapter:
+<code>
+gem install activerecord-postgres-adapter
+</code>
+ (no such file to load -- active_record/connection_adapters/postgres_adapter) (RuntimeError)
+```</p>
+
+<p>And then a light ... "I upgraded postgresql recently!"</p>
+
+<p>Just reinstall the postgres gem and you are done...</p>
+
+<p>What a night!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails and Passenger ( aka mod_rails )]]></title>
+    <link href="http://zekus.github.com/blog/2009/03/22/rails-and-passenger-aka-mod_rails/"/>
+    <updated>2009-03-22T16:00:44+01:00</updated>
+    <id>http://zekus.github.com/blog/2009/03/22/rails-and-passenger-aka-mod_rails</id>
+    <content type="html"><![CDATA[<p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
+
+<p>With a great surprise, that didn't worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
+
+<p>After few hours we started doubting about our Apache knowledge and even about our capacity of reading and following a couple of stupid instructions on a website!</p>
+
+<p>We gave up and we started googling around when... the solution came out from dozens of blogs, forums and newsletters:</p>
+
+<blockquote><p>MOD_RAILS IS NOT COMPATIBLE WITH RAILS 2.2.2 AND ITS NEW ROUTING SYSTEM</p></blockquote>
+
+<p>"HOLY CRAP" was our esclamation and I will not mention here all the italian's bad words that suddenly came out from our mounth!</p>
+
+<p>So, here the solution: put this line here
+<code>
+config.action_controller.relative_url_root = "/guestbook"
+</code>
+in your environment.rb</p>
+
+<p>Now restart apache and enjoy!</p>
+
+<p>ps. why hadn't we changed mod_rails with mongrel or anything different? I don't know!!!!</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=737895d3-2f2e-43e4-8cec-477c62acba02" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails ... the beginning]]></title>
+    <link href="http://zekus.github.com/blog/2009/03/13/rails-the-beginning/"/>
+    <updated>2009-03-13T23:45:05+01:00</updated>
+    <id>http://zekus.github.com/blog/2009/03/13/rails-the-beginning</id>
+    <content type="html"><![CDATA[<p>Finally I started a little RoR project with my friend Antonello but we did it in the wrong way :D</p>
+
+<p>We started from the database design (not exactly the rails way) and we are trying to solve problems that a Rails developer usually doesn't have like create the scaffold without migration scripts!</p>
+
+<p>Here are 3 simple steps to do it:</p>
+
+<ul>
+<li><p>rake db:schema:dump (create the schema dump from the existing database)</p></li>
+<li><p>mv db/schema.rb db/migrate/001_initial.rb (create the initial migration script manually)</p></li>
+<li><p>script/generate scaffold firstmodule field1:text field2:varchar field3:date --skip-migration
+The most important thing you should never forget is that your tables on the database must have a PLURAL name but use the SINGULAR name when you create the scaffold for that table.<br/>
+( ex: the table name is "tools" but the command to create the scaffold is script/generate scaffold tool )</p></li>
+</ul>
+
+
+<p>Happy RoRing !!!</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=6ccfe230-6968-422e-b5c5-6c6f3bfe43ec" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>

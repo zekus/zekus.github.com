@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: mysql | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.com/blog/categories/mysql/atom.xml" rel="self"/>
+  <link href="http://zekus.github.com/"/>
+  <updated>2013-04-29T12:13:07+02:00</updated>
+  <id>http://zekus.github.com/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SQL JOINs for who keeps forgetting ...]]></title>
+    <link href="http://zekus.github.com/blog/2009/12/01/sql-joins-for-who-keeps-forgetting/"/>
+    <updated>2009-12-01T23:53:42+01:00</updated>
+    <id>http://zekus.github.com/blog/2009/12/01/sql-joins-for-who-keeps-forgetting</id>
+    <content type="html"><![CDATA[<p>Here a superb JOINs Cheat Sheet from <a href="http://www.codeproject.com/KB/database/Visual_SQL_Joins.aspx">codeproject</a></p>
+
+<p><img src="http://antoniolorusso.com/wp-content/uploads/2009/12/Visual_SQL_JOINS_orig-300x236.jpg" alt="Visual SQL JOINS" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[getting crazy with mysql and MacPort]]></title>
+    <link href="http://zekus.github.com/blog/2008/02/13/getting-crazy-with-mysql-and-macport/"/>
+    <updated>2008-02-13T21:48:37+01:00</updated>
+    <id>http://zekus.github.com/blog/2008/02/13/getting-crazy-with-mysql-and-macport</id>
+    <content type="html"><![CDATA[<p>Have you ever had an error like this???
+<code>
+macbook-di-antonio-lorusso:var zekus$ sudo /opt/local/share/mysql5/mysql/mysql.server start
+Starting MySQL
+.../opt/local/share/mysql5/mysql/mysql.server: line 159: kill: (22793) - No such process
+ERROR!
+</code>
+Please check permissions because you have a problem with that!
+Check that the owner of <strong>/opt/local/var/db</strong>  and  <strong>/opt/local/var/run/mysql5</strong> is  <strong>_mysql</strong> group <strong>admin</strong>.</p>
+]]></content>
+  </entry>
+  
+</feed>

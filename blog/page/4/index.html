@@ -1,0 +1,727 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>antoniolorusso.com</title>
+	<meta name="author" content="Antonio Lorusso">
+
+	
+	<meta name="description" content="Aug 14th, 2009 Altro Comments MacPorts, PHP 5.3 and Mysqlnd If you have recently upgraded to php 5.3 and you have done it using 1
+sudo port install &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://zekus.github.com/blog/page/4/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("antonio.lorusso@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'");
+	</script>
+</div>
+<h1><a href="/">antoniolorusso.com</a></h1>
+<p class="subtitle">A life long learning experience.</p>
+<nav id="main-nav"><ul class="main">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/vim-tricks-collection/">Vim Tricks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://careers.stackoverflow.com/antoniolorusso">Resume</a></li>
+  <li><a href="/su-questo-blog/">About</a></li>
+  <li><a href="/useful-regex/">Regex</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/102784234913032371944?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/antoniolorusso" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/zekus" title="GitHub">GitHub</a>
+		
+		
+		<a class="linkedin" href="http://www.linkedin.com/in/antoniolorusso">LinkedIn</a>
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
+	})(jQuery);
+</script>
+
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-14T01:11:10+02:00" data-updated="true" itemprop="datePublished">Aug 14<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/08/14/macports-php-5-3-and-mysqlnd/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/08/14/macports-php-5-3-and-mysqlnd/" itemprop="url">MacPorts, PHP 5.3 and Mysqlnd</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>If you have recently upgraded to php 5.3 and you have done it using</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo port install php5 +apache2+macosx+mysqlnd+pear</span></code></pre></td></tr></table></div></figure>
+
+
+<p>you should have noticed that you cannot use mysql anymore because of an error that, I&#8217;m sure, is driving you crazy</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PHP Warning: mysqli::mysqli(): [2002] No such file or directory (trying to connect via unix:///tmp/mysql.sock) in /Users/antonio/Sites/db.php on line 25
+</span><span class='line'>
+</span><span class='line'>PHP Warning: mysqli::mysqli(): (HY000/2002): No such file or directory in /Users/antonio/Sites/db.php on line 25</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The problem comes from php and unfortunately is only fixable changing the location of the mysql.sock from the usual macports directory /opt/local/var/run/mysql5/mysqld.sock to /tmp/mysql.sock editing the file /opt/local/etc/my.cnf</p>
+
+<p>;)</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=fd3d1936-a860-8902-9c80-550350a26902" alt="" /></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-08-13T01:22:10+02:00" data-updated="true" itemprop="datePublished">Aug 13<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/08/13/the-twittersphere/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/08/13/the-twittersphere/" itemprop="url">The Twittersphere</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Sooooooo funny!</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-26T13:17:27+02:00" data-updated="true" itemprop="datePublished">Jun 26<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/svn/'>SVN</a>, <a class='category' href='/blog/categories/shell/'>shell</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/06/26/svn-revert-cleanup/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/06/26/svn-revert-cleanup/" itemprop="url">Svn Revert Cleanup</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>You have reverted an svn merge and you have a lot of files not tracked (with exclamation mark, basically)?<br/>
+Clean it up:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>svn status | awk '$1 == "?" {print $2}' | xargs -t -i rm -r {}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Again, knowing awk and xargs turn helpful!</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-22T23:20:30+02:00" data-updated="true" itemprop="datePublished">Jun 22<span>nd</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/git/'>GIT</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/06/22/219/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/06/22/219/" itemprop="url">Tech Talk: Linus Torvalds on Git</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Git explained by his the creator. I&#8217;m more convinced than ever!</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-22T10:44:35+02:00" data-updated="true" itemprop="datePublished">Jun 22<span>nd</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/svn/'>SVN</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2/" itemprop="url">The Correct Procedure for Compiling Subversion 1.6.2</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Not sure if this is the complete way of doing it (I&#8217;m not telling you which .deb to install), but it worked for me:</p>
+
+<p>Remove some waste from eventual previous compilations:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  
+</span><span class='line'>$ rm -rf /usr/loca/lib/libsvn*  
+</span><span class='line'>$ rm -rf /usr/local/lib/libapr*  
+</span><span class='line'>$ rm -rf /usr/local/lib/libexpat*  
+</span><span class='line'>$ rm -rf /usr/local/lib/libneon*  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run autogen</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  
+</span><span class='line'>$ ./autogen.sh   </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Configure and install (it is important to follow the order)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  
+</span><span class='line'>$ ./configure  
+</span><span class='line'>$ make -j external-all  
+</span><span class='line'>$ make -j local-all  
+</span><span class='line'>$ sudo make install  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>That&#8217;s it. Hope to have helped someone as usual.</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-13T13:29:16+02:00" data-updated="true" itemprop="datePublished">Jun 13<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/06/13/my-bashrc-and-env-on-mac/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/06/13/my-bashrc-and-env-on-mac/" itemprop="url">My .bashrc and Env on Mac</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>If someone find it useful&#8230; I do and this post is, honestly, for my record:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bash-3.2$ env
+</span><span class='line'>APSX2=/opt/local/apache2/bin/apxs
+</span><span class='line'>MANPATH=/opt/local/share/man:/opt/local/share/man:/opt/local/share/man:/opt/local/share/man:/usr/share/man:/usr/local/share/man:/usr/X11/man
+</span><span class='line'>TERM_PROGRAM=iTerm.app
+</span><span class='line'>LC_MONETARY=en_GB.UTF-8
+</span><span class='line'>SHELL=/bin/bash
+</span><span class='line'>TERM=xterm
+</span><span class='line'>LC_NUMERIC=en_GB.UTF-8
+</span><span class='line'>COMMAND_MODE=legacy
+</span><span class='line'>__CF_USER_TEXT_ENCODING=0x1F5:0:0
+</span><span class='line'>PATH=/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+</span><span class='line'>LC_MESSAGES=en_GB.UTF-8
+</span><span class='line'>LC_COLLATE=en_GB.UTF-8
+</span><span class='line'>PWD=/Users/zekus
+</span><span class='line'>EDITOR=/usr/bin/mate -w
+</span><span class='line'>LANG=en_GB.UTF-8
+</span><span class='line'>HOME=/Users/zekus
+</span><span class='line'>SHLVL=1
+</span><span class='line'>LOGNAME=zekus
+</span><span class='line'>LC_CTYPE=en_GB.UTF-8
+</span><span class='line'>DISPLAY=:0.0
+</span><span class='line'>SECURITYSESSIONID=613f90
+</span><span class='line'>LC_TIME=en_GB.UTF-8
+</span><span class='line'>_=/usr/bin/env</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bash-3.2$ cat ~/.bashrc
+</span><span class='line'>export PATH=/opt/local/apache2/bin:/opt/local/bin:/opt/local/sbin:$PATH
+</span><span class='line'>export MANPATH=/opt/local/share/man:$MANPATH
+</span><span class='line'>export DISPLAY=:0.0
+</span><span class='line'>export EDITOR='/usr/bin/mate -w'
+</span><span class='line'>export APSX2='/opt/local/apache2/bin/apxs'
+</span><span class='line'>alias mysqld='sudo /opt/local/share/mysql5/mysql/mysql.server'
+</span><span class='line'>alias apachectl='sudo /opt/local/apache2/bin/apachectl'
+</span><span class='line'>alias mysql='mysql5'
+</span><span class='line'>alias rake='/opt/local/bin/rake'
+</span><span class='line'>alias rails='/opt/local/bin/rails'
+</span><span class='line'>alias ruby='/opt/local/bin/ruby'
+</span><span class='line'>postgresqlctl () { sudo su postgres -c "/opt/local/lib/postgresql83/bin/pg_ctl $1 -D /opt/local/var/db/postgresql83/defaultdb"; }</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the last row in the bashrc: is a function to load the postgres server on demand!</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-06T16:43:33+02:00" data-updated="true" itemprop="datePublished">Jun 6<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/shell/'>shell</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/06/06/bash-mv-files-with-a-specific-date-to-another-directory/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/06/06/bash-mv-files-with-a-specific-date-to-another-directory/" itemprop="url">Bash: Mv Files With a Specific Date to Another Directory</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>I was searching for a bash command to move files and directories from a folder to another with modified in a specific date for ages on google until I gave up and decided to write it myself:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> ls -l | awk '$6 == "2009-06-04" { print $8 }' | xargs -t -i mv {} /destination/folder</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To understand what this line does, you need to know a bit about <a href="http://www.gnu.org/software/gawk/manual/gawk.html">awk</a> and xargs (try &#8220;man xargs&#8221; in your shell)</p>
+
+<p>Explaination:</p>
+
+<p>ls -l : directory listing
+awk &#8216;$6 == &#8220;2009-06-04&#8221; { print $8 } : take the files and dir with date 2009-06-04 and print the list
+xargs -t -i mv {} /destination/folder : execute the mv command. {} is the result from the previous command.</p>
+
+<p>I would like to explain you more, but I&#8217;m quite lazy and I leave you with google to undestand better the commands I&#8217;ve used.</p>
+
+<p>Have fun! ;)</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-31T14:09:49+02:00" data-updated="true" itemprop="datePublished">May 31<span>st</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/05/31/migrated/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/05/31/migrated/" itemprop="url">Migrated</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Me and Antonello have finally bought our server and this blog has been the first to be migrated.<br/>
+Totally happy! Expect great new things :D</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-11T22:58:28+02:00" data-updated="true" itemprop="datePublished">May 11<span>th</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/05/11/long-time/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/05/11/long-time/" itemprop="url">Long Time</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Wow, I just noticed that my last post was 50 days old&#8230; I must have been busy, haven&#8217;t I?<br/>
+So, what am I doing? The first part time website in Ruby on Rails is going to be published and I was working on that almost every evening and weekend with Antonello.<br/>
+I should have written something about Rails and Ruby in here but &#8230; there is already a lot of material around the web.</p>
+
+<p>Maybe I&#8217;ll post something on GIT that is a bit more obscure :)</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=7e92c0b0-f27e-8f67-92ee-b92a9c7f3d71" alt="" /></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-22T16:00:44+01:00" data-updated="true" itemprop="datePublished">Mar 22<span>nd</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/03/22/rails-and-passenger-aka-mod_rails/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/03/22/rails-and-passenger-aka-mod_rails/" itemprop="url">Rails and Passenger ( Aka Mod_rails )</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
+
+<p>With a great surprise, that didn&#8217;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
+
+<p>After few hours we started doubting about our Apache knowledge and even about our capacity of reading and following a couple of stupid instructions on a website!</p>
+
+<p>We gave up and we started googling around when&#8230; the solution came out from dozens of blogs, forums and newsletters:</p>
+
+<blockquote><p>MOD_RAILS IS NOT COMPATIBLE WITH RAILS 2.2.2 AND ITS NEW ROUTING SYSTEM</p></blockquote>
+
+<p>&#8220;HOLY CRAP&#8221; was our esclamation and I will not mention here all the italian&#8217;s bad words that suddenly came out from our mounth!</p>
+
+<p>So, here the solution: put this line here</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>config.action_controller.relative_url_root = "/guestbook"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>in your environment.rb</p>
+
+<p>Now restart apache and enjoy!</p>
+
+<p>ps. why hadn&#8217;t we changed mod_rails with mongrel or anything different? I don&#8217;t know!!!!</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=737895d3-2f2e-43e4-8cec-477c62acba02" alt="" /></p>
+
+		
+		
+	</div>
+
+</article>
+
+</div>
+<nav id="pagenavi">
+    
+        <a href="/blog/page/3/" class="prev">Prev</a>
+    
+    
+        <a href="/blog/page/5/" class="next">Next</a>
+    
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav></div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Antonio Lorusso
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'antoniolorussocom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2445881-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

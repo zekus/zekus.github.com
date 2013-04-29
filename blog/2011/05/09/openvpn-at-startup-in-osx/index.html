@@ -1,0 +1,263 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>OpenVPN at startup in OSX - antoniolorusso.com</title>
+	<meta name="author" content="Antonio Lorusso">
+
+	
+	<meta name="description" content="OpenVPN at Startup in OSX The easiest way of getting an OpenVPN client on mac is with Tunnelblick but you will join the VPN only when you have &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("antonio.lorusso@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'");
+	</script>
+</div>
+<h1><a href="/">antoniolorusso.com</a></h1>
+<p class="subtitle">A life long learning experience.</p>
+<nav id="main-nav"><ul class="main">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/vim-tricks-collection/">Vim Tricks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://careers.stackoverflow.com/antoniolorusso">Resume</a></li>
+  <li><a href="/su-questo-blog/">About</a></li>
+  <li><a href="/useful-regex/">Regex</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/102784234913032371944?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/antoniolorusso" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/zekus" title="GitHub">GitHub</a>
+		
+		
+		<a class="linkedin" href="http://www.linkedin.com/in/antoniolorusso">LinkedIn</a>
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
+	})(jQuery);
+</script>
+
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">OpenVPN at Startup in OSX</h1>
+	<div class="entry-content" itemprop="articleBody"><p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&#8217;ll show you how to do it:</p>
+
+<p>create /etc/rc.local and copy/paste the following three lines in it:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
+</span><span class='line'>/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tap.kext
+</span><span class='line'>/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tun.kext</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then create a Launch script like this for each of the vpn you want to connect to, replacing <em>YOURVPNNAME</em>, <em>YOURCONFIGFILE</em>, <em>YOUR/CONFIG/FOLDER</em> accordingly:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class='line'>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+</span><span class='line'>&lt;plist version="1.0"&gt;
+</span><span class='line'>&lt;dict&gt;
+</span><span class='line'>&lt;key&gt;Label&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;org.openvpn.YOURVPNNAME&lt;/string&gt;
+</span><span class='line'>&lt;key&gt;OnDemand&lt;/key&gt;
+</span><span class='line'>&lt;false/&gt;
+</span><span class='line'>&lt;key&gt;Program&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;/Applications/Tunnelblick.app/Contents/Resources/openvpn&lt;/string&gt;
+</span><span class='line'>&lt;key&gt;ProgramArguments&lt;/key&gt;
+</span><span class='line'>&lt;array&gt;
+</span><span class='line'>&lt;string&gt;openvpn&lt;/string&gt;
+</span><span class='line'>&lt;string&gt;--config&lt;/string&gt;
+</span><span class='line'>&lt;string&gt;YOURCONFIGFILE.conf&lt;/string&gt;
+</span><span class='line'>&lt;/array&gt;
+</span><span class='line'>&lt;key&gt;RunAtLoad&lt;/key&gt;
+</span><span class='line'>&lt;true/&gt;
+</span><span class='line'>&lt;key&gt;TimeOut&lt;/key&gt;
+</span><span class='line'>&lt;integer&gt;90&lt;/integer&gt;
+</span><span class='line'>&lt;key&gt;WorkingDirectory&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;YOUR/CONFIG/FOLDER&lt;/string&gt;
+</span><span class='line'>&lt;/dict&gt;
+</span><span class='line'>&lt;/plist&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>save each script into <em>/Library/LaunchDaemons/</em> folder using a name for the file like <em>org.openvpn.YOURVPNNAME.plist</em>, then change the user and group to root:wheel with the following command in a terminal window:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo chown root:wheel /Library/LaunchDaemon/org.openvpn.YOURVPNNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>last commands to register and execute your Launch scripts are:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo launchctl load /Library/LaunchDaemon/org.openvpn.YOURVPNNAME.plist
+</span><span class='line'>sudo launchctl start org.openvpn.YOURVPNNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>a restart should be the very last thing to do and once your mac has started you shoud be connected to your vpn network(s)!</p>
+
+<p>enjoy ;)</p>
+
+<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &#8220;connect when computer starts&#8221; functionality that automatically makes this post obsolete. I&#8217;ll just keep it for the records :)</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Antonio Lorusso
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'antoniolorussocom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx/';
+        var disqus_url = 'http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2445881-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

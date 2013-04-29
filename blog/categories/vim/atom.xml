@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Vim | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://zekus.github.com/"/>
+  <updated>2013-04-29T12:13:07+02:00</updated>
+  <id>http://zekus.github.com/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[VIM and the clipboard on Ubuntu]]></title>
+    <link href="http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
+    <updated>2010-12-07T13:16:56+01:00</updated>
+    <id>http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
+    <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command "+y !</p>
+]]></content>
+  </entry>
+  
+</feed>

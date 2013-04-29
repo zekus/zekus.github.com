@@ -1,0 +1,654 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>antoniolorusso.com</title>
+	<meta name="author" content="Antonio Lorusso">
+
+	
+	<meta name="description" content="Mar 2nd, 2005 Linux Comments Strange SU Wrong Password Haven&#8217;t told you that I&#8217;ve installed the brand-new SuSE 9.2 on my laptop and It &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://zekus.github.com/blog/page/12/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("antonio.lorusso@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'");
+	</script>
+</div>
+<h1><a href="/">antoniolorusso.com</a></h1>
+<p class="subtitle">A life long learning experience.</p>
+<nav id="main-nav"><ul class="main">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/vim-tricks-collection/">Vim Tricks</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://careers.stackoverflow.com/antoniolorusso">Resume</a></li>
+  <li><a href="/su-questo-blog/">About</a></li>
+  <li><a href="/useful-regex/">Regex</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/102784234913032371944?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/antoniolorusso" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/zekus" title="GitHub">GitHub</a>
+		
+		
+		<a class="linkedin" href="http://www.linkedin.com/in/antoniolorusso">LinkedIn</a>
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+<div id="banner" class="inner">
+	<div class="container">
+		<ul class="feed"></ul>
+	</div>
+	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
+	<div class="loading">Loading...</div>
+</div>
+<script src="/javascripts/twitter.js"></script>
+<script type="text/javascript">
+	(function($){
+		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
+	})(jQuery);
+</script>
+
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-02T18:57:00+01:00" data-updated="true" itemprop="datePublished">Mar 2<span>nd</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/03/02/strange-su-wrong-password/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/03/02/strange-su-wrong-password/" itemprop="url">Strange SU Wrong Password</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Haven&#8217;t told you that I&#8217;ve installed the brand-new SuSE 9.2 on my laptop and It works great only if I use KDE. In fact I tried Gnome 2.6 and was so unhappy to see that it doesn&#8217;t work good&#8230; Gnome it&#8217;s hard to configure if u are a maniac of personalization. Let me know if your experience wit gnome have been better than mine!</p>
+
+<p>But, let&#8217;s talk about the title&#8217;s argument. It was so strange but, after a long &#8220;play&#8221; with yast and user configuration, I wasn&#8217;t able to &#8220;su&#8221; or &#8220;sudo&#8221; from console. Still dont know what happened but that executables lost the suid privileges. What I&#8217;ve done, to make all things work again, was:</p>
+
+<p>chown 4755 /bin/su /usr/bin/sudo</p>
+
+<p>bye</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-02-04T03:24:00+01:00" data-updated="true" itemprop="datePublished">Feb 4<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/02/04/devloki/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/02/04/devloki/" itemprop="url">/dev/loki</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>this is the blog of the mantainer of GURU-rpm, a killer SuSE rpm mantainer!</p>
+
+<p>check it out!</p>
+
+<p><a href="http://dev-loki.blogspot.com/">/dev/loki</a></p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-01-24T18:07:00+01:00" data-updated="true" itemprop="datePublished">Jan 24<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/01/24/force-user-logout/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/01/24/force-user-logout/" itemprop="url">Force User Logout!</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>have you ever wanted to know how to force logout of a user on a remote machine that is logged in locally ( or remotely too :P )?</p>
+
+<p>here the tip:</p>
+
+<blockquote><p>kill -15 $(ps -U NameOfUserToLogout -o &#8220;pid=&#8221;)</p></blockquote>
+
+<p>what does it mean this command??</p>
+
+<p>well why dont you type in your command line these other two commands:</p>
+
+<blockquote><p>man kill</p></blockquote>
+
+<p>man ps</p>
+
+<p>you will learn more, guaranteed :D</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-19T16:08:00+01:00" data-updated="true" itemprop="datePublished">Dec 19<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/12/19/winetips/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/12/19/winetips/" itemprop="url">WineTips</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>If you want configure wine easy, I suggest you this site</p>
+
+<p>[</p>
+
+<blockquote><p>WineTips</p></blockquote>
+
+<p>](http://sidenet.ddo.jp/winetips/)I&#8217;m planning to mirror it! Stay tuned!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-12-18T19:36:00+01:00" data-updated="true" itemprop="datePublished">Dec 18<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/12/18/change-file-permissions/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/12/18/change-file-permissions/" itemprop="url">Change File Permissions</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Again a simple command to simplefy our life on linux/unix machines :D</p>
+
+<p>As you know I am a webmaster and usually I need to upload files on webservers that manage permissions in different ways from me on my machine and I have to chmod a large amount fo files. Using following command I can make this work in seconds :D</p>
+
+<blockquote><p>   find . -type d -name public_html -exec chmod 0755 {} \;</p></blockquote>
+
+<p>It searches (using find recursively (ie it checks folders and sub folders/directories and sub directories) for a directory (-type d) called (-name) public_html and when it does it runs the command (-exec) chmod 0755 (which sets the permissions so that the owner can read, write and execute/open the folder and all other users can read and execute/open the folder).</p>
+
+<p>Feel free to experiment and change this command on your machine</p>
+
+<p>bye</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-11-28T19:46:00+01:00" data-updated="true" itemprop="datePublished">Nov 28<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/11/28/change-names-of-folders/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/11/28/change-names-of-folders/" itemprop="url">Change Names of Folders</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Today I got a funny problem: I create a new link on Desktop of my Home folder.</p>
+
+<p>My Surprise was that his name was &#8220;TRASH FOLDER&#8221;.</p>
+
+<p>So I thought &#8220;WHAT&#8217;s UP?? Who gave this name to my home folder??&#8221;. The first Thing I&#8217;ve done ( as ex-Winzozz User ) was right-click on folder to access properties and change the name there, but &#8230;. the name didn&#8217;t change.</p>
+
+<p>Well I demistyfied that, to change the name of folders, there is an hidden file inside every folder-link on desktop called &#8220;.directory&#8221;. Here you can change some property, included the name &#8220;TRASH FOLDER&#8221;.</p>
+
+<p>:d see you</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-22T02:59:00+02:00" data-updated="true" itemprop="datePublished">Sep 22<span>nd</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/09/22/multiple-conversion-to-lowercase/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/09/22/multiple-conversion-to-lowercase/" itemprop="url">Multiple Conversion to Lowercase</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>This is a modified version of my script to change extensions, for lowercase (or uppercase inverting in script) multiple files in a directory recursively.</p>
+
+<blockquote><p>for i in $(find . -type f);</p></blockquote>
+
+<p>do mv $i $(echo $i | tr &#8220;[:upper:]&#8221; &#8220;[:lower:]&#8221;);</p>
+
+<p>done</p>
+
+<p>hope to be useful as usual.</p>
+
+<p>good work!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-13T16:46:00+02:00" data-updated="true" itemprop="datePublished">Sep 13<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/09/13/mysql-wont-startup/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/09/13/mysql-wont-startup/" itemprop="url">MYSQL Wont Startup</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Today, mysql wont startup and dont know why (or maybe!)</p>
+
+<p>First of all I looked at &#8220;/var/lib/mysql/&lt;\your host name>.err&#8221; log and this was the error:</p>
+
+<blockquote><p>Fatal error: Can&#8217;t open privilege tables: Can&#8217;t find file: &#8216;host.MYI&#8217; (errno: 2)</p></blockquote>
+
+<p>The problem is the file was there (/var/lib/mysql/mysql).</p>
+
+<p>The solution is delete /var/lib/mysql/mysql wit command rm -fR,</p>
+
+<p>type rcmysql start and the folder will be recreated.</p>
+
+<p>You&#8217;ll lost all users but mysql will be up and running! Now you have to reset the root password: mysqladmin -u root password</p>
+
+<p>hope to have been useful again!</p>
+
+<p>P.S.</p>
+
+<p>I forgot&#8230; the error was my fault &#8230; I played too much with phpmyadmin.</p>
+
+<p>Machines do always what we want they do!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-11T21:21:00+02:00" data-updated="true" itemprop="datePublished">Sep 11<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/09/11/multiple-rename-with-find-command/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/09/11/multiple-rename-with-find-command/" itemprop="url">Multiple Rename With Find Command!</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>I&#8217;ve done this shell script for multiple rename files not in same folder</p>
+
+<p>(for doin that, simply use rename command) using the combination between mv and find in this way:</p>
+
+<blockquote><p>for i in $(find / -name *.ext1);</p></blockquote>
+
+<p>do mv $i $(echo $i | cut -f1 -d.).ext2;</p>
+
+<p>done</p>
+
+<p>in the specific, this change an extension of a file (ext1) in one another (ext2).</p>
+
+<p>feel free to modify it to match your needs.</p>
+
+<p>bye</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-11T20:04:00+02:00" data-updated="true" itemprop="datePublished">Sep 11<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/09/11/bluetooth-and-suse-91/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/09/11/bluetooth-and-suse-91/" itemprop="url">Bluetooth and SuSE 9.1</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>It costed to me a lot of work, but finally I got IT!</p>
+
+<p>My bluetooth phone work and I can browse it.</p>
+
+<p>First of all, connect your bluetooth.usb.key directly on usb port without using hubs or will not work (dont know why but I&#8217;ll solve it in future).</p>
+
+<p>UPDATE the deafault kdebluetooth installed with your suse wit this one <a href="ftp://ftp.suse.com/pub/suse/i386/supplementary/KDE/update_for_9.1/applications/.link/kdebluetooth.rpm">kdebluetooth</a></p>
+
+<p>because it lacks a lot of necessary files you need for make it work.</p>
+
+<p>After that, start kbluetoothd and you&#8217;ll have an icon in system proces pannel click on it and it will show u the services disposable on your phone. that&#8217;s all (well &#8230; there are a lot of things to learn so read here: <a href="http://kde-bluetooth.sourceforge.net/">kde-bluetooth.sourceforge.net</a>)!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
+
+</div>
+<nav id="pagenavi">
+    
+        <a href="/blog/page/11/" class="prev">Prev</a>
+    
+    
+        <a href="/blog/page/13/" class="next">Next</a>
+    
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav></div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Antonio Lorusso
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'antoniolorussocom';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2445881-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
