@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Altro | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/altro/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -18,7 +18,7 @@
     <link href="http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
     <updated>2012-05-23T16:57:38+02:00</updated>
     <id>http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
-    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess! </rant></p>
+    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&rsquo;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&rsquo;s a bloody mess! </rant></p>
 
 <p>So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:</p>
 
@@ -62,7 +62,7 @@ RPAFproxy_ips 127.0.0.1
     <link href="http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
     <updated>2011-01-04T11:35:52+01:00</updated>
     <id>http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
-    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like "<sup>/(?!admin)"</sup> but that doesnt work. Neither work a rule like !"<sup>/admin"</sup> so here is a workaround:</p>
+    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
 
 <p><code>
 &lt;Location "/"&gt;  

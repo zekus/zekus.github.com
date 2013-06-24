@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Development | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -50,8 +50,8 @@ Provided configuration options:
 --curdir
 --ruby=/opt/local/bin/ruby
 </code>
-After having lost the best of my youth trying to fix this issue, I can't remember exactly how I did it, but I came up with this idea of reinstalling ruby and... guess what? It did work!
-So the lesson here is ... whenever you upgrade to a major release of XCode, you have to reinstall all your macports. These commands can save your day or two:
+After having lost the best of my youth trying to fix this issue, I can&rsquo;t remember exactly how I did it, but I came up with this idea of reinstalling ruby and&hellip; guess what? It did work!
+So the lesson here is &hellip; whenever you upgrade to a major release of XCode, you have to reinstall all your macports. These commands can save your day or two:
 <code>
 $ sudo port selfupdate
 $ sudo port sync
@@ -66,7 +66,7 @@ $ sudo port upgrade --force installed
     <link href="http://zekus.github.io/blog/2008/11/13/lighttpd-nightmare/"/>
     <updated>2008-11-13T14:38:56+01:00</updated>
     <id>http://zekus.github.io/blog/2008/11/13/lighttpd-nightmare</id>
-    <content type="html"><![CDATA[<p>if are trying to use mod_evhost in lighttpd in a more advanced way like using deep subdomains or with particulars tld like "co.uk" aka 2tls, you should know that
+    <content type="html"><![CDATA[<p>if are trying to use mod_evhost in lighttpd in a more advanced way like using deep subdomains or with particulars tld like &ldquo;co.uk&rdquo; aka 2tls, you should know that
 <code>
 $HTTP["host"] =~ "^([^.]+)\.([^.]+)\.babelclient\.photobox\.([^.]+)\.([^.]+)$"{
 evhost.path-pattern = "/web/%5/%6/assets"
@@ -90,7 +90,7 @@ WILL WORK.</p>
     <updated>2008-06-28T02:13:00+02:00</updated>
     <id>http://zekus.github.io/blog/2008/06/28/rubyonrails-excitement-2</id>
     <content type="html"><![CDATA[<p>I just want to share how excited I am studying Ruby and RubyOnRails.
-Soon I'll start the development of a Facebook application with Rails.</p>
+Soon I&rsquo;ll start the development of a Facebook application with Rails.</p>
 
 <p>stay tuned!</p>
 ]]></content>
@@ -101,15 +101,15 @@ Soon I'll start the development of a Facebook application with Rails.</p>
     <link href="http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
     <updated>2008-06-11T17:20:30+02:00</updated>
     <id>http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
-    <content type="html"><![CDATA[<p>If this error afflict your quiet development day, I'm sorry :D
+    <content type="html"><![CDATA[<p>If this error afflict your quiet development day, I&rsquo;m sorry :D
 I had this problem today and I solved in few steps:</p>
 
 <ol>
-<li>make a backup of the working copy in a different directory</li>
-<li>delete only the corrupted directory from your working copy</li>
-<li>make an svn update</li>
-<li>copy back only the modified files you need from the backup copy to the current working copy</li>
-<li>commit your changes
+<li> make a backup of the working copy in a different directory</li>
+<li> delete only the corrupted directory from your working copy</li>
+<li> make an svn update</li>
+<li> copy back only the modified files you need from the backup copy to the current working copy</li>
+<li> commit your changes
 Now breath deeply and take a cold shower: I suppose you must be sweat! :D</li>
 </ol>
 
@@ -134,7 +134,7 @@ grep -r 'content_graphic' assets/js --exclude=*\.svn*
 </code>
 <strong>COOOL!</strong></p>
 
-<p>If you want to make this permanent when you use grep, just put it in your profile file: on a Mac open ~/.profile with a text editor. If you're using Linux, edit ~/.bashrc or ~/.bash_profile or ~/.profile.</p>
+<p>If you want to make this permanent when you use grep, just put it in your profile file: on a Mac open ~/.profile with a text editor. If you&rsquo;re using Linux, edit ~/.bashrc or ~/.bash_profile or ~/.profile.</p>
 
 <p>Add the following line to the top of the file:
 <code>

@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Oct 11th, 2005 Linux Comments openSUSE 10.0 Is Out After a long wait, the first community release of openSUSE is OUT and I&#8217;m really happy to &hellip;">
+	<meta name="description" content="Oct 11th, 2005 Linux Comments openSUSE 10.0 Is Out After a long wait, the first community release of openSUSE is OUT and I&rsquo;m really happy to &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,20 +81,6 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
@@ -130,9 +116,9 @@
 	<h1 class="title" itemprop="name"><a href="/blog/2005/10/11/opensuse-100-is-out/" itemprop="url">openSUSE 10.0 Is Out</a></h1>
 	<div class="entry-content" itemprop="articleBody">
 		<p><img src="http://www.opensuse.org/skins/monobook/opensuse.gif" alt="" /><br/>
-After a long wait, the first community release of openSUSE is OUT and I&#8217;m really happy to update my systems.</p>
+After a long wait, the first community release of openSUSE is OUT and I&rsquo;m really happy to update my systems.</p>
 
-<p>Here I&#8217;ll give you some reference links even if you dont really need it cause it&#8217;s easy to find it on google :)</p>
+<p>Here I&rsquo;ll give you some reference links even if you dont really need it cause it&rsquo;s easy to find it on google :)</p>
 
 <p>Download: <a href="http://www.opensuse.org/Mirrors_Released_Version">http://www.opensuse.org/Mirrors_Released_Version</a></p>
 
@@ -179,8 +165,8 @@ After a long wait, the first community release of openSUSE is OUT and I&#8217;m 
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/09/17/ntfs-howto/" itemprop="url">NTFS HowTO</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&#8217;s easy to configure it with YaST -> patition &#8230; and &#8230; you find a bad surprise: IT DOESN&#8217;T WORK !!!!<br/>
-Don&#8217;t disperate babe, you always have the command line ;) and my instructions!!!</p>
+		<p>Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&rsquo;s easy to configure it with YaST &ndash;> patition &hellip; and &hellip; you find a bad surprise: IT DOESN&rsquo;T WORK !!!!<br/>
+Don&rsquo;t disperate babe, you always have the command line ;) and my instructions!!!</p>
 
 <p>Open a shell and insert following commands:</p>
 
@@ -192,15 +178,15 @@ vim /etc/fstab</p></blockquote>
 
 <blockquote><p>/dev/hda1  /wherever/ntfs  ntfs  ro,users,gid=users,umask=0002,nls=utf8  0  0</p></blockquote>
 
-<p>where &#8220;/dev/hda1&#8221; could be different according to your ntfs partition. Ex. &#8220;/dev/sda1&#8221; for USB disks.</p>
+<p>where &ldquo;/dev/hda1&rdquo; could be different according to your ntfs partition. Ex. &ldquo;/dev/sda1&rdquo; for USB disks.</p>
 
-<p>If yours it&#8217;s an external HD write this:</p>
+<p>If yours it&rsquo;s an external HD write this:</p>
 
 <blockquote><p>/dev/sdb1 /wherever/ntfs subfs ro,users,uid=1000,gid=100,umask=0002,nls=utf8 0 0</p></blockquote>
 
-<p>where &#8220;/dev/sdb1&#8221; could be different on your system and uid/gid too. To verify uid/gid just type &#8220;id&#8221; in a shell and find your user.</p>
+<p>where &ldquo;/dev/sdb1&rdquo; could be different on your system and uid/gid too. To verify uid/gid just type &ldquo;id&rdquo; in a shell and find your user.</p>
 
-<p>That&#8217;s all folks!! Now you can mount your partition using &#8220;mount /dev/hda1&#8221;!!</p>
+<p>That&rsquo;s all folks!! Now you can mount your partition using &ldquo;mount /dev/hda1&rdquo;!!</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 
@@ -323,7 +309,7 @@ antonio</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/05/02/powersaved-and-cpu-frequency/" itemprop="url">Powersaved and CPU Frequency</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Sometimes, powersaved daemon, cannot recognize cpu correctly and load the necessary cpufreq module. To force loading of module concerning your CPU, modify <strong>/etc/sysconfig/powersave/cpufreq</strong> file adding the module to the voice <strong>POWERSAVE_CPUFREQD_MODULE=&#8221;&#8221;</strong>.</p>
+		<p>Sometimes, powersaved daemon, cannot recognize cpu correctly and load the necessary cpufreq module. To force loading of module concerning your CPU, modify <strong>/etc/sysconfig/powersave/cpufreq</strong> file adding the module to the voice <strong>POWERSAVE_CPUFREQD_MODULE=&ldquo;&rdquo;</strong>.</p>
 
 <p>Full list of available modules could be find <a href="http://www.kernel.org/pub/linux/utils/kernel/cpufreq/hardware.html">here</a></p>
 
@@ -412,9 +398,9 @@ antonio</p>
 		<p>As you can read in one of my previous post, changin installation sources, now you can  upgrade to Kde 3.4 directly via yast.</p>
 
 <blockquote><blockquote><blockquote><p>Easy!<br/>
-Go to Yast control center, then choose &#8216;Install/Remove packages&#8217;. In the new loaded panel choose &#8216;packet groups&#8217; from the drop-down menu and then &#8216;zzz.All&#8217; from left frame. Click with right button on right frame and hit &#8216;all in this list->update if a new version is available&#8217;.<br/>
+Go to Yast control center, then choose &lsquo;Install/Remove packages&rsquo;. In the new loaded panel choose &lsquo;packet groups&rsquo; from the drop-down menu and then &lsquo;zzz.All&rsquo; from left frame. Click with right button on right frame and hit &lsquo;all in this list->update if a new version is available&rsquo;.<br/>
 End!<br/>
-well done&#8230; enjoy your new Kde desktop!</p></blockquote></blockquote></blockquote>
+well done&hellip; enjoy your new Kde desktop!</p></blockquote></blockquote></blockquote>
 
 <p>bye<br/>
 Antonio</p>
@@ -458,7 +444,7 @@ Antonio</p>
 	<div class="entry-content" itemprop="articleBody">
 		<p>Ladies and Gentlemen,<br/>
 we are here reunited to celebrate the fantastic NDISWRAPPER and his team for make wireless work on our linux boxes and my SuSE Laptop too :)<br/>
-Let&#8217;s go to show how to make this fuckin pcmcia card to work (Gates slaves!!)&#8230;. ohhhhhh shit, I dont wanna write now, it&#8217;s late! it&#8217;s 2:11 am and I&#8217;m sitting on a wc, havin my shit (yeeeessss i&#8217;m really on wireless, yeeeeeah!) and wanna go sleep soon so, check out this two links:</p>
+Let&rsquo;s go to show how to make this fuckin pcmcia card to work (Gates slaves!!)&hellip;. ohhhhhh shit, I dont wanna write now, it&rsquo;s late! it&rsquo;s 2:11 am and I&rsquo;m sitting on a wc, havin my shit (yeeeessss i&rsquo;m really on wireless, yeeeeeah!) and wanna go sleep soon so, check out this two links:</p>
 
 <p><a href="http://ndiswrapper.sourceforge.net/phpwiki/index.php?Installation">http://ndiswrapper.sourceforge.net/phpwiki/index.php?Installation</a> <br/>
 (HArd but worked for me!)<br/>
@@ -466,7 +452,7 @@ Let&#8217;s go to show how to make this fuckin pcmcia card to work (Gates slaves
 (didnt work for netgear)</p>
 
 <p>you can mix up the two articles and you will be wireless soon!<br/>
-maybe next time I&#8217;ll make a summary mix for you.</p>
+maybe next time I&rsquo;ll make a summary mix for you.</p>
 
 <p>bye<br/>
 antonio</p>
@@ -513,10 +499,10 @@ cp /lib/modules/$(uname -r)/misc/ndiswrapper.ko /lib/modules/$(uname -r)/extra</
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/04/04/apache2-and-virtual-hosts-vhost/" itemprop="url">Apache2 and Virtual Hosts (VHost)</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>In this article, i&#8217;ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.</p>
+		<p>In this article, i&rsquo;ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.</p>
 
 <p>First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br/>
-After that you&#8217;ll have all apache configuration files under /etc/apache2 directory.<br/>
+After that you&rsquo;ll have all apache configuration files under /etc/apache2 directory.<br/>
 Well DONT TOUCH ANY FILE THERE!<br/>
 The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br/>
 I created mysites.conf in my public_html for my personal comfort :)</p>
@@ -551,7 +537,7 @@ ServerAdmin antonio@linzekus<br/>
 
 <h1>On small systems, this file can be used instead of a</h1>
 
-<h1>&#8220;named&#8221; name server.</h1>
+<h1>&ldquo;named&rdquo; name server.</h1>
 
 <h1>Syntax:</h1>
 
@@ -574,7 +560,7 @@ ff02::3         ipv6-allhosts</p>
 
 <p>What else now? Point your browser on the URL of your new virtual hosts like that:</p>
 
-<p>http://xxxx</p>
+<p><a href="http://xxxx">http://xxxx</a></p>
 
 <p>Thats all folks!<br/>
 good setting</p>
@@ -616,7 +602,7 @@ good setting</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/03/28/backup-mysql-tables-and-restore/" itemprop="url">Backup Mysql Tables and Restore</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>it&#8217;s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that&#8217;s it.<br/>
+		<p>it&rsquo;s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that&rsquo;s it.<br/>
 If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:</p>
 
 <p>chmod -R 766 *<br/>

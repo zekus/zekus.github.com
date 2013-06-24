@@ -81,20 +81,6 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
@@ -129,17 +115,17 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2009/03/22/rails-and-passenger-aka-mod_rails/" itemprop="url">Rails and Passenger ( Aka Mod_rails )</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
+		<p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like <a href="http://servername/rails,%C2%A0">http://servername/rails,%C2%A0</a> so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
 
-<p>With a great surprise, that didn&#8217;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
+<p>With a great surprise, that didn&rsquo;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
 
 <p>After few hours we started doubting about our Apache knowledge and even about our capacity of reading and following a couple of stupid instructions on a website!</p>
 
-<p>We gave up and we started googling around when&#8230; the solution came out from dozens of blogs, forums and newsletters:</p>
+<p>We gave up and we started googling around when&hellip; the solution came out from dozens of blogs, forums and newsletters:</p>
 
 <blockquote><p>MOD_RAILS IS NOT COMPATIBLE WITH RAILS 2.2.2 AND ITS NEW ROUTING SYSTEM</p></blockquote>
 
-<p>&#8220;HOLY CRAP&#8221; was our esclamation and I will not mention here all the italian&#8217;s bad words that suddenly came out from our mounth!</p>
+<p>&ldquo;HOLY CRAP&rdquo; was our esclamation and I will not mention here all the italian&rsquo;s bad words that suddenly came out from our mounth!</p>
 
 <p>So, here the solution: put this line here</p>
 
@@ -151,7 +137,7 @@
 
 <p>Now restart apache and enjoy!</p>
 
-<p>ps. why hadn&#8217;t we changed mod_rails with mongrel or anything different? I don&#8217;t know!!!!</p>
+<p>ps. why hadn&rsquo;t we changed mod_rails with mongrel or anything different? I don&rsquo;t know!!!!</p>
 
 <p><img src="http://img.zemanta.com/pixy.gif?x-id=737895d3-2f2e-43e4-8cec-477c62acba02" alt="" /></p>
 
@@ -192,16 +178,16 @@
 	<div class="entry-content" itemprop="articleBody">
 		<p>Finally I started a little RoR project with my friend Antonello but we did it in the wrong way :D</p>
 
-<p>We started from the database design (not exactly the rails way) and we are trying to solve problems that a Rails developer usually doesn&#8217;t have like create the scaffold without migration scripts!</p>
+<p>We started from the database design (not exactly the rails way) and we are trying to solve problems that a Rails developer usually doesn&rsquo;t have like create the scaffold without migration scripts!</p>
 
 <p>Here are 3 simple steps to do it:</p>
 
 <ul>
 <li><p>rake db:schema:dump (create the schema dump from the existing database)</p></li>
 <li><p>mv db/schema.rb db/migrate/001_initial.rb (create the initial migration script manually)</p></li>
-<li><p>script/generate scaffold firstmodule field1:text field2:varchar field3:date &#8211;skip-migration
+<li><p>script/generate scaffold firstmodule field1:text field2:varchar field3:date &mdash;skip-migration
 The most important thing you should never forget is that your tables on the database must have a PLURAL name but use the SINGULAR name when you create the scaffold for that table.<br/>
-( ex: the table name is &#8220;tools&#8221; but the command to create the scaffold is script/generate scaffold tool )</p></li>
+( ex: the table name is &ldquo;tools&rdquo; but the command to create the scaffold is script/generate scaffold tool )</p></li>
 </ul>
 
 
@@ -244,7 +230,7 @@ The most important thing you should never forget is that your tables on the data
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2009/03/09/ignore-ds_store-forever-in-git/" itemprop="url">Ignore .DS_Store Forever in GIT</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>With a couple of little commands, you&#8217;ll be able to ignore the .DS_Store files forever from your git repositories on mac!</p>
+		<p>With a couple of little commands, you&rsquo;ll be able to ignore the .DS_Store files forever from your git repositories on mac!</p>
 
 <p>The following command will add the .gitignore file to the git configuration</p>
 
@@ -297,7 +283,7 @@ The most important thing you should never forget is that your tables on the data
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2008/11/13/lighttpd-nightmare/" itemprop="url">LightTPD Nightmare</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>if are trying to use mod_evhost in lighttpd in a more advanced way like using deep subdomains or with particulars tld like &#8220;co.uk&#8221; aka 2tls, you should know that</p>
+		<p>if are trying to use mod_evhost in lighttpd in a more advanced way like using deep subdomains or with particulars tld like &ldquo;co.uk&rdquo; aka 2tls, you should know that</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -408,13 +394,13 @@ your user line should look like</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2008/10/09/fking-eclipse-parental-advisory-explicit-content/" itemprop="url">F*#king Eclipse (Parental Advisory : Explicit Content)</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>This morning I had a lot of problems with my Eclipse Ganymede installation: svn plugin (subversive) refused to work properly&#8230; well, actually, it didn&#8217;t worked at all!!</p>
+		<p>This morning I had a lot of problems with my Eclipse Ganymede installation: svn plugin (subversive) refused to work properly&hellip; well, actually, it didn&rsquo;t worked at all!!</p>
 
-<p>After some time trying to understand the source of the problem, I came out with a GREAT IDEA : &#8220;I can remove some file from my workspace folder!!!&#8221; So I went there, I displayed the hidden folders, I entered in the .metadata folder and deleted all folders related to svn and team plugins and &#8230; you know what?? It f#*king worked&#8230;</p>
+<p>After some time trying to understand the source of the problem, I came out with a GREAT IDEA : &ldquo;I can remove some file from my workspace folder!!!&rdquo; So I went there, I displayed the hidden folders, I entered in the .metadata folder and deleted all folders related to svn and team plugins and &hellip; you know what?? It f#*king worked&hellip;</p>
 
-<p>I love how Eclipse doesn&#8217;t help in solving this&#8230; F%£k IT!</p>
+<p>I love how Eclipse doesn&rsquo;t help in solving this&hellip; F%£k IT!</p>
 
-<p>But, at the end, is a good IDE&#8230;</p>
+<p>But, at the end, is a good IDE&hellip;</p>
 
 <p>bye</p>
 
@@ -496,7 +482,7 @@ your user line should look like</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status/" itemprop="url">Svn: Entry Has Unexpectedly Changed Special Status</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>If you have this error after tryin a commit, for sure you have replaced a standard file with a symlink or viceversa, haven&#8217;t you?</p>
+		<p>If you have this error after tryin a commit, for sure you have replaced a standard file with a symlink or viceversa, haven&rsquo;t you?</p>
 
 <p>In that case, what you have to do is just <strong>svn add <the resource changed></strong> and svn will replace the file with the new one!</p>
 
@@ -505,9 +491,9 @@ your user line should look like</p>
 <p>Anyway, the correct procedure to replace a real file with a symlink in svn is the following:</p>
 
 <ol>
-<li><p><strong>svn remove</strong> of the file you want to link</p></li>
-<li><p><strong>ln -s <link></strong></p></li>
-<li><p><strong>svn add</strong> of the new link</p></li>
+<li><p> <strong>svn remove</strong> of the file you want to link</p></li>
+<li><p> <strong>ln -s <link></strong></p></li>
+<li><p> <strong>svn add</strong> of the new link</p></li>
 </ol>
 
 

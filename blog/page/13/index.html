@@ -81,20 +81,6 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
@@ -133,13 +119,13 @@
 
 <p>My bluetooth phone work and I can browse it.</p>
 
-<p>First of all, connect your bluetooth.usb.key directly on usb port without using hubs or will not work (dont know why but I&#8217;ll solve it in future).</p>
+<p>First of all, connect your bluetooth.usb.key directly on usb port without using hubs or will not work (dont know why but I&rsquo;ll solve it in future).</p>
 
 <p>UPDATE the deafault kdebluetooth installed with your suse wit this one <a href="ftp://ftp.suse.com/pub/suse/i386/supplementary/KDE/update_for_9.1/applications/.link/kdebluetooth.rpm">kdebluetooth</a></p>
 
 <p>because it lacks a lot of necessary files you need for make it work.</p>
 
-<p>After that, start kbluetoothd and you&#8217;ll have an icon in system proces pannel click on it and it will show u the services disposable on your phone. that&#8217;s all (well &#8230; there are a lot of things to learn so read here: <a href="http://kde-bluetooth.sourceforge.net/">kde-bluetooth.sourceforge.net</a>)!</p>
+<p>After that, start kbluetoothd and you&rsquo;ll have an icon in system proces pannel click on it and it will show u the services disposable on your phone. that&rsquo;s all (well &hellip; there are a lot of things to learn so read here: <a href="http://kde-bluetooth.sourceforge.net/">kde-bluetooth.sourceforge.net</a>)!</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 
@@ -182,7 +168,7 @@
 
 <p>If you downloaded source code from a program (tar.gz files) you can quickly make an RPM file from it.</p>
 
-<p>To do this, first of all install the package &#8220;checkinstall&#8221;, then unpack your source package and cd to the directory where you unpacked the tar.gz file.</p>
+<p>To do this, first of all install the package &ldquo;checkinstall&rdquo;, then unpack your source package and cd to the directory where you unpacked the tar.gz file.</p>
 
 <p>Run the following commands:</p>
 
@@ -192,9 +178,9 @@
 
 <p>checkinstall #instead of make install</p>
 
-<p>When finished, you&#8217;ll find your RPM in /usr/src/packages/RPMS/i686</p>
+<p>When finished, you&rsquo;ll find your RPM in /usr/src/packages/RPMS/i686</p>
 
-<p>Now you can install it where you want with yast - i &lt;\packagetoinstall>.rpm or with rpm -i &lt;\packagetoinstall>.rpm. This allows your to easily uninstall it afterwards.</p>
+<p>Now you can install it where you want with yast &ndash; i &lt;\packagetoinstall>.rpm or with rpm -i &lt;\packagetoinstall>.rpm. This allows your to easily uninstall it afterwards.</p>
 
 <p>bye</p>
 
@@ -235,29 +221,29 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2004/09/03/asus-l3500-power-management-on-suse-91/" itemprop="url">Asus L3500 Power Management on SuSE 9.1</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Today, I discovered that power management on my asus doesn&#8217;t function properly and that I can configure extra buttons and leds on my laptop trought powersave (default acpi manager for suse).</p>
+		<p>Today, I discovered that power management on my asus doesn&rsquo;t function properly and that I can configure extra buttons and leds on my laptop trought powersave (default acpi manager for suse).</p>
 
-<p>Now I&#8217;ll show you how-to do it!</p>
+<p>Now I&rsquo;ll show you how-to do it!</p>
 
 <p>SUSPEND AND STANDBY</p>
 
-<blockquote><p>edit <strong>&#8216;/etc/powersave.conf&#8217;</strong>. Right at the end there are two lines:</p></blockquote>
+<blockquote><p>edit <strong>&lsquo;/etc/powersave.conf&rsquo;</strong>. Right at the end there are two lines:</p></blockquote>
 
 <p>POWERSAVED_DISABLE_USER_SUSPEND=yes                         POWERSAVED_DISABLE_USER_STANDBY=yes</p>
 
-<p>modify it to &#8216;no&#8217;</p>
+<p>modify it to &lsquo;no&rsquo;</p>
 
 <p>ASUS_ACPI</p>
 
-<blockquote><p>acpi4asus (kernel module for asus special keys and leds) is included in the kernel (from 2.6). Just load the module &#8216;asus_acpi&#8217; since startup, editing the file &#8216;/etc/sysconfig/powersave/common&#8217;.</p></blockquote>
+<blockquote><p>acpi4asus (kernel module for asus special keys and leds) is included in the kernel (from 2.6). Just load the module &lsquo;asus_acpi&rsquo; since startup, editing the file &lsquo;/etc/sysconfig/powersave/common&rsquo;.</p></blockquote>
 
-<p>Search for the definition of &#8216;POWERSAVE_ACPI_MODULES&#8217; and add &#8216;asus_acpi&#8217;.</p>
+<p>Search for the definition of &lsquo;POWERSAVE_ACPI_MODULES&rsquo; and add &lsquo;asus_acpi&rsquo;.</p>
 
-<p>Same goes for &#8216;POWERSAVE_ACPI_MODULES_NOT_TO_UNLOAD&#8217;.</p>
+<p>Same goes for &lsquo;POWERSAVE_ACPI_MODULES_NOT_TO_UNLOAD&rsquo;.</p>
 
-<p>Set POWERSAVE_CPUFREQD_MODULE=&#8221;p4-clockmod&#8221; (doesnt work well: cpu boot at 300Mhz instead of 2.400Mhz even I&#8217;ve set powersave as well! tryin to find help and further informations)</p>
+<p>Set POWERSAVE_CPUFREQD_MODULE=&ldquo;p4-clockmod&rdquo; (doesnt work well: cpu boot at 300Mhz instead of 2.400Mhz even I&rsquo;ve set powersave as well! tryin to find help and further informations)</p>
 
-<p>searching for other tips&#8230; stay tuned!</p>
+<p>searching for other tips&hellip; stay tuned!</p>
 
 <p>sources:</p>
 
@@ -302,7 +288,7 @@
 	<div class="entry-content" itemprop="articleBody">
 		<p>Take Note: These tips are for SUSE 9.1 with the 2.6 kernel:</p>
 
-<p><img src="http://www.thelinuxapprentice.com/images/ipv6fixsm.gif" alt="Suse 9.1 with 2.6 kernel tips" />Mozilla and FireFox both seem to run a little slow on Suse 9.1 cause &#8220;ipv6&#8221;. What is &#8220;ipv6&#8221;&#8230;sheee&#8230;I haven&#8217;t a clue&#8230;but there is a fix&#8230;and after I applied it&#8230;both Mozilla 1.7 rc1 and FireFox opened and went to the different websites fast. Before the fix&#8230;both browsers would often just sit and spin their little icons&#8230;and never reach the sites before they timed out.</p>
+<p><img src="http://www.thelinuxapprentice.com/images/ipv6fixsm.gif" alt="Suse 9.1 with 2.6 kernel tips" />Mozilla and FireFox both seem to run a little slow on Suse 9.1 cause &ldquo;ipv6&rdquo;. What is &ldquo;ipv6&rdquo;&hellip;sheee&hellip;I haven&rsquo;t a clue&hellip;but there is a fix&hellip;and after I applied it&hellip;both Mozilla 1.7 rc1 and FireFox opened and went to the different websites fast. Before the fix&hellip;both browsers would often just sit and spin their little icons&hellip;and never reach the sites before they timed out.</p>
 
 <ul>
 <li><p>Fix One: Go to >> /etc/modprobe.conf, right below this                  line:</p>
@@ -371,7 +357,7 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 </ul>
 
 
-<p>then, always in YaST, go to &#8220;hardware&#8221;(on left), &#8220;printer&#8221;(on right) and add your printer!</p>
+<p>then, always in YaST, go to &ldquo;hardware&rdquo;(on left), &ldquo;printer&rdquo;(on right) and add your printer!</p>
 
 <p>It WORKS WOW!!!!!</p>
 
@@ -414,9 +400,9 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2004/08/18/apache-php-mysql/" itemprop="url">Apache, PHP, MySQL</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>this is the most difficult part&#8230;</p>
+		<p>this is the most difficult part&hellip;</p>
 
-<p>I&#8217;ll write the article when I&#8217;ll finish all.</p>
+<p>I&rsquo;ll write the article when I&rsquo;ll finish all.</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 
@@ -460,10 +446,10 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 <p>Do this :</p>
 
 <ol>
-<li><p>open YaST</p></li>
-<li><p>from left pannel choose &#8220;software&#8221; and from right choose &#8220;change installation source&#8221;</p></li>
-<li><p>click &#8220;add&#8221; button and choose ftp or http and fill the form using a <a href="http://www.suse.com/us/private/download/ftp/int_mirrors.html">SuSE mirror</a></p></li>
-<li><p>then disable the cd source and enable the source just added (dont enable more than one source or YaST will freeze when you will add packet choosin &#8220;install/uninstall packets&#8221;)</p></li>
+<li><p> open YaST</p></li>
+<li><p> from left pannel choose &ldquo;software&rdquo; and from right choose &ldquo;change installation source&rdquo;</p></li>
+<li><p> click &ldquo;add&rdquo; button and choose ftp or http and fill the form using a <a href="http://www.suse.com/us/private/download/ftp/int_mirrors.html">SuSE mirror</a></p></li>
+<li><p> then disable the cd source and enable the source just added (dont enable more than one source or YaST will freeze when you will add packet choosin &ldquo;install/uninstall packets&rdquo;)</p></li>
 </ol>
 
 
@@ -510,13 +496,13 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2004/08/18/thunderbird/" itemprop="url">Thunderbird</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>it was easy as installing firefox&#8230; I restored alse the folder wit my settings and email taken from windows wit just deletin</p>
+		<p>it was easy as installing firefox&hellip; I restored alse the folder wit my settings and email taken from windows wit just deletin</p>
 
 <p>/-user-/home/.thunderbird/profiles</p>
 
 <p>and</p>
 
-<p>adding the profiles folder I had from windows ! easy and fantastic&#8230;</p>
+<p>adding the profiles folder I had from windows ! easy and fantastic&hellip;</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 
@@ -555,13 +541,13 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2004/08/10/suse-again-up-and-running/" itemprop="url">SuSE Again UP and Running</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>I&#8217;m still curious about what happened to my SuSE and still angry about that!</p>
+		<p>I&rsquo;m still curious about what happened to my SuSE and still angry about that!</p>
 
-<p>Now I&#8217;m a little bit scared cause I think that if this happen when I&#8217;ll have data on disk, I&#8217;ll be lost! But let think over&#8230;. =D</p>
+<p>Now I&rsquo;m a little bit scared cause I think that if this happen when I&rsquo;ll have data on disk, I&rsquo;ll be lost! But let think over&hellip;. =D</p>
 
-<p>I reinstalled also mozilla but, this time, I choosed the version without the installer and it worked on the first start&#8230; I HIGHLY reccomend it.</p>
+<p>I reinstalled also mozilla but, this time, I choosed the version without the installer and it worked on the first start&hellip; I HIGHLY reccomend it.</p>
 
-<p>These are the operation I&#8217;ve done to install firefox via terminal:</p>
+<p>These are the operation I&rsquo;ve done to install firefox via terminal:</p>
 
 <p>download from site ( obvious! =D)</p>
 
@@ -618,13 +604,13 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2004/08/09/suse-crash/" itemprop="url">SUSE Crash</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>I&#8217;m so disperate&#8230; my linux SuSE, after a boot this afternoon, crashed&#8230;</p>
+		<p>I&rsquo;m so disperate&hellip; my linux SuSE, after a boot this afternoon, crashed&hellip;</p>
 
 <p>It mounted filesystem in readonly mode and I dont know why, cause I havent made changes on system.</p>
 
 <p>The only solution I found after hours searchin on google and groups is : REINSTALL.</p>
 
-<p>i&#8217;m so &#8230; sad and angry</p>
+<p>i&rsquo;m so &hellip; sad and angry</p>
 
 <p>see ya</p>
 

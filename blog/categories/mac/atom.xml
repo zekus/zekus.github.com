@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mac | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/mac/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -18,7 +18,7 @@
     <link href="http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
     <updated>2012-02-18T15:32:41+01:00</updated>
     <id>http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
-    <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it's time to upgrade! The first try gave me this error:</p>
+    <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it&rsquo;s time to upgrade! The first try gave me this error:</p>
 
 <p><code>
 ?  ~  rvm install 1.9.3-p125
@@ -26,7 +26,7 @@ Error running ' ./configure --prefix=/Users/antonio/.rvm/rubies/ruby-1.9.3-p125 
 There has been an error while running configure. Halting the installation.
 </code></p>
 
-<p>Adding the compiler option "--with-gcc=clang" worked:</p>
+<p>Adding the compiler option &ldquo;&mdash;with-gcc=clang&rdquo; worked:</p>
 
 <p><code>
 ?  ~  rvm install 1.9.3-p125 --with-gcc=clang
@@ -63,7 +63,7 @@ and try again.</p>
     <link href="http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
     <updated>2011-05-09T00:11:25+02:00</updated>
     <id>http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx</id>
-    <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I'll show you how to do it:</p>
+    <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&rsquo;ll show you how to do it:</p>
 
 <p>create /etc/rc.local and copy/paste the following three lines in it:</p>
 
@@ -121,7 +121,7 @@ sudo launchctl start org.openvpn.YOURVPNNAME
 
 <p>enjoy ;)</p>
 
-<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the "connect when computer starts" functionality that automatically makes this post obsolete. I'll just keep it for the records :)</p>
+<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &ldquo;connect when computer starts&rdquo; functionality that automatically makes this post obsolete. I&rsquo;ll just keep it for the records :)</p>
 ]]></content>
   </entry>
   
@@ -162,8 +162,8 @@ Provided configuration options:
 --curdir
 --ruby=/opt/local/bin/ruby
 </code>
-After having lost the best of my youth trying to fix this issue, I can't remember exactly how I did it, but I came up with this idea of reinstalling ruby and... guess what? It did work!
-So the lesson here is ... whenever you upgrade to a major release of XCode, you have to reinstall all your macports. These commands can save your day or two:
+After having lost the best of my youth trying to fix this issue, I can&rsquo;t remember exactly how I did it, but I came up with this idea of reinstalling ruby and&hellip; guess what? It did work!
+So the lesson here is &hellip; whenever you upgrade to a major release of XCode, you have to reinstall all your macports. These commands can save your day or two:
 <code>
 $ sudo port selfupdate
 $ sudo port sync
@@ -191,7 +191,7 @@ grep -r 'content_graphic' assets/js --exclude=*\.svn*
 </code>
 <strong>COOOL!</strong></p>
 
-<p>If you want to make this permanent when you use grep, just put it in your profile file: on a Mac open ~/.profile with a text editor. If you're using Linux, edit ~/.bashrc or ~/.bash_profile or ~/.profile.</p>
+<p>If you want to make this permanent when you use grep, just put it in your profile file: on a Mac open ~/.profile with a text editor. If you&rsquo;re using Linux, edit ~/.bashrc or ~/.bash_profile or ~/.profile.</p>
 
 <p>Add the following line to the top of the file:
 <code>

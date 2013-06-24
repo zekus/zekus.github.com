@@ -81,35 +81,21 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">Rails and Passenger ( Aka Mod_rails )</h1>
-	<div class="entry-content" itemprop="articleBody"><p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
+	<div class="entry-content" itemprop="articleBody"><p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like <a href="http://servername/rails,%C2%A0">http://servername/rails,%C2%A0</a> so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
 
-<p>With a great surprise, that didn&#8217;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
+<p>With a great surprise, that didn&rsquo;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
 
 <p>After few hours we started doubting about our Apache knowledge and even about our capacity of reading and following a couple of stupid instructions on a website!</p>
 
-<p>We gave up and we started googling around when&#8230; the solution came out from dozens of blogs, forums and newsletters:</p>
+<p>We gave up and we started googling around when&hellip; the solution came out from dozens of blogs, forums and newsletters:</p>
 
 <blockquote><p>MOD_RAILS IS NOT COMPATIBLE WITH RAILS 2.2.2 AND ITS NEW ROUTING SYSTEM</p></blockquote>
 
-<p>&#8220;HOLY CRAP&#8221; was our esclamation and I will not mention here all the italian&#8217;s bad words that suddenly came out from our mounth!</p>
+<p>&ldquo;HOLY CRAP&rdquo; was our esclamation and I will not mention here all the italian&rsquo;s bad words that suddenly came out from our mounth!</p>
 
 <p>So, here the solution: put this line here</p>
 
@@ -121,7 +107,7 @@
 
 <p>Now restart apache and enjoy!</p>
 
-<p>ps. why hadn&#8217;t we changed mod_rails with mongrel or anything different? I don&#8217;t know!!!!</p>
+<p>ps. why hadn&rsquo;t we changed mod_rails with mongrel or anything different? I don&rsquo;t know!!!!</p>
 
 <p><img src="http://img.zemanta.com/pixy.gif?x-id=737895d3-2f2e-43e4-8cec-477c62acba02" alt="" /></p>
 </div>
@@ -131,8 +117,6 @@
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

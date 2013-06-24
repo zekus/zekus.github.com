@@ -81,49 +81,35 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">Compiz / Xgl on My Amd64 Laptop With Ati X1600</h1>
 	<div class="entry-content" itemprop="articleBody"><p>Well, installing Xgl and Compiz has not been easy: there are a lot of valid tutorials out there,but somethimes they doesnt work for your system and this happened to me!<br/>
-I&#8217;ll trace here, and link, the tutorials and modification I made to make things happen to my Ubuntu too and experiment with Xgl.</p>
+I&rsquo;ll trace here, and link, the tutorials and modification I made to make things happen to my Ubuntu too and experiment with Xgl.</p>
 
 <p>First tutorial on the <a href="https://help.ubuntu.com/community/CompositeManager/Xgl">Ubuntu Wiki</a> about Xgl. If you have some troubles on packets missing then use these repositories in your sources.list:</p>
 
-<blockquote><p>deb http://ubuntu.compiz.net/ dapper main<br/>
-deb http://xgl.compiz.info/ dapper main<br/>
-deb http://more.zubrowka.org/~julbouln/compiz/ ./<br/>
-deb-src http://xgl.compiz.info/ dapper main<br/>
-deb http://ubuntu.systemadministrator.org dapper eyecandy<br/>
-deb-src http://ubuntu.systemadministrator.org dapper eyecandy</p></blockquote>
+<blockquote><p>deb <a href="http://ubuntu.compiz.net/">http://ubuntu.compiz.net/</a> dapper main<br/>
+deb <a href="http://xgl.compiz.info/">http://xgl.compiz.info/</a> dapper main<br/>
+deb <a href="http://more.zubrowka.org/~julbouln/compiz/">http://more.zubrowka.org/~julbouln/compiz/</a> ./<br/>
+deb-src <a href="http://xgl.compiz.info/">http://xgl.compiz.info/</a> dapper main<br/>
+deb <a href="http://ubuntu.systemadministrator.org">http://ubuntu.systemadministrator.org</a> dapper eyecandy<br/>
+deb-src <a href="http://ubuntu.systemadministrator.org">http://ubuntu.systemadministrator.org</a> dapper eyecandy</p></blockquote>
 
 <p>Second on <a href="https://help.ubuntu.com/community/CompositeManager/InstallingCompiz">Ubuntu Wiki</a> about installing Compiz.</p>
 
-<p>If you get some strange errors with compiz and the windows decorations don&#8217;t appear, then you need to apply a patch to the code and reinstall patched debs:</p>
+<p>If you get some strange errors with compiz and the windows decorations don&rsquo;t appear, then you need to apply a patch to the code and reinstall patched debs:</p>
 
 <ol>
-<li><p>download this <a href="http://www.compiz.net/attachment.php?item=548">patch</a></p></li>
-<li><p>sudo apt-get build-dep compiz</p></li>
-<li>sudo apt-get source compiz</li>
-<li>cd into the unpacked dir</li>
-<li>sudo patch -p1 &lt;></li>
-<li>cd ..</li>
-<li>sudo apt-get source -b compiz</li>
-<li>sudo dpkg -i compiz*.deb
+<li><p> download this <a href="http://www.compiz.net/attachment.php?item=548">patch</a></p></li>
+<li><p> sudo apt-get build-dep compiz</p></li>
+<li> sudo apt-get source compiz</li>
+<li> cd into the unpacked dir</li>
+<li> sudo patch -p1 &lt;></li>
+<li> cd ..</li>
+<li> sudo apt-get source -b compiz</li>
+<li> sudo dpkg -i compiz*.deb
 Here it is another <a href="http://www.ubuntuforums.org/showthread.php?p=739758">tutorial</a> on ubuntuforums.org</li>
 </ol>
 
@@ -140,8 +126,6 @@ Antonio</p>
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

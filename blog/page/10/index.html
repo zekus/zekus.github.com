@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Feb 7th, 2006 Linux Comments My First Ubuntu This is my first on ubuntu&#8230;
+	<meta name="description" content="Feb 7th, 2006 Linux Comments My First Ubuntu This is my first on ubuntu&hellip;
 The intention is to build a blog that track every problem and &hellip;">
 	
 
@@ -82,20 +82,6 @@ The intention is to build a blog that track every problem and &hellip;">
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner">
@@ -130,7 +116,7 @@ The intention is to build a blog that track every problem and &hellip;">
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2006/02/07/my-first-ubuntu/" itemprop="url">My First Ubuntu</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>This is my first on ubuntu&#8230;<br/>
+		<p>This is my first on ubuntu&hellip;<br/>
 The intention is to build a blog that track every problem and solution found buildin our dotnet computer server (we love linux despite our brand name).</p>
 
 <p>Fell free to follow our blog and learn</p>
@@ -175,19 +161,19 @@ Antonio Lorusso</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2006/01/16/freenx-on-suse-100-and-93/" itemprop="url">FreeNX on SuSE 10.0 and 9.3</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Well&#8230; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro.</p>
+		<p>Well&hellip; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro.</p>
 
 <p>Just open YaST and search for freenx and select all related packets.</p>
 
-<p>Do you think it&#8217;s enoght? the answer that you are waitin for it&#8217;s NO :D</p>
+<p>Do you think it&rsquo;s enoght? the answer that you are waitin for it&rsquo;s NO :D</p>
 
-<p><a href="http://madpenguin.org/cms/index.php/?m=show&amp;id=5755&amp;page=1">I put here a link of a well done tutorial on MadPenguin.org</a> ( cause, you know, I&#8217;m lazy :P )</p>
+<p><a href="http://madpenguin.org/cms/index.php/?m=show&amp;id=5755&amp;page=1">I put here a link of a well done tutorial on MadPenguin.org</a> ( cause, you know, I&rsquo;m lazy :P )</p>
 
 <p>And for you that dont understand why you cant still connect after this tutorial, here is the troubleshoot:</p>
 
 <p>Error message Server not installed or NX access disabled</p>
 
-<p>If you see the following error message it means that the nx user&#8217;s public key was not accepted.:</p>
+<p>If you see the following error message it means that the nx user&rsquo;s public key was not accepted.:</p>
 
 <p>NX> 203 NXSSH running with pid: 6721<br/>
 NX> 285 Enabling check on switch command<br/>
@@ -198,7 +184,7 @@ NX> 208 Using auth method: publickey<br/>
 NX> 204 Authentication failed.<br/>
 This can be caused by a couple of things.</p>
 
-<p>the nx user&#8217;s authorized key file /var/lib/nxserver/home/.ssh/authorized_keys2 is incorectly named. All versions of ssh that I have seen on Ubuntu, Fedora, Redhat/Centos and OFCOURSE suse are configured to look for an authoized key file names .ssh/authorized_keys not .ssh/authorized_keys2. You can rename the authorized_keys file but it might be better to reconfigure sshd_config because the nxserver &#8211;stop command renames the .ssh/authorized_keys2 to .ssh/authorized_keys2.disabled to prevent access via an nxclient <br/>
+<p>the nx user&rsquo;s authorized key file /var/lib/nxserver/home/.ssh/authorized_keys2 is incorectly named. All versions of ssh that I have seen on Ubuntu, Fedora, Redhat/Centos and OFCOURSE suse are configured to look for an authoized key file names .ssh/authorized_keys not .ssh/authorized_keys2. You can rename the authorized_keys file but it might be better to reconfigure sshd_config because the nxserver &mdash;stop command renames the .ssh/authorized_keys2 to .ssh/authorized_keys2.disabled to prevent access via an nxclient <br/>
 sshd is not running or is incorrectly configured. At minimum you need PubkeyAuthentication yes in the sshd_config file <br/>
 The server and client public keys might be different. At install the server and client use a default key which should be changed. You can open /var/lib/nxserver/home/.ssh/authorized_keys and compare its contents to the key stored in the client by: <br/>
 Open the client tool <br/>
@@ -261,7 +247,7 @@ Here create the script like this example that enable and accept jobs for a print
 
 <blockquote><h1>!/bin/bash</h1></blockquote>
 
-<p>if [ &#8220;${ACTION}&#8221; = &#8220;add&#8221; ]<br/>
+<p>if [ &ldquo;${ACTION}&rdquo; = &ldquo;add&rdquo; ]<br/>
 then<br/>
   lpadmin -p <em>printername</em> -E<br/>
 fi</p>
@@ -312,11 +298,11 @@ antonio</p>
 
 <p>Virtual nameservers:</p>
 
-<p>I&#8217;m pointing my nameservers to the IPs of my webhost&#8217;s nameservers.  So it sounds like &#8216;virtual&#8217; is the correct term.  Using your example,</p>
+<p>I&rsquo;m pointing my nameservers to the IPs of my webhost&rsquo;s nameservers.  So it sounds like &lsquo;virtual&rsquo; is the correct term.  Using your example,</p>
 
-<p>ns1.mydomain.com => IP of dnsmyhoster.com&#8217;s DNS server #1</p>
+<p>ns1.mydomain.com => IP of dnsmyhoster.com&rsquo;s DNS server #1</p>
 
-<p>ns2.mydoman.com => IP of dnsmyhoster.com&#8217;s DNS server #2</p>
+<p>ns2.mydoman.com => IP of dnsmyhoster.com&rsquo;s DNS server #2</p>
 
 <p>Step 1.  Create the nameservers at the registrar (contact your registrar if you dont have direct access).</p>
 
@@ -387,11 +373,11 @@ antonio</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/11/24/d-link-dns-bugs-on-dsl-g604t-and-similar-shit/" itemprop="url">D-link Dns Bugs on DSL-G604T and Similar SHIT</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Well, this is the second bug (the first was ipv6) I&#8217;ve found on this stupid router (like all d-link stuff) that made me crazy&#8230;</p>
+		<p>Well, this is the second bug (the first was ipv6) I&rsquo;ve found on this stupid router (like all d-link stuff) that made me crazy&hellip;</p>
 
-<p>Some applications are unable to resolve domains (such as wget, lynx and whois in my case) and I didn&#8217;t knew why until I changed the default nameserver (the router address from dhcp) on /etc/resolv.config to the ones gave from my ISP: ALL MAGICALLY WORKS NOW (FUCK!!!)</p>
+<p>Some applications are unable to resolve domains (such as wget, lynx and whois in my case) and I didn&rsquo;t knew why until I changed the default nameserver (the router address from dhcp) on /etc/resolv.config to the ones gave from my ISP: ALL MAGICALLY WORKS NOW (FUCK!!!)</p>
 
-<p>If you don&#8217;t like dhcpcd to change your nameserver settings then either set DHCLIENT_MODIFY_RESOLV_CONF=no in /etc/sysconfig/network/dhcp, or set MODIFY_RESOLV_CONF_DYNAMICALLY=no in /etc/sysconfig/network/config or (manually) use dhcpcd with -R.  If you only want to keep your searchlist, set DHCLIENT_KEEP_SEARCHLIST=yes in /etc/sysconfig/network/dhcp or (manually) use the -K option.</p>
+<p>If you don&rsquo;t like dhcpcd to change your nameserver settings then either set DHCLIENT_MODIFY_RESOLV_CONF=no in /etc/sysconfig/network/dhcp, or set MODIFY_RESOLV_CONF_DYNAMICALLY=no in /etc/sysconfig/network/config or (manually) use dhcpcd with -R.  If you only want to keep your searchlist, set DHCLIENT_KEEP_SEARCHLIST=yes in /etc/sysconfig/network/dhcp or (manually) use the -K option.</p>
 
 <p>see you</p>
 
@@ -487,7 +473,7 @@ antonio</p>
 	<div class="entry-content" itemprop="articleBody">
 		<p>The linux release of Skype is a piece of shit regerding audio management.</p>
 
-<p>After spitting a lot every time I make I call with skype cause I had to reload it, I&#8217;ve found this greate tutorial with a great script that bypass the problem.</p>
+<p>After spitting a lot every time I make I call with skype cause I had to reload it, I&rsquo;ve found this greate tutorial with a great script that bypass the problem.</p>
 
 <p>take a look at <a href="http://juljas.net/linux/skype/">this</a> and <a href="http://195.38.3.142:6502/skype/">this</a></p>
 
@@ -528,14 +514,14 @@ antonio</p>
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2005/10/19/ps2-optical-mouse/" itemprop="url">Ps2 Optical Mouse</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>It is sooo strange but this Logitech optical doesnt work on OpenSuse 10.0 and you have to act a trick. I hate this cause people get far from linux when they get problems like this =( and I HATE this&#8230; wanna see linux on every machine I sell and I hope this for the future.<br/>
+		<p>It is sooo strange but this Logitech optical doesnt work on OpenSuse 10.0 and you have to act a trick. I hate this cause people get far from linux when they get problems like this =( and I HATE this&hellip; wanna see linux on every machine I sell and I hope this for the future.<br/>
 Anyway this is the trick:</p>
 
-<p>open Yast -> System -> bootloader configuration<br/>
+<p>open Yast &ndash;> System &ndash;> bootloader configuration<br/>
 modify the boot option and add psmouse.proto=imps to Other Kernel Parameters<br/>
 reboot</p>
 
-<p>and that&#8217;s it!</p>
+<p>and that&rsquo;s it!</p>
 
 <p>enjoy your suse<br/>
 Antonio</p>
@@ -581,7 +567,7 @@ Antonio</p>
 	<div class="entry-content" itemprop="articleBody">
 		<p>AGAIN since 9.1 version, ipv6 still break your internet connection, delaying DNS answere and giving the TIMEOUT ERROR!</p>
 
-<p>To disable this annoying thing, just edit /etc/modules.conf, go to the line containing &#8220;net-pf-10 ipv6&#8221; and change to &#8220;net-pf-10 off&#8221;.<br/>
+<p>To disable this annoying thing, just edit /etc/modules.conf, go to the line containing &ldquo;net-pf-10 ipv6&rdquo; and change to &ldquo;net-pf-10 off&rdquo;.<br/>
 Restart your machine and the world will smile again!</p>
 
 <p>happy suse!<br/>

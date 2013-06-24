@@ -82,20 +82,6 @@ ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old &hellip;">
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
@@ -113,23 +99,23 @@ ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old &hellip;">
 </pre></td><td class='code'><pre><code class=''><span class='line'>ls -l *.xml</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> -> easy! list the xml files in a folder<br/>
+<p><strong> &ndash;> easy! list the xml files in a folder<br/>
 </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>awk '{print $9}'</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> -> output just the name of the file<br/>
+<p><strong> &ndash;> output just the name of the file<br/>
 </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>xargs -t -i mv {} {}.old</span></code></pre></td></tr></table></div></figure>
 
 
-<p>** -> rename it adding at the same filename the extension &#8220;.old&#8221;</p>
+<p>** &ndash;> rename it adding at the same filename the extension &ldquo;.old&rdquo;</p>
 
-<p>I know, I know &#8230; my explanation is crap: blame my laziness :)</p>
+<p>I know, I know &hellip; my explanation is crap: blame my laziness :)</p>
 </div>
 
 </article>
@@ -137,8 +123,6 @@ ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old &hellip;">
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

@@ -7,8 +7,8 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Mount Reiserfs Well&#8230; I was gettin crazy with this so I decided to share the knowledge.
-I decided to add two new SATA hard drive to my friend&# &hellip;">
+	<meta name="description" content="Mount Reiserfs Well&hellip; I was gettin crazy with this so I decided to share the knowledge.
+I decided to add two new SATA hard drive to my friend& &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,33 +82,19 @@ I decided to add two new SATA hard drive to my friend&# &hellip;">
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">Mount Reiserfs</h1>
-	<div class="entry-content" itemprop="articleBody"><p>Well&#8230; I was gettin crazy with this so I decided to share the knowledge.<br/>
-I decided to add two new SATA hard drive to my friend&#8217;s pc and configure a raid system.<br/>
+	<div class="entry-content" itemprop="articleBody"><p>Well&hellip; I was gettin crazy with this so I decided to share the knowledge.<br/>
+I decided to add two new SATA hard drive to my friend&rsquo;s pc and configure a raid system.<br/>
 After creating the RAID via YaST I cant mount that via fstab to allow normal users read and write on that.<br/>
-Well, I was searchin a solution about options to add in fstab but that wasn&#8217;t the right way. To do that just change permissions on the mounted drive and reiserfs will remeber that&#8230; EASY AS FUCK!</p>
+Well, I was searchin a solution about options to add in fstab but that wasn&rsquo;t the right way. To do that just change permissions on the mounted drive and reiserfs will remeber that&hellip; EASY AS FUCK!</p>
 
 <p>summary:<br/>
-in /etc/fstab &#8212;><br/>
+in /etc/fstab &mdash;&ndash;><br/>
 /dev/md0   /media/300gb  reiserfs  auto,users,user_xattr,exec  1 2<br/>
-&lt;&#8212;</p>
+&lt;&mdash;&ndash;</p>
 
 <p>777 permissions on mounted /media/300gb</p>
 
@@ -123,8 +109,6 @@ Antonio</p>
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

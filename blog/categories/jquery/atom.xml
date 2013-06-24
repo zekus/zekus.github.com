@@ -4,7 +4,7 @@
   <title><![CDATA[Category: jQuery | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/jquery/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -18,7 +18,7 @@
     <link href="http://zekus.github.io/blog/2007/07/16/validation-easy-with-jquery-and-validationaide/"/>
     <updated>2007-07-16T17:04:44+02:00</updated>
     <id>http://zekus.github.io/blog/2007/07/16/validation-easy-with-jquery-and-validationaide</id>
-    <content type="html"><![CDATA[<p>These days I had to quickly implement some tedious forms for a friend and I needed a quick way to validati them with jQuery so ... I've found this useful library: <a href="http://dnaide.blogspot.com/2007/05/validationaide-easy-as-client-side-form.html">validationAide</a></p>
+    <content type="html"><![CDATA[<p>These days I had to quickly implement some tedious forms for a friend and I needed a quick way to validati them with jQuery so &hellip; I&rsquo;ve found this useful library: <a href="http://dnaide.blogspot.com/2007/05/validationaide-easy-as-client-side-form.html">validationAide</a></p>
 
 <p>Give it a try!</p>
 ]]></content>

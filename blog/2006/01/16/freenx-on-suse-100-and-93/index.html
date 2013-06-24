@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="FreeNX on SuSE 10.0 and 9.3 Well&#8230; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro. &hellip;">
+	<meta name="description" content="FreeNX on SuSE 10.0 and 9.3 Well&hellip; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro. &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,37 +81,23 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">FreeNX on SuSE 10.0 and 9.3</h1>
-	<div class="entry-content" itemprop="articleBody"><p>Well&#8230; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro.</p>
+	<div class="entry-content" itemprop="articleBody"><p>Well&hellip; FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro.</p>
 
 <p>Just open YaST and search for freenx and select all related packets.</p>
 
-<p>Do you think it&#8217;s enoght? the answer that you are waitin for it&#8217;s NO :D</p>
+<p>Do you think it&rsquo;s enoght? the answer that you are waitin for it&rsquo;s NO :D</p>
 
-<p><a href="http://madpenguin.org/cms/index.php/?m=show&amp;id=5755&amp;page=1">I put here a link of a well done tutorial on MadPenguin.org</a> ( cause, you know, I&#8217;m lazy :P )</p>
+<p><a href="http://madpenguin.org/cms/index.php/?m=show&amp;id=5755&amp;page=1">I put here a link of a well done tutorial on MadPenguin.org</a> ( cause, you know, I&rsquo;m lazy :P )</p>
 
 <p>And for you that dont understand why you cant still connect after this tutorial, here is the troubleshoot:</p>
 
 <p>Error message Server not installed or NX access disabled</p>
 
-<p>If you see the following error message it means that the nx user&#8217;s public key was not accepted.:</p>
+<p>If you see the following error message it means that the nx user&rsquo;s public key was not accepted.:</p>
 
 <p>NX> 203 NXSSH running with pid: 6721<br/>
 NX> 285 Enabling check on switch command<br/>
@@ -122,7 +108,7 @@ NX> 208 Using auth method: publickey<br/>
 NX> 204 Authentication failed.<br/>
 This can be caused by a couple of things.</p>
 
-<p>the nx user&#8217;s authorized key file /var/lib/nxserver/home/.ssh/authorized_keys2 is incorectly named. All versions of ssh that I have seen on Ubuntu, Fedora, Redhat/Centos and OFCOURSE suse are configured to look for an authoized key file names .ssh/authorized_keys not .ssh/authorized_keys2. You can rename the authorized_keys file but it might be better to reconfigure sshd_config because the nxserver &#8211;stop command renames the .ssh/authorized_keys2 to .ssh/authorized_keys2.disabled to prevent access via an nxclient <br/>
+<p>the nx user&rsquo;s authorized key file /var/lib/nxserver/home/.ssh/authorized_keys2 is incorectly named. All versions of ssh that I have seen on Ubuntu, Fedora, Redhat/Centos and OFCOURSE suse are configured to look for an authoized key file names .ssh/authorized_keys not .ssh/authorized_keys2. You can rename the authorized_keys file but it might be better to reconfigure sshd_config because the nxserver &mdash;stop command renames the .ssh/authorized_keys2 to .ssh/authorized_keys2.disabled to prevent access via an nxclient <br/>
 sshd is not running or is incorrectly configured. At minimum you need PubkeyAuthentication yes in the sshd_config file <br/>
 The server and client public keys might be different. At install the server and client use a default key which should be changed. You can open /var/lib/nxserver/home/.ssh/authorized_keys and compare its contents to the key stored in the client by: <br/>
 Open the client tool <br/>
@@ -142,8 +128,6 @@ Ensure that the key matches the key found in /var/lib/nxserver/home/.ssh/authori
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

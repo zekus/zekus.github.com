@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="NTFS HowTO Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&#8217;s &hellip;">
+	<meta name="description" content="NTFS HowTO Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&rsquo;s &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,26 +81,12 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">NTFS HowTO</h1>
-	<div class="entry-content" itemprop="articleBody"><p>Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&#8217;s easy to configure it with YaST -> patition &#8230; and &#8230; you find a bad surprise: IT DOESN&#8217;T WORK !!!!<br/>
-Don&#8217;t disperate babe, you always have the command line ;) and my instructions!!!</p>
+	<div class="entry-content" itemprop="articleBody"><p>Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it&rsquo;s easy to configure it with YaST &ndash;> patition &hellip; and &hellip; you find a bad surprise: IT DOESN&rsquo;T WORK !!!!<br/>
+Don&rsquo;t disperate babe, you always have the command line ;) and my instructions!!!</p>
 
 <p>Open a shell and insert following commands:</p>
 
@@ -112,15 +98,15 @@ vim /etc/fstab</p></blockquote>
 
 <blockquote><p>/dev/hda1  /wherever/ntfs  ntfs  ro,users,gid=users,umask=0002,nls=utf8  0  0</p></blockquote>
 
-<p>where &#8220;/dev/hda1&#8221; could be different according to your ntfs partition. Ex. &#8220;/dev/sda1&#8221; for USB disks.</p>
+<p>where &ldquo;/dev/hda1&rdquo; could be different according to your ntfs partition. Ex. &ldquo;/dev/sda1&rdquo; for USB disks.</p>
 
-<p>If yours it&#8217;s an external HD write this:</p>
+<p>If yours it&rsquo;s an external HD write this:</p>
 
 <blockquote><p>/dev/sdb1 /wherever/ntfs subfs ro,users,uid=1000,gid=100,umask=0002,nls=utf8 0 0</p></blockquote>
 
-<p>where &#8220;/dev/sdb1&#8221; could be different on your system and uid/gid too. To verify uid/gid just type &#8220;id&#8221; in a shell and find your user.</p>
+<p>where &ldquo;/dev/sdb1&rdquo; could be different on your system and uid/gid too. To verify uid/gid just type &ldquo;id&rdquo; in a shell and find your user.</p>
 
-<p>That&#8217;s all folks!! Now you can mount your partition using &#8220;mount /dev/hda1&#8221;!!</p>
+<p>That&rsquo;s all folks!! Now you can mount your partition using &ldquo;mount /dev/hda1&rdquo;!!</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 </div>
@@ -130,8 +116,6 @@ vim /etc/fstab</p></blockquote>
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

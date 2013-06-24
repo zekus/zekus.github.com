@@ -4,7 +4,7 @@
   <title><![CDATA[antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -20,7 +20,7 @@
     <id>http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id>
     <content type="html"><![CDATA[<p>Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset.
 First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
-Second thing was that libxslt was not getting compiled because it could not find an &#8220;acceptable grep&#8221;! Go figure! After many trials and unfruitful google
+Second thing was that libxslt was not getting compiled because it could not find an &ldquo;acceptable grep&rdquo;! Go figure! After many trials and unfruitful google
 searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
 It turned out that I was correct and the problem was related to my <em>GREP_OPTIONS</em>. I had the following in my .zshrc</p>
 
@@ -51,12 +51,12 @@ It turned out that I was correct and the problem was related to my <em>GREP_OPTI
     <link href="http://zekus.github.io/blog/2012/06/24/moving-to-octopress/"/>
     <updated>2012-06-24T23:43:00+02:00</updated>
     <id>http://zekus.github.io/blog/2012/06/24/moving-to-octopress</id>
-    <content type="html"><![CDATA[<p>I&#8217;ve been delaying this migrations for ages now but here we are, it finally happened:
-I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git&#8230; that&#8217;s too many emotions for one single day :P</p>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been delaying this migrations for ages now but here we are, it finally happened:
+I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git&hellip; that&rsquo;s too many emotions for one single day :P</p>
 
 <h3>So, how did I do it?</h3>
 
-<p>There are tons of tutorials already on the net that explain very well how to migrate from Wordpress to Octopress so I&#8217;m not going to explain here all the details but make just a quick summary even for myself as a note:</p>
+<p>There are tons of tutorials already on the net that explain very well how to migrate from Wordpress to Octopress so I&rsquo;m not going to explain here all the details but make just a quick summary even for myself as a note:</p>
 
 <ul>
 <li>Download, install and follow the instructions of <a href="https://github.com/thomasf/exitwp">exitwp</a></li>
@@ -70,7 +70,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 
 
 <ul>
-<li>If you have been using Disqus on Wordpress before moving to Octopress, for some reason <em>exitwp</em> doesn&#8217;t add the <em>comments: true</em> parameter in the posts so use this sed command to fix it:</li>
+<li>If you have been using Disqus on Wordpress before moving to Octopress, for some reason <em>exitwp</em> doesn&rsquo;t add the <em>comments: true</em> parameter in the posts so use this sed command to fix it:</li>
 </ul>
 
 
@@ -84,11 +84,11 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 
 
 <ul>
-<li>Octopress posts url is different from the Wordpress one so you&#8217;re going to have to remap the Disqus comments using their <a href="http://help.disqus.com/customer/portal/articles/286778-using-the-migration-tools">migration tool</a> and a bit of patience</li>
+<li>Octopress posts url is different from the Wordpress one so you&rsquo;re going to have to remap the Disqus comments using their <a href="http://help.disqus.com/customer/portal/articles/286778-using-the-migration-tools">migration tool</a> and a bit of patience</li>
 </ul>
 
 
-<p>The next step will be playing with the theme to make it more &#8220;personal&#8221; :)</p>
+<p>The next step will be playing with the theme to make it more &ldquo;personal&rdquo; :)</p>
 ]]></content>
   </entry>
   
@@ -97,7 +97,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
     <updated>2012-05-23T16:57:38+02:00</updated>
     <id>http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
-    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&#8217;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&#8217;s a bloody mess! </rant></p>
+    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&rsquo;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&rsquo;s a bloody mess! </rant></p>
 
 <p>So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:</p>
 
@@ -198,7 +198,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
     <updated>2012-02-18T15:32:41+01:00</updated>
     <id>http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
-    <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it&#8217;s time to upgrade! The first try gave me this error:</p>
+    <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it&rsquo;s time to upgrade! The first try gave me this error:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -208,7 +208,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 </span><span class='line'>There has been an error while running configure. Halting the installation.</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Adding the compiler option &#8220;&#8211;with-gcc=clang&#8221; worked:</p>
+<p>Adding the compiler option &ldquo;&mdash;with-gcc=clang&rdquo; worked:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -248,7 +248,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
     <updated>2011-05-09T00:11:25+02:00</updated>
     <id>http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx</id>
-    <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&#8217;ll show you how to do it:</p>
+    <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&rsquo;ll show you how to do it:</p>
 
 <p>create /etc/rc.local and copy/paste the following three lines in it:</p>
 
@@ -330,7 +330,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 
 <p>enjoy ;)</p>
 
-<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &#8220;connect when computer starts&#8221; functionality that automatically makes this post obsolete. I&#8217;ll just keep it for the records :)</p>
+<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &ldquo;connect when computer starts&rdquo; functionality that automatically makes this post obsolete. I&rsquo;ll just keep it for the records :)</p>
 ]]></content>
   </entry>
   
@@ -339,7 +339,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
     <updated>2011-01-04T11:35:52+01:00</updated>
     <id>http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
-    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &#8221;<sup>/(?!admin)&#8221;</sup> but that doesnt work. Neither work a rule like !&#8221;<sup>/admin&#8221;</sup> so here is a workaround:</p>
+    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -376,7 +376,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
     <updated>2010-12-07T13:16:56+01:00</updated>
     <id>http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
-    <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command &#8220;+y !</p>
+    <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command &ldquo;+y !</p>
 ]]></content>
   </entry>
   
@@ -385,7 +385,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <link href="http://zekus.github.io/blog/2010/06/21/rails-and-postgresql/"/>
     <updated>2010-06-21T23:17:54+02:00</updated>
     <id>http://zekus.github.io/blog/2010/06/21/rails-and-postgresql</id>
-    <content type="html"><![CDATA[<p>Complaining, screaming, sweating, swearing &#8230;. why it doesnt work &#8230; jeeeeeezzz</p>
+    <content type="html"><![CDATA[<p>Complaining, screaming, sweating, swearing &hellip;. why it doesnt work &hellip; jeeeeeezzz</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:76:in </span></code></pre></td></tr></table></div></figure>
@@ -397,12 +397,12 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 </pre></td><td class='code'><pre><code class=''><span class='line'>gem install activerecord-postgres-adapter</span></code></pre></td></tr></table></div></figure>
 
 
-<p> (no such file to load &#8211; active_record/connection_adapters/postgres_adapter) (RuntimeError)
+<p> (no such file to load &mdash; active_record/connection_adapters/postgres_adapter) (RuntimeError)
 &#8220;`</p>
 
-<p>And then a light &#8230; &#8220;I upgraded postgresql recently!&#8221;</p>
+<p>And then a light &hellip; &ldquo;I upgraded postgresql recently!&rdquo;</p>
 
-<p>Just reinstall the postgres gem and you are done&#8230;</p>
+<p>Just reinstall the postgres gem and you are done&hellip;</p>
 
 <p>What a night!</p>
 ]]></content>
@@ -433,7 +433,7 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
     <updated>2010-05-11T00:47:53+02:00</updated>
     <id>http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
     <content type="html"><![CDATA[<p>I have been using the dotdeb repository on karmic for a while, but today, when I installed the new Lucid Lynx, it just became a mess so I decided to keep all the original ubuntu packages (Lucid ships php 5.3.2) and find an alternative repo for php-fpm which I use on my dev machine. <br/>
-Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian&#8217;s php5-fpm : Brian Mercer</a></p>
+Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian&rsquo;s php5-fpm : Brian Mercer</a></p>
 
 <p>Happy 10.04! :)</p>
 ]]></content>
@@ -526,8 +526,8 @@ To do that, add the following function into the http section of your nginx confi
     <link href="http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
     <updated>2010-03-19T10:38:30+01:00</updated>
     <id>http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
-    <content type="html"><![CDATA[<p>I hate svn! It&#8217;s official!
-if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don&#8217;t forget the -a option!</p>
+    <content type="html"><![CDATA[<p>I hate svn! It&rsquo;s official!
+if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don&rsquo;t forget the -a option!</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>shell$ dos2unix -a /the/affected/file.php </span></code></pre></td></tr></table></div></figure>
@@ -574,23 +574,23 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
 </pre></td><td class='code'><pre><code class=''><span class='line'>ls -l *.xml</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> -> easy! list the xml files in a folder<br/>
+<p><strong> &ndash;> easy! list the xml files in a folder<br/>
 </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>awk '{print $9}'</span></code></pre></td></tr></table></div></figure>
 
 
-<p><strong> -> output just the name of the file<br/>
+<p><strong> &ndash;> output just the name of the file<br/>
 </strong></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>xargs -t -i mv {} {}.old</span></code></pre></td></tr></table></div></figure>
 
 
-<p>** -> rename it adding at the same filename the extension &#8220;.old&#8221;</p>
+<p>** &ndash;> rename it adding at the same filename the extension &ldquo;.old&rdquo;</p>
 
-<p>I know, I know &#8230; my explanation is crap: blame my laziness :)</p>
+<p>I know, I know &hellip; my explanation is crap: blame my laziness :)</p>
 ]]></content>
   </entry>
   

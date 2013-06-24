@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Perl | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/perl/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -54,7 +54,7 @@ easy?</p>
     <link href="http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references/"/>
     <updated>2008-07-08T19:02:46+02:00</updated>
     <id>http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references</id>
-    <content type="html"><![CDATA[<p>I said not to jump the chapter 4 of the Camel book (the Dromedary one) otherwise you'll not know what @{...} (literally: at plus curly brackets) do!!<br/>
+    <content type="html"><![CDATA[<p>I said not to jump the chapter 4 of the Camel book (the Dromedary one) otherwise you&rsquo;ll not know what @{&hellip;} (literally: at plus curly brackets) do!!<br/>
 As explained in page 252, that expression, dereferenciate an array reference returning the array itself.<br/>
 Remember that arghh..</p>
 

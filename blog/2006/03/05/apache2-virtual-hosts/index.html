@@ -8,7 +8,7 @@
 
 	
 	<meta name="description" content="Apache2 Virtual Hosts Hey guys,
-we&#8217;re going to add a new virtual host in apache2 1) create a new virtual host file in /etc/apache2/sites- &hellip;">
+we&rsquo;re going to add a new virtual host in apache2 1) create a new virtual host file in /etc/apache2/sites- &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,26 +82,12 @@ we&#8217;re going to add a new virtual host in apache2 1) create a new virtual h
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">Apache2 Virtual Hosts</h1>
 	<div class="entry-content" itemprop="articleBody"><p>Hey guys,<br/>
-we&#8217;re going to add a new virtual host in apache2</p>
+we&rsquo;re going to add a new virtual host in apache2</p>
 
 <p>1) create a new virtual host file in /etc/apache2/sites-available</p>
 
@@ -117,21 +103,21 @@ we&#8217;re going to add a new virtual host in apache2</p>
 <pre><code>&lt;br&gt;&lt;/br&gt;&lt;VirtualHost *&gt;&lt;br&gt;&lt;/br&gt;   ServerName rails&lt;br&gt;&lt;/br&gt;   DocumentRoot /var/www/newhost/&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;   &lt;Directory /var/www/newhost/&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;       AllowOverride all&lt;br&gt;&lt;/br&gt;       Order allow,deny&lt;br&gt;&lt;/br&gt;       Allow from all&lt;br&gt;&lt;/br&gt;&lt;br&gt;&lt;/br&gt;   &lt;/Directory&gt;&lt;br&gt;&lt;/br&gt;&lt;/VirtualHost&gt;
 </code></pre>
 
-<p>3) having set up this file, we then need to symlink to it from the sites-enabled directory. Let&#8217;s do that now:</p>
+<p>3) having set up this file, we then need to symlink to it from the sites-enabled directory. Let&rsquo;s do that now:</p>
 
 <p>Code:</p>
 
 <pre><code>&lt;div style="text-align: left;" dir="ltr"&gt;$ cd /etc/apache2/sites-enabled&lt;br&gt;&lt;/br&gt;$ ln -s ../sites-available/newhost newhost&lt;/div&gt;
 </code></pre>
 
-<p>4) In order to get the apache2 server to display this site when you access it, you&#8217;ve got to add this ServerName alias next to 127.0.0.1 in your /etc/hosts file, or your web browser is <em>not</em> going to know where to go when you give it in your address bar. Here&#8217;s the beginning of mine:</p>
+<p>4) In order to get the apache2 server to display this site when you access it, you&rsquo;ve got to add this ServerName alias next to 127.0.0.1 in your /etc/hosts file, or your web browser is <em>not</em> going to know where to go when you give it in your address bar. Here&rsquo;s the beginning of mine:</p>
 
 <p>Code:</p>
 
 <pre><code>&lt;div style="text-align: left;" dir="ltr"&gt;127.0.0.1 newhost etc...&lt;/div&gt;
 </code></pre>
 
-<p>5) Now we&#8217;re pretty well done (so long as I haven&#8217;t left a step out). Restart your apache2 with:</p>
+<p>5) Now we&rsquo;re pretty well done (so long as I haven&rsquo;t left a step out). Restart your apache2 with:</p>
 
 <p>Code:</p>
 
@@ -149,8 +135,6 @@ Antonio</p>
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

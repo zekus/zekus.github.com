@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="D-link Dns Bugs on DSL-G604T and Similar SHIT Well, this is the second bug (the first was ipv6) I&#8217;ve found on this stupid router (like all d- &hellip;">
+	<meta name="description" content="D-link Dns Bugs on DSL-G604T and Similar SHIT Well, this is the second bug (the first was ipv6) I&rsquo;ve found on this stupid router (like all d- &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,29 +81,15 @@
 		<div class="mid-col">
 			
 				
-<div id="banner" class="inner">
-	<div class="container">
-		<ul class="feed"></ul>
-	</div>
-	<small><a href="http://twitter.com/antoniolorusso">antoniolorusso</a> @ <a href="http://twitter.com">Twitter</a></small>
-	<div class="loading">Loading...</div>
-</div>
-<script src="/javascripts/twitter.js"></script>
-<script type="text/javascript">
-	(function($){
-		$('#banner').getTwitterFeed('antoniolorusso', 4, false);
-	})(jQuery);
-</script>
-
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 class="title" itemprop="name">D-link Dns Bugs on DSL-G604T and Similar SHIT</h1>
-	<div class="entry-content" itemprop="articleBody"><p>Well, this is the second bug (the first was ipv6) I&#8217;ve found on this stupid router (like all d-link stuff) that made me crazy&#8230;</p>
+	<div class="entry-content" itemprop="articleBody"><p>Well, this is the second bug (the first was ipv6) I&rsquo;ve found on this stupid router (like all d-link stuff) that made me crazy&hellip;</p>
 
-<p>Some applications are unable to resolve domains (such as wget, lynx and whois in my case) and I didn&#8217;t knew why until I changed the default nameserver (the router address from dhcp) on /etc/resolv.config to the ones gave from my ISP: ALL MAGICALLY WORKS NOW (FUCK!!!)</p>
+<p>Some applications are unable to resolve domains (such as wget, lynx and whois in my case) and I didn&rsquo;t knew why until I changed the default nameserver (the router address from dhcp) on /etc/resolv.config to the ones gave from my ISP: ALL MAGICALLY WORKS NOW (FUCK!!!)</p>
 
-<p>If you don&#8217;t like dhcpcd to change your nameserver settings then either set DHCLIENT_MODIFY_RESOLV_CONF=no in /etc/sysconfig/network/dhcp, or set MODIFY_RESOLV_CONF_DYNAMICALLY=no in /etc/sysconfig/network/config or (manually) use dhcpcd with -R.  If you only want to keep your searchlist, set DHCLIENT_KEEP_SEARCHLIST=yes in /etc/sysconfig/network/dhcp or (manually) use the -K option.</p>
+<p>If you don&rsquo;t like dhcpcd to change your nameserver settings then either set DHCLIENT_MODIFY_RESOLV_CONF=no in /etc/sysconfig/network/dhcp, or set MODIFY_RESOLV_CONF_DYNAMICALLY=no in /etc/sysconfig/network/config or (manually) use dhcpcd with -R.  If you only want to keep your searchlist, set DHCLIENT_KEEP_SEARCHLIST=yes in /etc/sysconfig/network/dhcp or (manually) use the -K option.</p>
 
 <p>see you</p>
 
@@ -117,8 +103,6 @@
 	<div class="share">
 	<div class="addthis_toolbox addthis_default_style ">
 	
-	
-	<a class="addthis_button_tweet"></a>
 	
 	
 	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>

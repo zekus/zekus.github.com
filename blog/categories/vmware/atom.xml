@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vmware | antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/blog/categories/vmware/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-06-25T00:37:39+02:00</updated>
+  <updated>2013-06-25T01:27:00+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -39,7 +39,7 @@ sudo nano /etc/udev/rules.d/70-persistent-net.rules
 </code>
 and change eth1 to eth0 minding to delete the row relative to the previous card (virtual or real) .</p>
 
-<p>That's it!</p>
+<p>That&rsquo;s it!</p>
 ]]></content>
   </entry>
   
@@ -48,7 +48,7 @@ and change eth1 to eth0 minding to delete the row relative to the previous card 
     <link href="http://zekus.github.io/blog/2007/11/15/vmware-mui-interface-error-and-solution/"/>
     <updated>2007-11-15T10:49:11+01:00</updated>
     <id>http://zekus.github.io/blog/2007/11/15/vmware-mui-interface-error-and-solution</id>
-    <content type="html"><![CDATA[<p>After a server reboot, I've had some problem accessing the mui interface on https://localhost:8333. The server vmware.httpd didnt want to start so I checked the /var/log/vmware-mui/error_log and I found the following error:
+    <content type="html"><![CDATA[<p>After a server reboot, I&rsquo;ve had some problem accessing the mui interface on <a href="https://localhost:8333.">https://localhost:8333.</a> The server vmware.httpd didnt want to start so I checked the /var/log/vmware-mui/error_log and I found the following error:
 <code>
 [Thu Nov 15 08:37:46 2007] [error] ModVmdb load: Address of ModVmdb_InitCore: 0xb7c745a0\n
 [Thu Nov 15 08:37:46 2007] [error] Failed to create named-pipe directory:
