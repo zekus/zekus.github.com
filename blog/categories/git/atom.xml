@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: GIT | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/git/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[super-easy Git remote repository ]]></title>
-    <link href="http://zekus.github.com/blog/2009/10/12/super-easy-git-remote-repository/"/>
+    <link href="http://zekus.github.io/blog/2009/10/12/super-easy-git-remote-repository/"/>
     <updated>2009-10-12T23:55:28+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/10/12/super-easy-git-remote-repository</id>
+    <id>http://zekus.github.io/blog/2009/10/12/super-easy-git-remote-repository</id>
     <content type="html"><![CDATA[<h2>1. Creating a remote repository before the local one</h2>
 
 <p><strong>Step 1</strong>: create the folder on the remote server and initialise the empty bare repository
@@ -60,9 +60,9 @@ git push origin master
   
   <entry>
     <title type="html"><![CDATA[the GIT cheatsheet]]></title>
-    <link href="http://zekus.github.com/blog/2009/08/29/the-git-cheatsheet/"/>
+    <link href="http://zekus.github.io/blog/2009/08/29/the-git-cheatsheet/"/>
     <updated>2009-08-29T12:47:21+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/08/29/the-git-cheatsheet</id>
+    <id>http://zekus.github.io/blog/2009/08/29/the-git-cheatsheet</id>
     <content type="html"><![CDATA[<p>Finally the cheatsheet I was waiting for <a href="http://zrusin.blogspot.com/2007/09/git-cheat-sheet.html">available here</a></p>
 
 <p>;)</p>
@@ -71,18 +71,18 @@ git push origin master
   
   <entry>
     <title type="html"><![CDATA[Tech Talk: Linus Torvalds on git]]></title>
-    <link href="http://zekus.github.com/blog/2009/06/22/219/"/>
+    <link href="http://zekus.github.io/blog/2009/06/22/219/"/>
     <updated>2009-06-22T23:20:30+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/06/22/219</id>
+    <id>http://zekus.github.io/blog/2009/06/22/219</id>
     <content type="html"><![CDATA[<p>Git explained by his the creator. I'm more convinced than ever!</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[ignore .DS_Store forever in GIT]]></title>
-    <link href="http://zekus.github.com/blog/2009/03/09/ignore-ds_store-forever-in-git/"/>
+    <link href="http://zekus.github.io/blog/2009/03/09/ignore-ds_store-forever-in-git/"/>
     <updated>2009-03-09T02:26:25+01:00</updated>
-    <id>http://zekus.github.com/blog/2009/03/09/ignore-ds_store-forever-in-git</id>
+    <id>http://zekus.github.io/blog/2009/03/09/ignore-ds_store-forever-in-git</id>
     <content type="html"><![CDATA[<p>With a couple of little commands, you'll be able to ignore the .DS_Store files forever from your git repositories on mac!</p>
 
 <p>The following command will add the .gitignore file to the git configuration

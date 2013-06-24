@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: PHP | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/php/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/php/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[map and grep: from Perl to PHP]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
+    <link href="http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
     <updated>2010-05-17T15:57:29+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
+    <id>http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
     <content type="html"><![CDATA[<p>Probably many of you already know but here is the correspondent in PHP of the two fundamentals Perl functions:<br/>
 <code>
 map =&gt; array_map  
@@ -32,9 +32,9 @@ grep =&gt; array_filter
   
   <entry>
     <title type="html"><![CDATA[PHP-FPM on Ubuntu Lucid Lynx]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
+    <link href="http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
     <updated>2010-05-11T00:47:53+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
+    <id>http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
     <content type="html"><![CDATA[<p>I have been using the dotdeb repository on karmic for a while, but today, when I installed the new Lucid Lynx, it just became a mess so I decided to keep all the original ubuntu packages (Lucid ships php 5.3.2) and find an alternative repo for php-fpm which I use on my dev machine. <br/>
 Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian's php5-fpm : Brian Mercer</a></p>
 
@@ -44,9 +44,9 @@ Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian's 
   
   <entry>
     <title type="html"><![CDATA[Nginx and $_SERVER['HTTPS']]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/22/nginx-and-_serverhttps/"/>
+    <link href="http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps/"/>
     <updated>2010-03-22T17:50:06+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/22/nginx-and-_serverhttps</id>
+    <id>http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps</id>
     <content type="html"><![CDATA[<p>When you are using the FastCGI Php version, you would set HTTPS variable if you are serving parts of you website with SSL.
 To do that, add the following function into the http section of your nginx configuration
 <code>
@@ -68,9 +68,9 @@ fastcgi_param  HTTPS $fastcgi_https;
   
   <entry>
     <title type="html"><![CDATA[upstream sent too big header while reading response header from upstream]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
+    <link href="http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
     <updated>2010-03-10T17:21:46+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
+    <id>http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
     <content type="html"><![CDATA[<p>if you have this error from nginx with php-fpm and output_buffers = On in your php.ini then try to increment the buffer size in nginx:<br/>
 ```</p>
 
@@ -84,9 +84,9 @@ fastcgi_buffer_size 32k;<br/>
   
   <entry>
     <title type="html"><![CDATA[Suhosin and memory_limit]]></title>
-    <link href="http://zekus.github.com/blog/2010/01/18/suhosin-and-memory_limit/"/>
+    <link href="http://zekus.github.io/blog/2010/01/18/suhosin-and-memory_limit/"/>
     <updated>2010-01-18T13:00:29+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/01/18/suhosin-and-memory_limit</id>
+    <id>http://zekus.github.io/blog/2010/01/18/suhosin-and-memory_limit</id>
     <content type="html"><![CDATA[<p>I had some problem with a script that needed more memory to be executed and was using <strong>ini_set('memory_limit', '50M').</strong> For some reasons the memory was not incremented as expected.<br/>
 After googleing around for a solution I just had an intuition: could be <em>suhosin</em>? Indeed, the problem was in the <em>suhosin</em> module that is enable by default on Ubuntu: it does not allow to redefine the memory limit over the limit specified in the php.ini file.<br/>
 To make ini_set work normally under Ubuntu, comment out the <strong>suhosin</strong> extension in <em>/etc/php5/apachew/conf.d/suhosin.ini</em></p>

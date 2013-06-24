@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Mar 13th, 2009 Rails, Ruby Comments Rails &#8230; The Beginning Finally I started a little RoR project with my friend Antonello but we did it in the &hellip;">
+	<meta name="description" content="Mar 22nd, 2009 Rails, Ruby Comments Rails and Passenger ( Aka Mod_rails ) We tried to setup a rails application in a server subfolder in a way that &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://zekus.github.com/blog/page/5/">
+	<link rel="canonical" href="http://zekus.github.io/blog/page/5/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -99,6 +99,67 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-03-22T16:00:44+01:00" data-updated="true" itemprop="datePublished">Mar 22<span>nd</span>, 2009</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2009/03/22/rails-and-passenger-aka-mod_rails/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2009/03/22/rails-and-passenger-aka-mod_rails/" itemprop="url">Rails and Passenger ( Aka Mod_rails )</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.</p>
+
+<p>With a great surprise, that didn&#8217;t worked so we started trying all possible apache configuration combinations to avoid that 404 error that was becoming a nightmare.</p>
+
+<p>After few hours we started doubting about our Apache knowledge and even about our capacity of reading and following a couple of stupid instructions on a website!</p>
+
+<p>We gave up and we started googling around when&#8230; the solution came out from dozens of blogs, forums and newsletters:</p>
+
+<blockquote><p>MOD_RAILS IS NOT COMPATIBLE WITH RAILS 2.2.2 AND ITS NEW ROUTING SYSTEM</p></blockquote>
+
+<p>&#8220;HOLY CRAP&#8221; was our esclamation and I will not mention here all the italian&#8217;s bad words that suddenly came out from our mounth!</p>
+
+<p>So, here the solution: put this line here</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>config.action_controller.relative_url_root = "/guestbook"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>in your environment.rb</p>
+
+<p>Now restart apache and enjoy!</p>
+
+<p>ps. why hadn&#8217;t we changed mod_rails with mongrel or anything different? I don&#8217;t know!!!!</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=737895d3-2f2e-43e4-8cec-477c62acba02" alt="" /></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -572,47 +633,6 @@ Basically, the function that permit you to do that is <strong>grep </strong>used
 
 
 <p>easy?</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-07-08T19:02:46+02:00" data-updated="true" itemprop="datePublished">Jul 8<span>th</span>, 2008</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/perl/'>Perl</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2008/07/08/just-a-note-for-me-perl-references/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2008/07/08/just-a-note-for-me-perl-references/" itemprop="url">Just a Note for Me: Perl References</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>I said not to jump the chapter 4 of the Camel book (the Dromedary one) otherwise you&#8217;ll not know what @{&#8230;} (literally: at plus curly brackets) do!!<br/>
-As explained in page 252, that expression, dereferenciate an array reference returning the array itself.<br/>
-Remember that arghh..</p>
-
-<p>ps. why Perl should be so complicated?</p>
 
 		
 		

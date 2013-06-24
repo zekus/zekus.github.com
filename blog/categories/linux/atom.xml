@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[perl: warning: Setting locale failed.]]></title>
-    <link href="http://zekus.github.com/blog/2012/04/01/409/"/>
+    <link href="http://zekus.github.io/blog/2012/04/01/409/"/>
     <updated>2012-04-01T14:58:51+02:00</updated>
-    <id>http://zekus.github.com/blog/2012/04/01/409</id>
+    <id>http://zekus.github.io/blog/2012/04/01/409</id>
     <content type="html"><![CDATA[<p>Tired of this:
 <code>
 perl: warning: Setting locale failed.
@@ -46,18 +46,18 @@ sudo dpkg-reconfigure locales
   
   <entry>
     <title type="html"><![CDATA[VIM and the clipboard on Ubuntu]]></title>
-    <link href="http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
+    <link href="http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
     <updated>2010-12-07T13:16:56+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
+    <id>http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
     <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command "+y !</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[PHP-FPM on Ubuntu Lucid Lynx]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
+    <link href="http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
     <updated>2010-05-11T00:47:53+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
+    <id>http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
     <content type="html"><![CDATA[<p>I have been using the dotdeb repository on karmic for a while, but today, when I installed the new Lucid Lynx, it just became a mess so I decided to keep all the original ubuntu packages (Lucid ships php 5.3.2) and find an alternative repo for php-fpm which I use on my dev machine. <br/>
 Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian's php5-fpm : Brian Mercer</a></p>
 
@@ -67,9 +67,9 @@ Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian's 
   
   <entry>
     <title type="html"><![CDATA[upstream sent too big header while reading response header from upstream]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
+    <link href="http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
     <updated>2010-03-10T17:21:46+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
+    <id>http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
     <content type="html"><![CDATA[<p>if you have this error from nginx with php-fpm and output_buffers = On in your php.ini then try to increment the buffer size in nginx:<br/>
 ```</p>
 
@@ -83,9 +83,9 @@ fastcgi_buffer_size 32k;<br/>
   
   <entry>
     <title type="html"><![CDATA[disable Pure-ftpd logging on syslog]]></title>
-    <link href="http://zekus.github.com/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/"/>
+    <link href="http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/"/>
     <updated>2010-02-06T14:33:04+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog</id>
+    <id>http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog</id>
     <content type="html"><![CDATA[<p>Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.</p>
 
 <p>According to the pure-ftpd documentation, you should start the daemon already with the options you need. The default Ubuntu installation, use the files in /etc/pure-ftpd/conf/ to set the options for the startup script of pure-ftpd so, to disable the logging, execute the following command in your shell and restart the daemon

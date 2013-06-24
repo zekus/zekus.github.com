@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Javascript | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/javascript/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Website Optimiser and the bugged Techie Guide]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
+    <link href="http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
     <updated>2010-03-31T10:00:21+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
+    <id>http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
     <content type="html"><![CDATA[<p>I spent hours yesterday to implement the GWO that, instead, should take literally minutes!<br/>
 You want to know why? The bugged <a href="http://www.google.com/en//websiteoptimizer/techieguide.pdf">Techie Guide</a>!!!</p>
 
@@ -58,9 +58,9 @@ Buy Now</a>
   
   <entry>
     <title type="html"><![CDATA[validation easy with jQuery and ValidationAide]]></title>
-    <link href="http://zekus.github.com/blog/2007/07/16/validation-easy-with-jquery-and-validationaide/"/>
+    <link href="http://zekus.github.io/blog/2007/07/16/validation-easy-with-jquery-and-validationaide/"/>
     <updated>2007-07-16T17:04:44+02:00</updated>
-    <id>http://zekus.github.com/blog/2007/07/16/validation-easy-with-jquery-and-validationaide</id>
+    <id>http://zekus.github.io/blog/2007/07/16/validation-easy-with-jquery-and-validationaide</id>
     <content type="html"><![CDATA[<p>These days I had to quickly implement some tedious forms for a friend and I needed a quick way to validati them with jQuery so ... I've found this useful library: <a href="http://dnaide.blogspot.com/2007/05/validationaide-easy-as-client-side-form.html">validationAide</a></p>
 
 <p>Give it a try!</p>

@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Apr 29th, 2013 others Comments Long Time No See I’ve finally had the time and the strength to get back to my old blog and give it a new look. I feel &hellip;">
+	<meta name="description" content="Jun 24th, 2013 libxml2, nokogiri, rails, ruby Comments Nokogiri Again, but Not Its Fault This Time Today it was a total waste of time as I was &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://zekus.github.com/">
+	<link rel="canonical" href="http://zekus.github.io/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -99,6 +99,54 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-24T19:38:00+02:00" data-updated="true" itemprop="datePublished">Jun 24<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/libxml2/'>libxml2</a>, <a class='category' href='/blog/categories/nokogiri/'>nokogiri</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time/" itemprop="url">Nokogiri Again, but Not Its Fault This Time</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset.
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an &#8220;acceptable grep&#8221;! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my <em>GREP_OPTIONS</em>. I had the following in my .zshrc</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s2">&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and, after removing the <em>-nR</em> options, I was finally able to install nokogiri correctly.</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -679,43 +727,6 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 
 
 <p>This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-12-07T13:16:56+01:00" data-updated="true" itemprop="datePublished">Dec 7<span>th</span>, 2010</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>, <a class='category' href='/blog/categories/shell/'>shell</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/" itemprop="url">VIM and the Clipboard on Ubuntu</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command &#8220;+y !</p>
 
 		
 		

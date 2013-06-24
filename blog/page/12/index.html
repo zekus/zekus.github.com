@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Mar 2nd, 2005 Linux Comments Strange SU Wrong Password Haven&#8217;t told you that I&#8217;ve installed the brand-new SuSE 9.2 on my laptop and It &hellip;">
+	<meta name="description" content="Mar 18th, 2005 Linux Comments Apache2 Settings after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://zekus.github.com/blog/page/12/">
+	<link rel="canonical" href="http://zekus.github.io/blog/page/12/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -99,6 +99,53 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-18T02:50:00+01:00" data-updated="true" itemprop="datePublished">Mar 18<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/03/18/apache2-settings/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/03/18/apache2-settings/" itemprop="url">Apache2 Settings</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add following two lines on bottom to make UserDir and Alias work:<br/>
+Include /etc/apache2/mod_userdir.conf<br/>
+Include /etc/apache2/conf.d/*<br/>
+UserDir permit you to use /home//public_html directory as server directories and make users publish their own files.<br/>
+Alias permit to use any directory on you server for publish contents.<br/>
+For more infos, consult apache documentation or contact me!</p>
+
+<p>bye<br/>
+antonio</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -534,55 +581,6 @@
 <p>feel free to modify it to match your needs.</p>
 
 <p>bye</p>
-
-<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2004-09-11T20:04:00+02:00" data-updated="true" itemprop="datePublished">Sep 11<span>th</span>, 2004</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2004/09/11/bluetooth-and-suse-91/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2004/09/11/bluetooth-and-suse-91/" itemprop="url">Bluetooth and SuSE 9.1</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>It costed to me a lot of work, but finally I got IT!</p>
-
-<p>My bluetooth phone work and I can browse it.</p>
-
-<p>First of all, connect your bluetooth.usb.key directly on usb port without using hubs or will not work (dont know why but I&#8217;ll solve it in future).</p>
-
-<p>UPDATE the deafault kdebluetooth installed with your suse wit this one <a href="ftp://ftp.suse.com/pub/suse/i386/supplementary/KDE/update_for_9.1/applications/.link/kdebluetooth.rpm">kdebluetooth</a></p>
-
-<p>because it lacks a lot of necessary files you need for make it work.</p>
-
-<p>After that, start kbluetoothd and you&#8217;ll have an icon in system proces pannel click on it and it will show u the services disposable on your phone. that&#8217;s all (well &#8230; there are a lot of things to learn so read here: <a href="http://kde-bluetooth.sourceforge.net/">kde-bluetooth.sourceforge.net</a>)!</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: SVN | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/svn/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/svn/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[svn: Inconsistent line ending style]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
+    <link href="http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
     <updated>2010-03-19T10:38:30+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
+    <id>http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
     <content type="html"><![CDATA[<p>I hate svn! It's official!
 if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don't forget the -a option!
 <code>
@@ -30,9 +30,9 @@ shell$ dos2unix -a /the/affected/file.php
   
   <entry>
     <title type="html"><![CDATA[svn revert cleanup]]></title>
-    <link href="http://zekus.github.com/blog/2009/06/26/svn-revert-cleanup/"/>
+    <link href="http://zekus.github.io/blog/2009/06/26/svn-revert-cleanup/"/>
     <updated>2009-06-26T13:17:27+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/06/26/svn-revert-cleanup</id>
+    <id>http://zekus.github.io/blog/2009/06/26/svn-revert-cleanup</id>
     <content type="html"><![CDATA[<p>You have reverted an svn merge and you have a lot of files not tracked (with exclamation mark, basically)?<br/>
 Clean it up:<br/>
 <code>
@@ -45,9 +45,9 @@ svn status | awk '$1 == "?" {print $2}' | xargs -t -i rm -r {}
   
   <entry>
     <title type="html"><![CDATA[the correct procedure for compiling subversion 1.6.2]]></title>
-    <link href="http://zekus.github.com/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2/"/>
+    <link href="http://zekus.github.io/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2/"/>
     <updated>2009-06-22T10:44:35+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2</id>
+    <id>http://zekus.github.io/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2</id>
     <content type="html"><![CDATA[<p>Not sure if this is the complete way of doing it (I'm not telling you which .deb to install), but it worked for me:</p>
 
 <p>Remove some waste from eventual previous compilations:<br/>
@@ -80,9 +80,9 @@ $ sudo make install<br/>
   
   <entry>
     <title type="html"><![CDATA[svn: Entry has unexpectedly changed special status]]></title>
-    <link href="http://zekus.github.com/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status/"/>
+    <link href="http://zekus.github.io/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status/"/>
     <updated>2008-09-29T19:38:51+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status</id>
+    <id>http://zekus.github.io/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status</id>
     <content type="html"><![CDATA[<p>If you have this error after tryin a commit, for sure you have replaced a standard file with a symlink or viceversa, haven't you?</p>
 
 <p>In that case, what you have to do is just <strong>svn add <the resource changed></strong> and svn will replace the file with the new one!</p>
@@ -104,9 +104,9 @@ $ sudo make install<br/>
   
   <entry>
     <title type="html"><![CDATA[quick solution to "svn: Checksum mismatch ..."]]></title>
-    <link href="http://zekus.github.com/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
+    <link href="http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
     <updated>2008-06-11T17:20:30+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
+    <id>http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
     <content type="html"><![CDATA[<p>If this error afflict your quiet development day, I'm sorry :D
 I had this problem today and I solved in few steps:</p>
 

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: others | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/others/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/others/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[long time no see]]></title>
-    <link href="http://zekus.github.com/blog/2013/04/29/long-time-no-see/"/>
+    <link href="http://zekus.github.io/blog/2013/04/29/long-time-no-see/"/>
     <updated>2013-04-29T11:51:00+02:00</updated>
-    <id>http://zekus.github.com/blog/2013/04/29/long-time-no-see</id>
+    <id>http://zekus.github.io/blog/2013/04/29/long-time-no-see</id>
     <content type="html"><![CDATA[<p>I’ve finally had the time and the strength to get back to my old blog and give it a new look.</p>
 
 <p>I feel guilty about having abandoned it for long time :(</p>

@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Sep 7th, 2004 Linux Comments Tips Installing Software on SuSE 9.1 To install RPM files with Yast from command line, type this : yast -i &lt;\ &hellip;">
+	<meta name="description" content="Sep 11th, 2004 Linux Comments Bluetooth and SuSE 9.1 It costed to me a lot of work, but finally I got IT! My bluetooth phone work and I can browse &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://zekus.github.com/blog/page/13/">
+	<link rel="canonical" href="http://zekus.github.io/blog/page/13/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -99,6 +99,55 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2004-09-11T20:04:00+02:00" data-updated="true" itemprop="datePublished">Sep 11<span>th</span>, 2004</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2004/09/11/bluetooth-and-suse-91/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2004/09/11/bluetooth-and-suse-91/" itemprop="url">Bluetooth and SuSE 9.1</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>It costed to me a lot of work, but finally I got IT!</p>
+
+<p>My bluetooth phone work and I can browse it.</p>
+
+<p>First of all, connect your bluetooth.usb.key directly on usb port without using hubs or will not work (dont know why but I&#8217;ll solve it in future).</p>
+
+<p>UPDATE the deafault kdebluetooth installed with your suse wit this one <a href="ftp://ftp.suse.com/pub/suse/i386/supplementary/KDE/update_for_9.1/applications/.link/kdebluetooth.rpm">kdebluetooth</a></p>
+
+<p>because it lacks a lot of necessary files you need for make it work.</p>
+
+<p>After that, start kbluetoothd and you&#8217;ll have an icon in system proces pannel click on it and it will show u the services disposable on your phone. that&#8217;s all (well &#8230; there are a lot of things to learn so read here: <a href="http://kde-bluetooth.sourceforge.net/">kde-bluetooth.sourceforge.net</a>)!</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -580,81 +629,6 @@ install rpm with YaST as usual and unpack the last package cause this is the gui
 <p>see ya</p>
 
 <p>antonio</p>
-
-<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2004-08-07T21:13:00+02:00" data-updated="true" itemprop="datePublished">Aug 7<span>th</span>, 2004</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2004/08/07/installing-firefox-093-on-suse/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2004/08/07/installing-firefox-093-on-suse/" itemprop="url">Installing Firefox 0.9.3 on Suse</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>First of all I need my dear web browser mozilla Firefox so I download the official version from <a href="http://www.mozilla.org/firefox/">mozilla project</a> and the language pack from <a href="http://www.mozillaitalia.org/">italian mozilla project.</a></p>
-
-<p>After downloading I switch to root, decompress the file in /opt/firefox/ and doublecliccked on installer.</p>
-
-<p>OK all seam allright&#8230; now I have to click on firefox and &#8230; It doesn&#8217;t work! SIGH!! =&#8217;[</p>
-
-<p>well &#8230; I can do it! I launch firefox from shell so I can see messages and resolve the problem:</p>
-
-<p>Xlib:connection to &#8220;:0.0&#8221; refused by server</p>
-
-<p>Xlib:XDM authorization key matches an existing client!</p>
-
-<p>(firefox-bin:13607):Gtk-WARNING ** cannot open display</p>
-
-<p>AAAAAAAAAAAAAHHHHHHHHHHHHH!!!</p>
-
-<p>what should I do now?</p>
-
-<p>let&#8217;s do a google search and&#8230; bingo! here the solution!</p>
-
-<p>I switch back to user and open a shell where I write:</p>
-
-<p>su -m</p>
-
-<p>password:</p>
-
-<p>xhost + (switch off X authorization)</p>
-
-<p>/opt/firefox/firefox-installer/firefox</p>
-
-<p>et voilà! les jeux sont fait! (dont write this line on shell =D)</p>
-
-<p>xhost - (switch on X authorization)</p>
-
-<p>next operations: language pack and flash player!</p>
-
-<p>gotta go! bye&#8230;</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 

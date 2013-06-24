@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -14,10 +14,30 @@
 
   
   <entry>
+    <title type="html"><![CDATA[nokogiri again, but not its fault this time]]></title>
+    <link href="http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time/"/>
+    <updated>2013-06-24T19:38:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id>
+    <content type="html"><![CDATA[<p>Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset.
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an &#8220;acceptable grep&#8221;! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my <em>GREP_OPTIONS</em>. I had the following in my .zshrc</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s2">&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and, after removing the <em>-nR</em> options, I was finally able to install nokogiri correctly.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[long time no see]]></title>
-    <link href="http://zekus.github.com/blog/2013/04/29/long-time-no-see/"/>
+    <link href="http://zekus.github.io/blog/2013/04/29/long-time-no-see/"/>
     <updated>2013-04-29T11:51:00+02:00</updated>
-    <id>http://zekus.github.com/blog/2013/04/29/long-time-no-see</id>
+    <id>http://zekus.github.io/blog/2013/04/29/long-time-no-see</id>
     <content type="html"><![CDATA[<p>I’ve finally had the time and the strength to get back to my old blog and give it a new look.</p>
 
 <p>I feel guilty about having abandoned it for long time :(</p>
@@ -28,9 +48,9 @@
   
   <entry>
     <title type="html"><![CDATA[moving to Octopress]]></title>
-    <link href="http://zekus.github.com/blog/2012/06/24/moving-to-octopress/"/>
+    <link href="http://zekus.github.io/blog/2012/06/24/moving-to-octopress/"/>
     <updated>2012-06-24T23:43:00+02:00</updated>
-    <id>http://zekus.github.com/blog/2012/06/24/moving-to-octopress</id>
+    <id>http://zekus.github.io/blog/2012/06/24/moving-to-octopress</id>
     <content type="html"><![CDATA[<p>I&#8217;ve been delaying this migrations for ages now but here we are, it finally happened:
 I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git&#8230; that&#8217;s too many emotions for one single day :P</p>
 
@@ -74,9 +94,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[mod_rpaf and ubuntu 12.04]]></title>
-    <link href="http://zekus.github.com/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
+    <link href="http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
     <updated>2012-05-23T16:57:38+02:00</updated>
-    <id>http://zekus.github.com/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
+    <id>http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
     <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&#8217;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&#8217;s a bloody mess! </rant></p>
 
 <p>So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:</p>
@@ -115,9 +135,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[send headers with Selenium and PHPUnit?]]></title>
-    <link href="http://zekus.github.com/blog/2012/05/02/send-headers-with-selenium-and-phpunit/"/>
+    <link href="http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit/"/>
     <updated>2012-05-02T22:37:09+02:00</updated>
-    <id>http://zekus.github.com/blog/2012/05/02/send-headers-with-selenium-and-phpunit</id>
+    <id>http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit</id>
     <content type="html"><![CDATA[<p>Just dont waste your life and use curl if you need to do that.</p>
 
 <p>I know, this is a useless post but I just wasted a huge amount of time trying to find a solution and I feel like giving this advice to someone.</p>
@@ -128,9 +148,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[perl: warning: Setting locale failed.]]></title>
-    <link href="http://zekus.github.com/blog/2012/04/01/409/"/>
+    <link href="http://zekus.github.io/blog/2012/04/01/409/"/>
     <updated>2012-04-01T14:58:51+02:00</updated>
-    <id>http://zekus.github.com/blog/2012/04/01/409</id>
+    <id>http://zekus.github.io/blog/2012/04/01/409</id>
     <content type="html"><![CDATA[<p>Tired of this:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -175,9 +195,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[Ruby 1.9.3-p125 and RVM on Mac]]></title>
-    <link href="http://zekus.github.com/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
+    <link href="http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
     <updated>2012-02-18T15:32:41+01:00</updated>
-    <id>http://zekus.github.com/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
+    <id>http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
     <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it&#8217;s time to upgrade! The first try gave me this error:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -202,9 +222,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[Nokogiri, RVM, Homebrew and headhache!!!]]></title>
-    <link href="http://zekus.github.com/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache/"/>
+    <link href="http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache/"/>
     <updated>2011-06-11T14:32:48+02:00</updated>
-    <id>http://zekus.github.com/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id>
+    <id>http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id>
     <content type="html"><![CDATA[<p>Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</p>
 
 <div><script src='https://gist.github.com/1020543.js'></script>
@@ -225,9 +245,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[OpenVPN at startup in OSX]]></title>
-    <link href="http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
+    <link href="http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
     <updated>2011-05-09T00:11:25+02:00</updated>
-    <id>http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx</id>
+    <id>http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx</id>
     <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&#8217;ll show you how to do it:</p>
 
 <p>create /etc/rc.local and copy/paste the following three lines in it:</p>
@@ -316,9 +336,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[Exclude files and directories from Apache Auth]]></title>
-    <link href="http://zekus.github.com/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
+    <link href="http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
     <updated>2011-01-04T11:35:52+01:00</updated>
-    <id>http://zekus.github.com/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
+    <id>http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
     <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &#8221;<sup>/(?!admin)&#8221;</sup> but that doesnt work. Neither work a rule like !&#8221;<sup>/admin&#8221;</sup> so here is a workaround:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -353,18 +373,18 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[VIM and the clipboard on Ubuntu]]></title>
-    <link href="http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
+    <link href="http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
     <updated>2010-12-07T13:16:56+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
+    <id>http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
     <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command &#8220;+y !</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails and PostgreSQL]]></title>
-    <link href="http://zekus.github.com/blog/2010/06/21/rails-and-postgresql/"/>
+    <link href="http://zekus.github.io/blog/2010/06/21/rails-and-postgresql/"/>
     <updated>2010-06-21T23:17:54+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/06/21/rails-and-postgresql</id>
+    <id>http://zekus.github.io/blog/2010/06/21/rails-and-postgresql</id>
     <content type="html"><![CDATA[<p>Complaining, screaming, sweating, swearing &#8230;. why it doesnt work &#8230; jeeeeeezzz</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -390,9 +410,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[map and grep: from Perl to PHP]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
+    <link href="http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
     <updated>2010-05-17T15:57:29+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
+    <id>http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
     <content type="html"><![CDATA[<p>Probably many of you already know but here is the correspondent in PHP of the two fundamentals Perl functions:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -409,9 +429,9 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
   
   <entry>
     <title type="html"><![CDATA[PHP-FPM on Ubuntu Lucid Lynx]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
+    <link href="http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
     <updated>2010-05-11T00:47:53+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
+    <id>http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
     <content type="html"><![CDATA[<p>I have been using the dotdeb repository on karmic for a while, but today, when I installed the new Lucid Lynx, it just became a mess so I decided to keep all the original ubuntu packages (Lucid ships php 5.3.2) and find an alternative repo for php-fpm which I use on my dev machine. <br/>
 Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian&#8217;s php5-fpm : Brian Mercer</a></p>
 
@@ -421,9 +441,9 @@ Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian&#8
   
   <entry>
     <title type="html"><![CDATA[Google Website Optimiser and the bugged Techie Guide]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
+    <link href="http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
     <updated>2010-03-31T10:00:21+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
+    <id>http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
     <content type="html"><![CDATA[<p>I spent hours yesterday to implement the GWO that, instead, should take literally minutes!<br/>
 You want to know why? The bugged <a href="http://www.google.com/en//websiteoptimizer/techieguide.pdf">Techie Guide</a>!!!</p>
 
@@ -473,9 +493,9 @@ You want to know why? The bugged <a href="http://www.google.com/en//websiteoptim
   
   <entry>
     <title type="html"><![CDATA[Nginx and $_SERVER['HTTPS']]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/22/nginx-and-_serverhttps/"/>
+    <link href="http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps/"/>
     <updated>2010-03-22T17:50:06+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/22/nginx-and-_serverhttps</id>
+    <id>http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps</id>
     <content type="html"><![CDATA[<p>When you are using the FastCGI Php version, you would set HTTPS variable if you are serving parts of you website with SSL.
 To do that, add the following function into the http section of your nginx configuration</p>
 
@@ -503,9 +523,9 @@ To do that, add the following function into the http section of your nginx confi
   
   <entry>
     <title type="html"><![CDATA[svn: Inconsistent line ending style]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
+    <link href="http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
     <updated>2010-03-19T10:38:30+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
+    <id>http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
     <content type="html"><![CDATA[<p>I hate svn! It&#8217;s official!
 if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don&#8217;t forget the -a option!</p>
 
@@ -519,9 +539,9 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
   
   <entry>
     <title type="html"><![CDATA[upstream sent too big header while reading response header from upstream]]></title>
-    <link href="http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
+    <link href="http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
     <updated>2010-03-10T17:21:46+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
+    <id>http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
     <content type="html"><![CDATA[<p>if you have this error from nginx with php-fpm and output_buffers = On in your php.ini then try to increment the buffer size in nginx:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -538,9 +558,9 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
   
   <entry>
     <title type="html"><![CDATA[BASH: rename files]]></title>
-    <link href="http://zekus.github.com/blog/2010/02/26/bash-rename-files/"/>
+    <link href="http://zekus.github.io/blog/2010/02/26/bash-rename-files/"/>
     <updated>2010-02-26T11:46:38+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/02/26/bash-rename-files</id>
+    <id>http://zekus.github.io/blog/2010/02/26/bash-rename-files</id>
     <content type="html"><![CDATA[<p>A simple rename example using again the mighty awk and xargs</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -576,9 +596,9 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
   
   <entry>
     <title type="html"><![CDATA[disable Pure-ftpd logging on syslog]]></title>
-    <link href="http://zekus.github.com/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/"/>
+    <link href="http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/"/>
     <updated>2010-02-06T14:33:04+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog</id>
+    <id>http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog</id>
     <content type="html"><![CDATA[<p>Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.</p>
 
 <p>According to the pure-ftpd documentation, you should start the daemon already with the options you need. The default Ubuntu installation, use the files in /etc/pure-ftpd/conf/ to set the options for the startup script of pure-ftpd so, to disable the logging, execute the following command in your shell and restart the daemon</p>
@@ -590,29 +610,6 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
 
 
 <p>;)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Firefox 3.6 stable on Karmic]]></title>
-    <link href="http://zekus.github.com/blog/2010/02/02/firefox-3-6-stable-on-karmic/"/>
-    <updated>2010-02-02T18:41:13+01:00</updated>
-    <id>http://zekus.github.com/blog/2010/02/02/firefox-3-6-stable-on-karmic</id>
-    <content type="html"><![CDATA[<p>I&#8217;ll just paste here the usual simple steps to install the latest firefox 3.6 on your ubuntu:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  
-</span><span class='line'>sudo add-apt-repository ppa:mozillateam/firefox-stable  
-</span><span class='line'>sudo apt-get update  
-</span><span class='line'>sudo apt-get install firefox-3.6  </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Have fun ;)</p>
-
-<p><img src="http://img.zemanta.com/pixy.gif?x-id=60939a37-973c-8d13-aaf9-d3ef7dd3dc86" alt="" /></p>
 ]]></content>
   </entry>
   

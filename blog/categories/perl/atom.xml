@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Perl | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/perl/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/perl/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[map and grep: from Perl to PHP]]></title>
-    <link href="http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
+    <link href="http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
     <updated>2010-05-17T15:57:29+02:00</updated>
-    <id>http://zekus.github.com/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
+    <id>http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
     <content type="html"><![CDATA[<p>Probably many of you already know but here is the correspondent in PHP of the two fundamentals Perl functions:<br/>
 <code>
 map =&gt; array_map  
@@ -32,9 +32,9 @@ grep =&gt; array_filter
   
   <entry>
     <title type="html"><![CDATA[in_array() in Perl?]]></title>
-    <link href="http://zekus.github.com/blog/2008/07/09/in_array-in-perl/"/>
+    <link href="http://zekus.github.io/blog/2008/07/09/in_array-in-perl/"/>
     <updated>2008-07-09T12:27:51+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/07/09/in_array-in-perl</id>
+    <id>http://zekus.github.io/blog/2008/07/09/in_array-in-perl</id>
     <content type="html"><![CDATA[<p>I was looking for this useful function I always use in php and found this simple <a href="http://assasiner.wordpress.com/2006/12/03/is-in-array/trackback/">article</a>.
 Basically, the function that permit you to do that is <strong>grep </strong>used in this way:
 <code>
@@ -51,9 +51,9 @@ easy?</p>
   
   <entry>
     <title type="html"><![CDATA[just a note for me: Perl references]]></title>
-    <link href="http://zekus.github.com/blog/2008/07/08/just-a-note-for-me-perl-references/"/>
+    <link href="http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references/"/>
     <updated>2008-07-08T19:02:46+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/07/08/just-a-note-for-me-perl-references</id>
+    <id>http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references</id>
     <content type="html"><![CDATA[<p>I said not to jump the chapter 4 of the Camel book (the Dromedary one) otherwise you'll not know what @{...} (literally: at plus curly brackets) do!!<br/>
 As explained in page 252, that expression, dereferenciate an array reference returning the array itself.<br/>
 Remember that arghh..</p>
@@ -64,9 +64,9 @@ Remember that arghh..</p>
   
   <entry>
     <title type="html"><![CDATA[Perl reference]]></title>
-    <link href="http://zekus.github.com/blog/2008/05/30/perl-reference/"/>
+    <link href="http://zekus.github.io/blog/2008/05/30/perl-reference/"/>
     <updated>2008-05-30T18:19:24+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/05/30/perl-reference</id>
+    <id>http://zekus.github.io/blog/2008/05/30/perl-reference</id>
     <content type="html"><![CDATA[<p>Study it! if you are beginning with perl, that chapter is the one you will never jump over!<br/>
 <a href="http://perldoc.perl.org/perlreftut.html">http://perldoc.perl.org/perlreftut.html</a></p>
 ]]></content>

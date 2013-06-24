@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Development | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/development/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/development/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Macports, Snow Leopard and XCode 3.2]]></title>
-    <link href="http://zekus.github.com/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2/"/>
+    <link href="http://zekus.github.io/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2/"/>
     <updated>2009-10-18T01:09:47+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2</id>
+    <id>http://zekus.github.io/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2</id>
     <content type="html"><![CDATA[<p>When I upgraded my macbook to Snow Leopard, macports just worked as it was before, or so I thought, until yesterday when I tried to install ImageMagick and rmagick ruby gem and I got this error:
 <code>
 gem install rmagick
@@ -63,9 +63,9 @@ $ sudo port upgrade --force installed
   
   <entry>
     <title type="html"><![CDATA[LightTPD nightmare]]></title>
-    <link href="http://zekus.github.com/blog/2008/11/13/lighttpd-nightmare/"/>
+    <link href="http://zekus.github.io/blog/2008/11/13/lighttpd-nightmare/"/>
     <updated>2008-11-13T14:38:56+01:00</updated>
-    <id>http://zekus.github.com/blog/2008/11/13/lighttpd-nightmare</id>
+    <id>http://zekus.github.io/blog/2008/11/13/lighttpd-nightmare</id>
     <content type="html"><![CDATA[<p>if are trying to use mod_evhost in lighttpd in a more advanced way like using deep subdomains or with particulars tld like "co.uk" aka 2tls, you should know that
 <code>
 $HTTP["host"] =~ "^([^.]+)\.([^.]+)\.babelclient\.photobox\.([^.]+)\.([^.]+)$"{
@@ -86,9 +86,9 @@ WILL WORK.</p>
   
   <entry>
     <title type="html"><![CDATA[RubyOnRails excitement]]></title>
-    <link href="http://zekus.github.com/blog/2008/06/28/rubyonrails-excitement-2/"/>
+    <link href="http://zekus.github.io/blog/2008/06/28/rubyonrails-excitement-2/"/>
     <updated>2008-06-28T02:13:00+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/06/28/rubyonrails-excitement-2</id>
+    <id>http://zekus.github.io/blog/2008/06/28/rubyonrails-excitement-2</id>
     <content type="html"><![CDATA[<p>I just want to share how excited I am studying Ruby and RubyOnRails.
 Soon I'll start the development of a Facebook application with Rails.</p>
 
@@ -98,9 +98,9 @@ Soon I'll start the development of a Facebook application with Rails.</p>
   
   <entry>
     <title type="html"><![CDATA[quick solution to "svn: Checksum mismatch ..."]]></title>
-    <link href="http://zekus.github.com/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
+    <link href="http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
     <updated>2008-06-11T17:20:30+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
+    <id>http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
     <content type="html"><![CDATA[<p>If this error afflict your quiet development day, I'm sorry :D
 I had this problem today and I solved in few steps:</p>
 
@@ -118,9 +118,9 @@ Now breath deeply and take a cold shower: I suppose you must be sweat! :D</li>
   
   <entry>
     <title type="html"><![CDATA[grep excluding .svn dirs]]></title>
-    <link href="http://zekus.github.com/blog/2008/05/12/grep-excluding-svn-dirs/"/>
+    <link href="http://zekus.github.io/blog/2008/05/12/grep-excluding-svn-dirs/"/>
     <updated>2008-05-12T13:33:16+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/05/12/grep-excluding-svn-dirs</id>
+    <id>http://zekus.github.io/blog/2008/05/12/grep-excluding-svn-dirs</id>
     <content type="html"><![CDATA[<p>Grep is a fantastic search command that let you filter results and give you what you need. It is used to search in the content of files and is very useful for programmers like us :)</p>
 
 <p>Typically, when you search in a directory recursively and you want to exclude hidden directory such as the .svn, you so this:

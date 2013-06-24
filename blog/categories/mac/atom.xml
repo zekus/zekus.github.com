@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mac | antoniolorusso.com]]></title>
-  <link href="http://zekus.github.com/blog/categories/mac/atom.xml" rel="self"/>
-  <link href="http://zekus.github.com/"/>
-  <updated>2013-04-29T12:13:07+02:00</updated>
-  <id>http://zekus.github.com/</id>
+  <link href="http://zekus.github.io/blog/categories/mac/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-06-25T00:37:39+02:00</updated>
+  <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
     <email><![CDATA[antonio.lorusso@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby 1.9.3-p125 and RVM on Mac]]></title>
-    <link href="http://zekus.github.com/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
+    <link href="http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
     <updated>2012-02-18T15:32:41+01:00</updated>
-    <id>http://zekus.github.com/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
+    <id>http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
     <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it's time to upgrade! The first try gave me this error:</p>
 
 <p><code>
@@ -39,9 +39,9 @@ Install of ruby-1.9.3-p125 - #complete
   
   <entry>
     <title type="html"><![CDATA[Nokogiri, RVM, Homebrew and headhache!!!]]></title>
-    <link href="http://zekus.github.com/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache/"/>
+    <link href="http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache/"/>
     <updated>2011-06-11T14:32:48+02:00</updated>
-    <id>http://zekus.github.com/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id>
+    <id>http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id>
     <content type="html"><![CDATA[<p>Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</p>
 
 <p><div><script src='https://gist.github.com/1020543.js'></script>
@@ -60,9 +60,9 @@ and try again.</p>
   
   <entry>
     <title type="html"><![CDATA[OpenVPN at startup in OSX]]></title>
-    <link href="http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
+    <link href="http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
     <updated>2011-05-09T00:11:25+02:00</updated>
-    <id>http://zekus.github.com/blog/2011/05/09/openvpn-at-startup-in-osx</id>
+    <id>http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx</id>
     <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I'll show you how to do it:</p>
 
 <p>create /etc/rc.local and copy/paste the following three lines in it:</p>
@@ -127,9 +127,9 @@ sudo launchctl start org.openvpn.YOURVPNNAME
   
   <entry>
     <title type="html"><![CDATA[Macports, Snow Leopard and XCode 3.2]]></title>
-    <link href="http://zekus.github.com/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2/"/>
+    <link href="http://zekus.github.io/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2/"/>
     <updated>2009-10-18T01:09:47+02:00</updated>
-    <id>http://zekus.github.com/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2</id>
+    <id>http://zekus.github.io/blog/2009/10/18/macports-snow-leopard-and-xcode-3-2</id>
     <content type="html"><![CDATA[<p>When I upgraded my macbook to Snow Leopard, macports just worked as it was before, or so I thought, until yesterday when I tried to install ImageMagick and rmagick ruby gem and I got this error:
 <code>
 gem install rmagick
@@ -175,9 +175,9 @@ $ sudo port upgrade --force installed
   
   <entry>
     <title type="html"><![CDATA[grep excluding .svn dirs]]></title>
-    <link href="http://zekus.github.com/blog/2008/05/12/grep-excluding-svn-dirs/"/>
+    <link href="http://zekus.github.io/blog/2008/05/12/grep-excluding-svn-dirs/"/>
     <updated>2008-05-12T13:33:16+02:00</updated>
-    <id>http://zekus.github.com/blog/2008/05/12/grep-excluding-svn-dirs</id>
+    <id>http://zekus.github.io/blog/2008/05/12/grep-excluding-svn-dirs</id>
     <content type="html"><![CDATA[<p>Grep is a fantastic search command that let you filter results and give you what you need. It is used to search in the content of files and is very useful for programmers like us :)</p>
 
 <p>Typically, when you search in a directory recursively and you want to exclude hidden directory such as the .svn, you so this:

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://zekus.github.com/sitemap.xml 
+Sitemap: http://zekus.github.io/sitemap.xml 
