@@ -1,0 +1,269 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>libxml2 and failing capybara tests - antoniolorusso.com</title>
+	<meta name="author" content="Antonio Lorusso">
+
+	
+	<meta name="description" content="Libxml2 and Failing Capybara Tests Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="antoniolorusso.com" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+  <script src="/javascripts/md5.js"></script>
+  <script type="text/javascript">
+    document.write("<img src='http://www.gravatar.com/avatar/" + MD5("antonio.lorusso@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;'/>");
+  </script>
+</div>
+<h1><a href="/">antoniolorusso.com</a></h1>
+<p class="subtitle">A life long learning experience.</p>
+<nav id="main-nav">
+  <ul class="main">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/vim-tricks-collection/">Vim Tricks</a></li>
+    <li><a href="/blog/archives">Archives</a></li>
+    <li><a href="http://careers.stackoverflow.com/antoniolorusso">Resume</a></li>
+    <li><a href="/su-questo-blog/">About</a></li>
+    <li><a href="/useful-regex/">Regex</a></li>
+  </ul>
+  <h3>Projects</h3>
+  <ul class="main">
+    <li><a href="http://antoniolorusso.com/KindleCG">KindleCG</a></li>
+  </ul>
+</nav>
+
+<nav id="sub-nav">
+  <div class="social">
+    
+    
+    <a class="google" href="https://plus.google.com/102784234913032371944?rel=author" title="Google+">Google+</a>
+    
+    
+    <a class="twitter" href="http://twitter.com/antoniolorusso" title="Twitter">Twitter</a>
+    
+    
+    <a class="github" href="https://github.com/zekus" title="GitHub">GitHub</a>
+    
+    
+    <a class="linkedin" href="http://www.linkedin.com/in/antoniolorusso">LinkedIn</a>
+    
+    
+    
+    
+    
+    <a class="rss" href="/atom.xml" title="RSS">RSS</a>
+    
+  </div>
+</nav>
+<a href="http://stackexchange.com/users/216409/zekus"><img src="http://stackexchange.com/users/flair/216409.png" width="208" height="58" alt="profile for zekus on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for zekus on Stack Exchange, a network of free, community-driven Q&amp;A sites" /></a>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Libxml2 and Failing Capybara Tests</h1>
+	<div class="entry-content" itemprop="articleBody"><p>Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your colleagues machines and <strong>Boom!</strong> the tests are not passing on yours!</p>
+
+<p>And there it starts the infinite debugging.</p>
+
+<p>One of the Cucumber tests not passing had a css selector like the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Then</span> <span class="sr">/^I can edit something$/</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">within</span><span class="p">(</span><span class="s2">&quot;#something tr td:nth-child(2)&quot;</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">click_link</span> <span class="s2">&quot;Edit&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># [...]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which had nothing strange in it; plus I could actually see in the browser, using <em>save_and_open_page</em>
+that the elements that Capybara was supposed to select, were actually there.</p>
+
+<h3>WTF THEN?!?</h3>
+
+<p>After some time shooting in the dark, reinstalling and banging the head against the desk, I figured that the
+problem should have been related to some system library I was using and it turned out I was right.</p>
+
+<p>Capybara has a wrapper around our friend <strong>Nokogiri</strong> that wraps <strong>libxml2</strong> and the only difference between
+my machine and my colleagues ones could have been exactly the version of <em>libxml2</em>.
+To prove the theory at that point, I just had to install and older version of libxml2 and reinstall nokogiri
+before running the test suite again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxml2
+</span><span class='line'>2.9.1    git checkout 31caa27 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.9.0    git checkout 5dd45d7 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.8.0    git checkout 763d946 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.8    git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.7    git checkout f4a925d /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.6    git checkout 8939a91 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew tap homebrew/versions
+</span><span class='line'>~&gt; <span class="nb">cd</span> /usr/local
+</span><span class='line'>~&gt; git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew install libxml2
+</span><span class='line'>~&gt; brew link --force libxml2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and libxslt:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxslt
+</span><span class='line'>1.1.28   git checkout 98d5e91 Library/Formula/libxslt.rb
+</span><span class='line'>1.1.26   git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; brew install libxslt
+</span><span class='line'>~&gt; brew link --force libxslt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then nokogiri:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; gem uninstall nokogiri
+</span><span class='line'>~&gt; gem install nokogiri
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That was it! Tests running, all green! <strong>F@#k YEAH!</strong></p>
+
+<p>Now surely we can update the test suite to work with the latest <em>libxml2</em> :P</p>
+
+<p>Happy coding.</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+	<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+	
+	<a class="addthis_counter addthis_pill_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2013
+
+    Antonio Lorusso
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'antoniolorussocom';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/';
+        var disqus_url = 'http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-2445881-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Dec 7th, 2010 Linux, Vim, shell Comments VIM and the Clipboard on Ubuntu If you want to copy and paste from Vim to the clipboard, install the &hellip;">
+	<meta name="description" content="Jan 4th, 2011 Altro Comments Exclude Files and Directories From Apache Auth It would have made sense to use LocationMatch with a negative lookahead &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +92,71 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-01-04T11:35:52+01:00" data-updated="true" itemprop="datePublished">Jan 4<span>th</span>, 2011</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/altro/'>Altro</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/" itemprop="url">Exclude Files and Directories From Apache Auth</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;Location "/"&gt;  
+</span><span class='line'>AuthType Basic  
+</span><span class='line'>AuthName "Restricted Files"  
+</span><span class='line'>AuthUserFile /var/www/clients/client12/web17/passwd  
+</span><span class='line'>AuthGroupFile /dev/null  
+</span><span class='line'>Require valid-user  
+</span><span class='line'>SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
+</span><span class='line'>SetEnvIf Request_URI "^/favicon.ico$" allow  
+</span><span class='line'>Order allow,deny  
+</span><span class='line'>Allow from env=allow  
+</span><span class='line'>Satisfy Any  
+</span><span class='line'>&lt;/Location&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -561,53 +626,6 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
 <p>** &ndash;> rename it adding at the same filename the extension &ldquo;.old&rdquo;</p>
 
 <p>I know, I know &hellip; my explanation is crap: blame my laziness :)</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-02-06T14:33:04+01:00" data-updated="true" itemprop="datePublished">Feb 6<span>th</span>, 2010</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/shell/'>shell</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/" itemprop="url">Disable Pure-ftpd Logging on Syslog</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.</p>
-
-<p>According to the pure-ftpd documentation, you should start the daemon already with the options you need. The default Ubuntu installation, use the files in /etc/pure-ftpd/conf/ to set the options for the startup script of pure-ftpd so, to disable the logging, execute the following command in your shell and restart the daemon</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo "none" &gt; /etc/pure-ftpd/conf/SyslogFacility
-</span><span class='line'>$ /etc/init.d/pure-ftpd-mysql restart</span></code></pre></td></tr></table></div></figure>
-
-
-<p>;)</p>
 
 		
 		

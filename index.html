@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Jun 24th, 2013 libxml2, nokogiri, rails, ruby Comments Nokogiri Again, but Not Its Fault This Time Today it was a total waste of time as I was &hellip;">
+	<meta name="description" content="Jul 29th, 2013 libxml2, nokogiri, rails, ruby Comments Libxml2 and Failing Capybara Tests Checkout a repo, brand new gemset, run the test suite &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +92,139 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-29T23:04:00+02:00" data-updated="true" itemprop="datePublished">Jul 29<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/libxml2/'>libxml2</a>, <a class='category' href='/blog/categories/nokogiri/'>nokogiri</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/29/libxml2-and-failing-capybara-tests/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/29/libxml2-and-failing-capybara-tests/" itemprop="url">Libxml2 and Failing Capybara Tests</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your colleagues machines and <strong>Boom!</strong> the tests are not passing on yours!</p>
+
+<p>And there it starts the infinite debugging.</p>
+
+<p>One of the Cucumber tests not passing had a css selector like the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Then</span> <span class="sr">/^I can edit something$/</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">within</span><span class="p">(</span><span class="s2">&quot;#something tr td:nth-child(2)&quot;</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">click_link</span> <span class="s2">&quot;Edit&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># [...]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which had nothing strange in it; plus I could actually see in the browser, using <em>save_and_open_page</em>
+that the elements that Capybara was supposed to select, were actually there.</p>
+
+<h3>WTF THEN?!?</h3>
+
+<p>After some time shooting in the dark, reinstalling and banging the head against the desk, I figured that the
+problem should have been related to some system library I was using and it turned out I was right.</p>
+
+<p>Capybara has a wrapper around our friend <strong>Nokogiri</strong> that wraps <strong>libxml2</strong> and the only difference between
+my machine and my colleagues ones could have been exactly the version of <em>libxml2</em>.
+To prove the theory at that point, I just had to install and older version of libxml2 and reinstall nokogiri
+before running the test suite again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxml2
+</span><span class='line'>2.9.1    git checkout 31caa27 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.9.0    git checkout 5dd45d7 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.8.0    git checkout 763d946 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.8    git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.7    git checkout f4a925d /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.6    git checkout 8939a91 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew tap homebrew/versions
+</span><span class='line'>~&gt; <span class="nb">cd</span> /usr/local
+</span><span class='line'>~&gt; git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew install libxml2
+</span><span class='line'>~&gt; brew link --force libxml2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and libxslt:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxslt
+</span><span class='line'>1.1.28   git checkout 98d5e91 Library/Formula/libxslt.rb
+</span><span class='line'>1.1.26   git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; brew install libxslt
+</span><span class='line'>~&gt; brew link --force libxslt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then nokogiri:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; gem uninstall nokogiri
+</span><span class='line'>~&gt; gem install nokogiri
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That was it! Tests running, all green! <strong>F@#k YEAH!</strong></p>
+
+<p>Now surely we can update the test suite to work with the latest <em>libxml2</em> :P</p>
+
+<p>Happy coding.</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -655,71 +788,6 @@ I can write a blog post with my favourite editor now (Vim) and publish it to the
 <p>enjoy ;)</p>
 
 <p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &ldquo;connect when computer starts&rdquo; functionality that automatically makes this post obsolete. I&rsquo;ll just keep it for the records :)</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2011-01-04T11:35:52+01:00" data-updated="true" itemprop="datePublished">Jan 4<span>th</span>, 2011</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/altro/'>Altro</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/" itemprop="url">Exclude Files and Directories From Apache Auth</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;Location "/"&gt;  
-</span><span class='line'>AuthType Basic  
-</span><span class='line'>AuthName "Restricted Files"  
-</span><span class='line'>AuthUserFile /var/www/clients/client12/web17/passwd  
-</span><span class='line'>AuthGroupFile /dev/null  
-</span><span class='line'>Require valid-user  
-</span><span class='line'>SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
-</span><span class='line'>SetEnvIf Request_URI "^/favicon.ico$" allow  
-</span><span class='line'>Order allow,deny  
-</span><span class='line'>Allow from env=allow  
-</span><span class='line'>Satisfy Any  
-</span><span class='line'>&lt;/Location&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</p>
 
 		
 		

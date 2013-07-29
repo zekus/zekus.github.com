@@ -4,7 +4,7 @@
   <title><![CDATA[antoniolorusso.com]]></title>
   <link href="http://zekus.github.io/atom.xml" rel="self"/>
   <link href="http://zekus.github.io/"/>
-  <updated>2013-07-11T12:58:07+02:00</updated>
+  <updated>2013-07-30T01:06:03+02:00</updated>
   <id>http://zekus.github.io/</id>
   <author>
     <name><![CDATA[Antonio Lorusso]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[libxml2 and failing capybara tests]]></title>
+    <link href="http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/"/>
+    <updated>2013-07-29T23:04:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests</id>
+    <content type="html"><![CDATA[<p>Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your colleagues machines and <strong>Boom!</strong> the tests are not passing on yours!</p>
+
+<p>And there it starts the infinite debugging.</p>
+
+<p>One of the Cucumber tests not passing had a css selector like the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Then</span> <span class="sr">/^I can edit something$/</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">within</span><span class="p">(</span><span class="s2">&quot;#something tr td:nth-child(2)&quot;</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">click_link</span> <span class="s2">&quot;Edit&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># [...]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which had nothing strange in it; plus I could actually see in the browser, using <em>save_and_open_page</em>
+that the elements that Capybara was supposed to select, were actually there.</p>
+
+<h3>WTF THEN?!?</h3>
+
+<p>After some time shooting in the dark, reinstalling and banging the head against the desk, I figured that the
+problem should have been related to some system library I was using and it turned out I was right.</p>
+
+<p>Capybara has a wrapper around our friend <strong>Nokogiri</strong> that wraps <strong>libxml2</strong> and the only difference between
+my machine and my colleagues ones could have been exactly the version of <em>libxml2</em>.
+To prove the theory at that point, I just had to install and older version of libxml2 and reinstall nokogiri
+before running the test suite again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxml2
+</span><span class='line'>2.9.1    git checkout 31caa27 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.9.0    git checkout 5dd45d7 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.8.0    git checkout 763d946 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.8    git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.7    git checkout f4a925d /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.6    git checkout 8939a91 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew tap homebrew/versions
+</span><span class='line'>~&gt; <span class="nb">cd</span> /usr/local
+</span><span class='line'>~&gt; git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew install libxml2
+</span><span class='line'>~&gt; brew link --force libxml2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and libxslt:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxslt
+</span><span class='line'>1.1.28   git checkout 98d5e91 Library/Formula/libxslt.rb
+</span><span class='line'>1.1.26   git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; brew install libxslt
+</span><span class='line'>~&gt; brew link --force libxslt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then nokogiri:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; gem uninstall nokogiri
+</span><span class='line'>~&gt; gem install nokogiri
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That was it! Tests running, all green! <strong>F@#k YEAH!</strong></p>
+
+<p>Now surely we can update the test suite to work with the latest <em>libxml2</em> :P</p>
+
+<p>Happy coding.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[nokogiri again, but not its fault this time]]></title>
@@ -591,25 +696,6 @@ if you have this stupid error, what you have to do is run dos2unix on the file s
 <p>** &ndash;> rename it adding at the same filename the extension &ldquo;.old&rdquo;</p>
 
 <p>I know, I know &hellip; my explanation is crap: blame my laziness :)</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[disable Pure-ftpd logging on syslog]]></title>
-    <link href="http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog/"/>
-    <updated>2010-02-06T14:33:04+01:00</updated>
-    <id>http://zekus.github.io/blog/2010/02/06/disable-pure-ftpd-logging-on-syslog</id>
-    <content type="html"><![CDATA[<p>Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.</p>
-
-<p>According to the pure-ftpd documentation, you should start the daemon already with the options you need. The default Ubuntu installation, use the files in /etc/pure-ftpd/conf/ to set the options for the startup script of pure-ftpd so, to disable the logging, execute the following command in your shell and restart the daemon</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo "none" &gt; /etc/pure-ftpd/conf/SyslogFacility
-</span><span class='line'>$ /etc/init.d/pure-ftpd-mysql restart</span></code></pre></td></tr></table></div></figure>
-
-
-<p>;)</p>
 ]]></content>
   </entry>
   

@@ -7,7 +7,7 @@
 	<meta name="author" content="Antonio Lorusso">
 
 	
-	<meta name="description" content="Mar 18th, 2005 Linux Comments Apache2 Settings after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add &hellip;">
+	<meta name="description" content="Mar 28th, 2005 Linux Comments Backup Mysql Tables and Restore it&rsquo;s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -92,6 +92,53 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2005-03-28T21:10:00+02:00" data-updated="true" itemprop="datePublished">Mar 28<span>th</span>, 2005</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2005/03/28/backup-mysql-tables-and-restore/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2005/03/28/backup-mysql-tables-and-restore/" itemprop="url">Backup Mysql Tables and Restore</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>it&rsquo;s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that&rsquo;s it.<br/>
+If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:</p>
+
+<p>chmod -R 766 *<br/>
+chmod -R 700 mysql/</p>
+
+<p>and all will work fine again!</p>
+
+<p>go backup guys! ;)</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -521,59 +568,6 @@ antonio</p>
 <p>I forgot&hellip; the error was my fault &hellip; I played too much with phpmyadmin.</p>
 
 <p>Machines do always what we want they do!</p>
-
-<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2004-09-11T21:21:00+02:00" data-updated="true" itemprop="datePublished">Sep 11<span>th</span>, 2004</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2004/09/11/multiple-rename-with-find-command/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2004/09/11/multiple-rename-with-find-command/" itemprop="url">Multiple Rename With Find Command!</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>I&rsquo;ve done this shell script for multiple rename files not in same folder</p>
-
-<p>(for doin that, simply use rename command) using the combination between mv and find in this way:</p>
-
-<blockquote><p>for i in $(find / -name *.ext1);</p></blockquote>
-
-<p>do mv $i $(echo $i | cut -f1 -d.).ext2;</p>
-
-<p>done</p>
-
-<p>in the specific, this change an extension of a file (ext1) in one another (ext2).</p>
-
-<p>feel free to modify it to match your needs.</p>
-
-<p>bye</p>
 
 <p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
 
