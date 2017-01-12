@@ -1,0 +1,15 @@
+---
+comments: true
+date: '2009-05-31 14:09:49'
+layout: post
+slug: migrated
+status: publish
+title: Migrated
+wordpress_id: '206'
+categories:
+- Altro
+---
+
+Me and Antonello have finally bought our server and this blog has been the first to be migrated.  
+Totally happy! Expect great new things :D  
+

@@ -1,0 +1,36 @@
+url: http://zekus.github.io
+title: antoniolorusso.com
+description: dev life in blog pills
+baseurl: ""  # the subpath of your site, e.g. /blog
+permalink: /:year/:month/:day/:title/
+cover: "default_cover.jpg"
+
+disqus_shortname: antoniolorussocom
+google_analytics: UA-2445881-1
+
+author:
+  name: Antonio Lorusso
+  email: antonio.lorusso@gmail.com
+  avatar: profile.jpg
+  twitter_username: antoniolorusso
+  github_username:  zekus
+  linkedin_username: antoniolorusso
+  stackoverflow_username: antoniolorusso
+  facebook_username: antoniolorussocom
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-uno
+gems:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+paginate: 10
+titlecase: true

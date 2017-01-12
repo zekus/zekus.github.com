@@ -1,0 +1,43 @@
+---
+comments: true
+date: '2004-08-18 13:13:00'
+layout: post
+slug: canon-i250
+status: publish
+title: Canon i250
+wordpress_id: '26'
+categories:
+- Linux
+---
+
+I found drivers for this cheap printer on this site :
+  
+
+  
+[http://203.111.45.57/bj/i250linux/](http://203.111.45.57/bj/i250linux/) (CANON NEW ZELAND)
+  
+
+  
+and downloaded the following:
+  
+
+
+  
+  * bjfiltercups-2.3-0.i386.rpm
+  
+  * bjfilteri250-2.3-0.i386.rpm
+  
+  * guidei250-2.3-0.tar.gz
+install rpm with YaST as usual and unpack the last package cause this is the guide!
+  
+then, always in YaST, go to "hardware"(on left), "printer"(on right) and add your printer!
+  
+
+  
+It WORKS WOW!!!!!
+  
+
+  
+[](http://203.111.45.57/bj/i250linux/)
+
+[![](http://www.feedburner.com/fb/images/pub/flchklt.gif)](http://feeds.feedburner.com/zekussuse)
