@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Altro | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/blog/categories/altro/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[mod_rpaf and ubuntu 12.04]]></title>
+    <link href="http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
+    <updated>2012-05-23T16:57:38+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
+    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&rsquo;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&rsquo;s a bloody mess! </rant></p>
+
+<p>So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:</p>
+
+<p>FROM =====>
+<code>
+&lt;IfModule mod_rpaf.c&gt;
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 127.0.0.1
+&lt;/IfModule&gt;
+</code></p>
+
+<p>TO =======>
+<code>
+&lt;IfModule mod_rpaf-2.0.c&gt;
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 127.0.0.1
+&lt;/IfModule&gt;
+</code></p>
+
+<p>Find the differences and thank <a href="http://ffnz.tumblr.com/post/23078644987/rpaf-mod-not-working-on-ubuntu-12-04">this guy</a> that find it before me.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[send headers with Selenium and PHPUnit?]]></title>
+    <link href="http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit/"/>
+    <updated>2012-05-02T22:37:09+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit</id>
+    <content type="html"><![CDATA[<p>Just dont waste your life and use curl if you need to do that.</p>
+
+<p>I know, this is a useless post but I just wasted a huge amount of time trying to find a solution and I feel like giving this advice to someone.</p>
+
+<p>happy testing :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Exclude files and directories from Apache Auth]]></title>
+    <link href="http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
+    <updated>2011-01-04T11:35:52+01:00</updated>
+    <id>http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
+    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
+
+<p><code>
+&lt;Location "/"&gt;  
+AuthType Basic  
+AuthName "Restricted Files"  
+AuthUserFile /var/www/clients/client12/web17/passwd  
+AuthGroupFile /dev/null  
+Require valid-user  
+SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
+SetEnvIf Request_URI "^/favicon.ico$" allow  
+Order allow,deny  
+Allow from env=allow  
+Satisfy Any  
+&lt;/Location&gt;
+</code></p>
+
+<p>This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Website Optimiser and the bugged Techie Guide]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
+    <updated>2010-03-31T10:00:21+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
+    <content type="html"><![CDATA[<p>I spent hours yesterday to implement the GWO that, instead, should take literally minutes!<br/>
+You want to know why? The bugged <a href="http://www.google.com/en//websiteoptimizer/techieguide.pdf">Techie Guide</a>!!!</p>
+
+<p>On page 19, the script is completely wrong and drove me mad: variation-content should be <strong>variation_content</strong> and document.write(“&lt;/nosc” + “ript>”) should be <strong>document.write(“&lt;nosc” + “ript>”)</strong>;</p>
+
+<p>So, here is he complete correct script:<br/>
+```</p>
+
+<script>  
+var v = utmx(‘variation_content’, ‘Section1’);  
+if (v) {  
+document.write(  
+v.replace(“%%product_name%%”, “<? print $product_name ?>”).  
+replace(“%%product_price%%”, “<? print $product_price ?>”).  
+replace(“%%product_id%%”, “<? print $product_id ?>”));  
+document.write(“<nosc” + “ript>”);  
+}  
+</script>
+
+
+<p></p>
+
+<ul>  
+<li>Product name: <? print $product_name ?>  
+<li>Product price: <? print $product_price ?>  
+<li><a href=’buy.php?prod-id=<? print $product_id ?>’>  
+Buy Now</a>  
+</ul>
+
+
+<p>
+</noscript><br/>
+```</p>
+
+<p>Adapt it to your code and be happy!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP 5.3 and more on Ubuntu]]></title>
+    <link href="http://zekus.github.io/blog/2010/01/15/php-5-3-and-more-on-ubuntu/"/>
+    <updated>2010-01-15T12:16:59+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/01/15/php-5-3-and-more-on-ubuntu</id>
+    <content type="html"><![CDATA[<p>Thanks to <a href="http://www.dotdeb.org">Dotdeb guys</a> is now possible to upgrade PHP easly on your Ubuntu machine.<br/>
+Just add their repository to your sources.list. You can find more detailed instructions <a href="http://blog.astrumfutura.com/archives/427-Installing-PHP-5.3.1-On-Ubuntu-9.10-Karmic-Koala-With-aptitudeapt-get.html">here</a>!</p>
+
+<p>Have fun. ;)</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=17c2f59f-4e8b-8f9c-8df6-f68bdc3f94f7" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>
