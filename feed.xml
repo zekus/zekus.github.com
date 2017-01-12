@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://zekus.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://zekus.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zekus.github.io/" rel="alternate" type="text/html" /><updated>2017-01-12T16:05:15+01:00</updated><id>http://zekus.github.io//</id><title type="html">antoniolorusso.com</title><subtitle>dev life in blog pills</subtitle><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><entry><title type="html">nokogiri again, but not its fault this time</title><link href="http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time/" rel="alternate" type="text/html" title="nokogiri again, but not its fault this time" /><published>2013-06-24T19:38:00+02:00</published><updated>2013-06-24T19:38:00+02:00</updated><id>http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id><content type="html" xml:base="http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time/">&lt;p&gt;Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset. 
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an “acceptable grep”! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my &lt;em&gt;GREP_OPTIONS&lt;/em&gt;. I had the following in my .zshrc&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;GREP_OPTIONS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;and, after removing the &lt;em&gt;-nR&lt;/em&gt; options, I was finally able to install nokogiri correctly.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset. 
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an “acceptable grep”! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my GREP_OPTIONS. I had the following in my .zshrc
+export GREP_OPTIONS=&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;
+
+
+and, after removing the -nR options, I was finally able to install nokogiri correctly.</summary></entry><entry><title type="html">moving to Octopress</title><link href="http://zekus.github.io/2012/06/24/moving-to-octopress/" rel="alternate" type="text/html" title="moving to Octopress" /><published>2012-06-24T23:43:00+02:00</published><updated>2012-06-24T23:43:00+02:00</updated><id>http://zekus.github.io/2012/06/24/moving-to-octopress</id><content type="html" xml:base="http://zekus.github.io/2012/06/24/moving-to-octopress/">&lt;p&gt;I’ve been delaying this migrations for ages now but here we are, it finally happened:
+I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git… that’s too many emotions for one single day :P&lt;/p&gt;
+
+&lt;h3 id=&quot;so-how-did-i-do-it&quot;&gt;So, how did I do it?&lt;/h3&gt;
+&lt;p&gt;There are tons of tutorials already on the net that explain very well how to migrate from Wordpress to Octopress so I’m not going to explain here all the details but make just a quick summary even for myself as a note:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download, install and follow the instructions of &lt;a href=&quot;https://github.com/thomasf/exitwp&quot;&gt;exitwp&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Run a regex to fix the code blocks like:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl -pi -e &lt;span class=&quot;s1&quot;&gt;'s/([^\`]|^)(\`)([^\`]|$)/$1\n\`\`\`\n$3/g'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If you have been using Disqus on Wordpress before moving to Octopress, for some reason &lt;em&gt;exitwp&lt;/em&gt; doesn’t add the &lt;em&gt;comments: true&lt;/em&gt; parameter in the posts so use this sed command to fix it:
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find _posts/ -type f -print0 | xargs -0 -I file sed -i &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2 i\
+comments: true
+'&lt;/span&gt; file
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Octopress posts url is different from the Wordpress one so you’re going to have to remap the Disqus comments using their &lt;a href=&quot;http://help.disqus.com/customer/portal/articles/286778-using-the-migration-tools&quot;&gt;migration tool&lt;/a&gt; and a bit of patience&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The next step will be playing with the theme to make it more “personal” :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">I’ve been delaying this migrations for ages now but here we are, it finally happened:
+I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git… that’s too many emotions for one single day :P</summary></entry><entry><title type="html">mod_rpaf and ubuntu 12.04</title><link href="http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04/" rel="alternate" type="text/html" title="mod_rpaf and ubuntu 12.04" /><published>2012-05-23T16:57:38+02:00</published><updated>2012-05-23T16:57:38+02:00</updated><id>http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04</id><content type="html" xml:base="http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04/">&lt;rant&gt; Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess! &lt;/rant&gt;
+
+&lt;p&gt;So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:&lt;/p&gt;
+
+&lt;p&gt;FROM =====&amp;gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;IfModule mod_rpaf.c&amp;gt;
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 127.0.0.1
+&amp;lt;/IfModule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;TO =======&amp;gt;&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;IfModule mod_rpaf-2.0.c&amp;gt;
+RPAFenable On
+RPAFsethostname On
+RPAFproxy_ips 127.0.0.1
+&amp;lt;/IfModule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Find the differences and thank &lt;a href=&quot;http://ffnz.tumblr.com/post/23078644987/rpaf-mod-not-working-on-ubuntu-12-04&quot;&gt;this guy&lt;/a&gt; that find it before me.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess!</summary></entry><entry><title type="html">send headers with Selenium and PHPUnit?</title><link href="http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit/" rel="alternate" type="text/html" title="send headers with Selenium and PHPUnit?" /><published>2012-05-02T22:37:09+02:00</published><updated>2012-05-02T22:37:09+02:00</updated><id>http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit</id><content type="html" xml:base="http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit/">&lt;p&gt;Just dont waste your life and use curl if you need to do that.&lt;/p&gt;
+
+&lt;p&gt;I know, this is a useless post but I just wasted a huge amount of time trying to find a solution and I feel like giving this advice to someone.&lt;/p&gt;
+
+&lt;p&gt;happy testing :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Just dont waste your life and use curl if you need to do that.</summary></entry><entry><title type="html">perl: warning: Setting locale failed.</title><link href="http://zekus.github.io/2012/04/01/409/" rel="alternate" type="text/html" title="perl: warning: Setting locale failed." /><published>2012-04-01T14:58:51+02:00</published><updated>2012-04-01T14:58:51+02:00</updated><id>http://zekus.github.io/2012/04/01/409</id><content type="html" xml:base="http://zekus.github.io/2012/04/01/409/">&lt;p&gt;Tired of this:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+LANGUAGE = &quot;en_US:en&quot;,
+LC_ALL = (unset),
+LC_CTYPE = &quot;en_GB.UTF-8&quot;,
+LANG = &quot;en_US.UTF-8&quot;
+are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&quot;C&quot;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Do this:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Be happy again :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="bash" /><category term="locale" /><category term="Perl" /><category term="ubuntu" /><summary type="html">Tired of this:
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+LANGUAGE = &quot;en_US:en&quot;,
+LC_ALL = (unset),
+LC_CTYPE = &quot;en_GB.UTF-8&quot;,
+LANG = &quot;en_US.UTF-8&quot;
+are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&quot;C&quot;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory
+
+
+Do this:
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+sudo locale-gen en_US.UTF-8
+sudo dpkg-reconfigure locales</summary></entry><entry><title type="html">Ruby 1.9.3-p125 and RVM on Mac</title><link href="http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/" rel="alternate" type="text/html" title="Ruby 1.9.3-p125 and RVM on Mac" /><published>2012-02-18T15:32:41+01:00</published><updated>2012-02-18T15:32:41+01:00</updated><id>http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id><content type="html" xml:base="http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/">&lt;p&gt;A &lt;a href=&quot;http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/&quot;&gt;new ruby version&lt;/a&gt; is out and it’s time to upgrade! The first try gave me this error:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?  ~  rvm install 1.9.3-p125
+Error running ' ./configure --prefix=/Users/antonio/.rvm/rubies/ruby-1.9.3-p125 --enable-shared --disable-install-doc --with-libyaml --with-opt-dir=/Users/antonio/.rvm/usr ', please read /Users/antonio/.rvm/log/ruby-1.9.3-p125/configure.log
+There has been an error while running configure. Halting the installation.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Adding the compiler option “–with-gcc=clang” worked:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?  ~  rvm install 1.9.3-p125 --with-gcc=clang
+Install of ruby-1.9.3-p125 - #complete
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;enjoy Ruby :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">A new ruby version is out and it’s time to upgrade! The first try gave me this error:</summary></entry><entry><title type="html">Nokogiri, RVM, Homebrew and headhache!!!</title><link href="http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache/" rel="alternate" type="text/html" title="Nokogiri, RVM, Homebrew and headhache!!!" /><published>2011-06-11T14:32:48+02:00</published><updated>2011-06-11T14:32:48+02:00</updated><id>http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id><content type="html" xml:base="http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache/">&lt;p&gt;Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/1020543.js&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;If you had MacPorts previously installed, it might still not work so&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv /opt/local /opt/local_old
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;and try again.&lt;/p&gt;
+
+&lt;p&gt;Enjoy :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</summary></entry><entry><title type="html">OpenVPN at startup in OSX</title><link href="http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx/" rel="alternate" type="text/html" title="OpenVPN at startup in OSX" /><published>2011-05-09T00:11:25+02:00</published><updated>2011-05-09T00:11:25+02:00</updated><id>http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx</id><content type="html" xml:base="http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx/">&lt;p&gt;The easiest way of getting an OpenVPN client on mac is with &lt;a href=&quot;http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2&quot;&gt;Tunnelblick&lt;/a&gt; but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:&lt;/p&gt;
+
+&lt;p&gt;create /etc/rc.local and copy/paste the following three lines in it:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tap.kext
+/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tun.kext
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then create a Launch script like this for each of the vpn you want to connect to, replacing &lt;em&gt;YOURVPNNAME&lt;/em&gt;, &lt;em&gt;YOURCONFIGFILE&lt;/em&gt;, &lt;em&gt;YOUR/CONFIG/FOLDER&lt;/em&gt; accordingly:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;plist&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Label&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;org.openvpn.YOURVPNNAME&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;OnDemand&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;false/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Program&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/Applications/Tunnelblick.app/Contents/Resources/openvpn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;ProgramArguments&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;openvpn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;--config&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;YOURCONFIGFILE.conf&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;RunAtLoad&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;TimeOut&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;integer&amp;gt;&lt;/span&gt;90&lt;span class=&quot;nt&quot;&gt;&amp;lt;/integer&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;WorkingDirectory&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;YOUR/CONFIG/FOLDER&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;save each script into &lt;em&gt;/Library/LaunchDaemons/&lt;/em&gt; folder using a name for the file like &lt;em&gt;org.openvpn.YOURVPNNAME.plist&lt;/em&gt;, then change the user and group to root:wheel with the following command in a terminal window:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chown root:wheel /Library/LaunchDaemon/org.openvpn.YOURVPNNAME
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;last commands to register and execute your Launch scripts are:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo launchctl load /Library/LaunchDaemon/org.openvpn.YOURVPNNAME.plist
+sudo launchctl start org.openvpn.YOURVPNNAME
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;a restart should be the very last thing to do and once your mac has started you shoud be connected to your vpn network(s)!&lt;/p&gt;
+
+&lt;p&gt;enjoy ;)&lt;/p&gt;
+
+&lt;p&gt;**UPDATE: **the new version of tunnelblick 3.2beta26 does have the the “connect when computer starts” functionality that automatically makes this post obsolete. I’ll just keep it for the records :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="mac" /><category term="openvpn" /><category term="osx" /><category term="tunnelblick" /><category term="vpn" /><summary type="html">The easiest way of getting an OpenVPN client on mac is with Tunnelblick but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:</summary></entry><entry><title type="html">Exclude files and directories from Apache Auth</title><link href="http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth/" rel="alternate" type="text/html" title="Exclude files and directories from Apache Auth" /><published>2011-01-04T11:35:52+01:00</published><updated>2011-01-04T11:35:52+01:00</updated><id>http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth</id><content type="html" xml:base="http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth/">&lt;p&gt;It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;Location &quot;/&quot;&amp;gt;  
+AuthType Basic  
+AuthName &quot;Restricted Files&quot;  
+AuthUserFile /var/www/clients/client12/web17/passwd  
+AuthGroupFile /dev/null  
+Require valid-user  
+SetEnvIf Request_URI &quot;^/(admin|skin|js|index)(.*)$&quot; allow  
+SetEnvIf Request_URI &quot;^/favicon.ico$&quot; allow  
+Order allow,deny  
+Allow from env=allow  
+Satisfy Any  
+&amp;lt;/Location&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="Apache" /><category term="authentication" /><category term="location" /><category term="locationmatch" /><category term="setenvif" /><summary type="html">It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:
+
+&amp;lt;Location &quot;/&quot;&amp;gt;  
+AuthType Basic  
+AuthName &quot;Restricted Files&quot;  
+AuthUserFile /var/www/clients/client12/web17/passwd  
+AuthGroupFile /dev/null  
+Require valid-user  
+SetEnvIf Request_URI &quot;^/(admin|skin|js|index)(.*)$&quot; allow  
+SetEnvIf Request_URI &quot;^/favicon.ico$&quot; allow  
+Order allow,deny  
+Allow from env=allow  
+Satisfy Any  
+&amp;lt;/Location&amp;gt;
+
+
+
+This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</summary></entry><entry><title type="html">VIM and the clipboard on Ubuntu</title><link href="http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu/" rel="alternate" type="text/html" title="VIM and the clipboard on Ubuntu" /><published>2010-12-07T13:16:56+01:00</published><updated>2010-12-07T13:16:56+01:00</updated><id>http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu</id><content type="html" xml:base="http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu/">&lt;p&gt;If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !</summary></entry></feed>
