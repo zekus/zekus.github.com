@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>FreeNX on SuSE 10.0 and 9.3</title>
+  <meta name="description" content="dev life in blog pills">
+  <meta name="author" content="Antonio Lorusso">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="antoniolorusso.com">
+  <meta name="twitter:description" content="dev life in blog pills">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="antoniolorusso.com">
+  <meta property="og:description" content="dev life in blog pills">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://zekus.github.io/2006/01/16/freenx-on-suse-100-and-93/">
+  <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+
+<header class="panel-cover" style="background-image: url(/assets/images/default_cover.jpg)">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="" title="link to home of antoniolorusso.com">
+          <img src="/assets/images/profile.jpg" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">antoniolorusso.com</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">dev life in blog pills</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <nav class="cover-navigation cover-navigation--primary">
+    <ul class="navigation">
+        <li class="navigation__item"><a href="/#blog" title="link to antoniolorusso.com blog" class="blog-button">Blog</a></li>
+        <li class="navigation__item"><a href="/archives" title="link to antoniolorusso.com archive" class="blog-button">Archive</a></li>
+    </ul>
+</nav>
+
+
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/antoniolorusso" title="@antoniolorusso on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/antoniolorussocom" title="antoniolorussocom on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://www.linkedin.com/in/antoniolorusso" title="antoniolorusso on LinkedIn" target="_blank">
+                  <i class="icon icon-social-linkedin"></i>
+                  <span class="label">LinkedIn</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/zekus" title="zekus on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Stackoverflow -->
+              <li class="navigation__item">
+                <a href="https://stackoverflow.com/cv/antoniolorusso" title="antoniolorusso on Stackoverflow" target="_blank">
+                  <i class="icon icon-social-stack-overflow"></i>
+                  <span class="label">StackOverflow</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:antonio.lorusso@gmail.com" title="Email antonio.lorusso@gmail.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="feed.xml" title="Subscribe" target="_blank">
+                <i class="icon icon-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="16 Jan 2006" class="post-meta__date date">16 Jan 2006</time> &#8226; <span class="post-meta__tags">on </span>
+    </div>
+    <h1 class="post-title">FreeNX on SuSE 10.0 and 9.3</h1>
+  </header>
+
+  <section class="post">
+    <p>Well… FreeNX is the best remote controlling system now on earth and pretty easy to install on our Suse distro.</p>
+
+<p>Just open YaST and search for freenx and select all related packets.</p>
+
+<p>Do you think it’s enoght? the answer that you are waitin for it’s NO :D</p>
+
+<p><a href="http://madpenguin.org/cms/index.php/?m=show&amp;id=5755&amp;page=1">I put here a link of a well done tutorial on MadPenguin.org</a> ( cause, you know, I’m lazy :P )</p>
+
+<p>And for you that dont understand why you cant still connect after this tutorial, here is the troubleshoot:</p>
+
+<p>Error message Server not installed or NX access disabled</p>
+
+<p>If you see the following error message it means that the nx user’s public key was not accepted.:</p>
+
+<p>NX&gt; 203 NXSSH running with pid: 6721<br />
+NX&gt; 285 Enabling check on switch command<br />
+NX&gt; 285 Enabling skip of SSH config files<br />
+NX&gt; 200 Connected to address: 192.168.2.21 on port: 22<br />
+NX&gt; 202 Authenticating user: nx<br />
+NX&gt; 208 Using auth method: publickey<br />
+NX&gt; 204 Authentication failed.<br />
+This can be caused by a couple of things.</p>
+
+<p>the nx user’s authorized key file /var/lib/nxserver/home/.ssh/authorized_keys2 is incorectly named. All versions of ssh that I have seen on Ubuntu, Fedora, Redhat/Centos and OFCOURSE suse are configured to look for an authoized key file names .ssh/authorized_keys not .ssh/authorized_keys2. You can rename the authorized_keys file but it might be better to reconfigure sshd_config because the nxserver –stop command renames the .ssh/authorized_keys2 to .ssh/authorized_keys2.disabled to prevent access via an nxclient <br />
+sshd is not running or is incorrectly configured. At minimum you need PubkeyAuthentication yes in the sshd_config file <br />
+The server and client public keys might be different. At install the server and client use a default key which should be changed. You can open /var/lib/nxserver/home/.ssh/authorized_keys and compare its contents to the key stored in the client by: <br />
+Open the client tool <br />
+Click the Configure button <br />
+Click the Key button on the General Tab <br />
+Ensure that the key matches the key found in /var/lib/nxserver/home/.ssh/authorized_keys on the server</p>
+
+<p>Enjoy FreeNX, enjoy openSuSE</p>
+
+<p>Antonio</p>
+
+<p><a href="http://feeds.feedburner.com/zekussuse"><img src="http://www.feedburner.com/fb/images/pub/flchklt.gif" alt="" /></a></p>
+
+  </section>
+  <section id="disqus_thread"></section><!-- /#disqus_thread -->
+</article>
+
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://zekus.github.io/2006/01/16/freenx-on-suse-100-and-93/';
+        this.page.identifier = '/2006/01/16/freenx-on-suse-100-and-93';
+      };
+
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//antoniolorussocom.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+       })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2017 Antonio Lorusso. All rights reserved.</span>
+</footer> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/js/main.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2445881-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+    </div>
+  </body>
+</html>
