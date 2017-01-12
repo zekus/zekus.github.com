@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[libxml2 and failing capybara tests]]></title>
+    <link href="http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/"/>
+    <updated>2013-07-29T23:04:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests</id>
+    <content type="html"><![CDATA[<p>Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your colleagues machines and <strong>Boom!</strong> the tests are not passing on yours!</p>
+
+<p>And there it starts the infinite debugging.</p>
+
+<p>One of the Cucumber tests not passing had a css selector like the following:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Then</span> <span class="sr">/^I can edit something$/</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">within</span><span class="p">(</span><span class="s2">&quot;#something tr td:nth-child(2)&quot;</span><span class="p">)</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">click_link</span> <span class="s2">&quot;Edit&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># [...]</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which had nothing strange in it; plus I could actually see in the browser, using <em>save_and_open_page</em>
+that the elements that Capybara was supposed to select, were actually there.</p>
+
+<h3>WTF THEN?!?</h3>
+
+<p>After some time shooting in the dark, reinstalling and banging the head against the desk, I figured that the
+problem should have been related to some system library I was using and it turned out I was right.</p>
+
+<p>Capybara has a wrapper around our friend <strong>Nokogiri</strong> that wraps <strong>libxml2</strong> and the only difference between
+my machine and my colleagues ones could have been exactly the version of <em>libxml2</em>.
+To prove the theory at that point, I just had to install and older version of libxml2 and reinstall nokogiri
+before running the test suite again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxml2
+</span><span class='line'>2.9.1    git checkout 31caa27 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.9.0    git checkout 5dd45d7 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.8.0    git checkout 763d946 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.8    git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.7    git checkout f4a925d /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>2.7.6    git checkout 8939a91 /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew tap homebrew/versions
+</span><span class='line'>~&gt; <span class="nb">cd</span> /usr/local
+</span><span class='line'>~&gt; git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+</span><span class='line'>~&gt; brew install libxml2
+</span><span class='line'>~&gt; brew link --force libxml2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and libxslt:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; brew versions libxslt
+</span><span class='line'>1.1.28   git checkout 98d5e91 Library/Formula/libxslt.rb
+</span><span class='line'>1.1.26   git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; git checkout 2053036 Library/Formula/libxslt.rb
+</span><span class='line'>~&gt; brew install libxslt
+</span><span class='line'>~&gt; brew link --force libxslt
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then nokogiri:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>~&gt; gem uninstall nokogiri
+</span><span class='line'>~&gt; gem install nokogiri
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>That was it! Tests running, all green! <strong>F@#k YEAH!</strong></p>
+
+<p>Now surely we can update the test suite to work with the latest <em>libxml2</em> :P</p>
+
+<p>Happy coding.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[nokogiri again, but not its fault this time]]></title>
+    <link href="http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time/"/>
+    <updated>2013-06-24T19:38:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id>
+    <content type="html"><![CDATA[<p>Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset.
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an &ldquo;acceptable grep&rdquo;! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my <em>GREP_OPTIONS</em>. I had the following in my .zshrc</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">export </span><span class="nv">GREP_OPTIONS</span><span class="o">=</span><span class="s2">&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and, after removing the <em>-nR</em> options, I was finally able to install nokogiri correctly.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[long time no see]]></title>
+    <link href="http://zekus.github.io/blog/2013/04/29/long-time-no-see/"/>
+    <updated>2013-04-29T11:51:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/04/29/long-time-no-see</id>
+    <content type="html"><![CDATA[<p>I’ve finally had the time and the strength to get back to my old blog and give it a new look.</p>
+
+<p>I feel guilty about having abandoned it for long time :(</p>
+
+<p>I promise, blog, I won’t leave you alone again.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[moving to Octopress]]></title>
+    <link href="http://zekus.github.io/blog/2012/06/24/moving-to-octopress/"/>
+    <updated>2012-06-24T23:43:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/06/24/moving-to-octopress</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve been delaying this migrations for ages now but here we are, it finally happened:
+I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git&hellip; that&rsquo;s too many emotions for one single day :P</p>
+
+<h3>So, how did I do it?</h3>
+
+<p>There are tons of tutorials already on the net that explain very well how to migrate from Wordpress to Octopress so I&rsquo;m not going to explain here all the details but make just a quick summary even for myself as a note:</p>
+
+<ul>
+<li>Download, install and follow the instructions of <a href="https://github.com/thomasf/exitwp">exitwp</a></li>
+<li>Run a regex to fix the code blocks like:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>perl -pi -e <span class="s1">&#39;s/([^\`]|^)(\`)([^\`]|$)/$1\n\`\`\`\n$3/g&#39;</span> *
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>If you have been using Disqus on Wordpress before moving to Octopress, for some reason <em>exitwp</em> doesn&rsquo;t add the <em>comments: true</em> parameter in the posts so use this sed command to fix it:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>find _posts/ -type f -print0 | xargs -0 -I file sed -i <span class="s1">&#39;&#39;</span> <span class="s1">&#39;2 i\</span>
+</span><span class='line'><span class="s1">comments: true</span>
+</span><span class='line'><span class="s1">&#39;</span> file
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Octopress posts url is different from the Wordpress one so you&rsquo;re going to have to remap the Disqus comments using their <a href="http://help.disqus.com/customer/portal/articles/286778-using-the-migration-tools">migration tool</a> and a bit of patience</li>
+</ul>
+
+
+<p>The next step will be playing with the theme to make it more &ldquo;personal&rdquo; :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[mod_rpaf and ubuntu 12.04]]></title>
+    <link href="http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04/"/>
+    <updated>2012-05-23T16:57:38+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/05/23/mod_rpaf-and-ubuntu-12-04</id>
+    <content type="html"><![CDATA[<p><rant> Canonical, seriously, what&rsquo;s wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It&rsquo;s a bloody mess! </rant></p>
+
+<p>So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:</p>
+
+<p>FROM =====></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;IfModule mod_rpaf.c&gt;
+</span><span class='line'>RPAFenable On
+</span><span class='line'>RPAFsethostname On
+</span><span class='line'>RPAFproxy_ips 127.0.0.1
+</span><span class='line'>&lt;/IfModule&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>TO =======></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;IfModule mod_rpaf-2.0.c&gt;
+</span><span class='line'>RPAFenable On
+</span><span class='line'>RPAFsethostname On
+</span><span class='line'>RPAFproxy_ips 127.0.0.1
+</span><span class='line'>&lt;/IfModule&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Find the differences and thank <a href="http://ffnz.tumblr.com/post/23078644987/rpaf-mod-not-working-on-ubuntu-12-04">this guy</a> that find it before me.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[send headers with Selenium and PHPUnit?]]></title>
+    <link href="http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit/"/>
+    <updated>2012-05-02T22:37:09+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/05/02/send-headers-with-selenium-and-phpunit</id>
+    <content type="html"><![CDATA[<p>Just dont waste your life and use curl if you need to do that.</p>
+
+<p>I know, this is a useless post but I just wasted a huge amount of time trying to find a solution and I feel like giving this advice to someone.</p>
+
+<p>happy testing :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[perl: warning: Setting locale failed.]]></title>
+    <link href="http://zekus.github.io/blog/2012/04/01/409/"/>
+    <updated>2012-04-01T14:58:51+02:00</updated>
+    <id>http://zekus.github.io/blog/2012/04/01/409</id>
+    <content type="html"><![CDATA[<p>Tired of this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>perl: warning: Setting locale failed.
+</span><span class='line'>perl: warning: Please check that your locale settings:
+</span><span class='line'>LANGUAGE = "en_US:en",
+</span><span class='line'>LC_ALL = (unset),
+</span><span class='line'>LC_CTYPE = "en_GB.UTF-8",
+</span><span class='line'>LANG = "en_US.UTF-8"
+</span><span class='line'>are supported and installed on your system.
+</span><span class='line'>perl: warning: Falling back to the standard locale ("C").
+</span><span class='line'>locale: Cannot set LC_CTYPE to default locale: No such file or directory
+</span><span class='line'>locale: Cannot set LC_ALL to default locale: No such file or directory</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Do this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export LANGUAGE=en_US.UTF-8
+</span><span class='line'>export LANG=en_US.UTF-8
+</span><span class='line'>export LC_ALL=en_US.UTF-8
+</span><span class='line'>sudo locale-gen en_US.UTF-8
+</span><span class='line'>sudo dpkg-reconfigure locales</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Be happy again :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby 1.9.3-p125 and RVM on Mac]]></title>
+    <link href="http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/"/>
+    <updated>2012-02-18T15:32:41+01:00</updated>
+    <id>http://zekus.github.io/blog/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id>
+    <content type="html"><![CDATA[<p>A <a href="http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/">new ruby version</a> is out and it&rsquo;s time to upgrade! The first try gave me this error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>?  ~  rvm install 1.9.3-p125
+</span><span class='line'>Error running ' ./configure --prefix=/Users/antonio/.rvm/rubies/ruby-1.9.3-p125 --enable-shared --disable-install-doc --with-libyaml --with-opt-dir=/Users/antonio/.rvm/usr ', please read /Users/antonio/.rvm/log/ruby-1.9.3-p125/configure.log
+</span><span class='line'>There has been an error while running configure. Halting the installation.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Adding the compiler option &ldquo;&mdash;with-gcc=clang&rdquo; worked:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>?  ~  rvm install 1.9.3-p125 --with-gcc=clang
+</span><span class='line'>Install of ruby-1.9.3-p125 - #complete</span></code></pre></td></tr></table></div></figure>
+
+
+<p>enjoy Ruby :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Nokogiri, RVM, Homebrew and headhache!!!]]></title>
+    <link href="http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache/"/>
+    <updated>2011-06-11T14:32:48+02:00</updated>
+    <id>http://zekus.github.io/blog/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id>
+    <content type="html"><![CDATA[<p>Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</p>
+
+<div><script src='https://gist.github.com/1020543.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>If you had MacPorts previously installed, it might still not work so</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo mv /opt/local /opt/local_old</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and try again.</p>
+
+<p>Enjoy :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[OpenVPN at startup in OSX]]></title>
+    <link href="http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx/"/>
+    <updated>2011-05-09T00:11:25+02:00</updated>
+    <id>http://zekus.github.io/blog/2011/05/09/openvpn-at-startup-in-osx</id>
+    <content type="html"><![CDATA[<p>The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I&rsquo;ll show you how to do it:</p>
+
+<p>create /etc/rc.local and copy/paste the following three lines in it:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
+</span><span class='line'>/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tap.kext
+</span><span class='line'>/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tun.kext</span></code></pre></td></tr></table></div></figure>
+
+
+<p>then create a Launch script like this for each of the vpn you want to connect to, replacing <em>YOURVPNNAME</em>, <em>YOURCONFIGFILE</em>, <em>YOUR/CONFIG/FOLDER</em> accordingly:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+</span><span class='line'>&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+</span><span class='line'>&lt;plist version="1.0"&gt;
+</span><span class='line'>&lt;dict&gt;
+</span><span class='line'>&lt;key&gt;Label&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;org.openvpn.YOURVPNNAME&lt;/string&gt;
+</span><span class='line'>&lt;key&gt;OnDemand&lt;/key&gt;
+</span><span class='line'>&lt;false/&gt;
+</span><span class='line'>&lt;key&gt;Program&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;/Applications/Tunnelblick.app/Contents/Resources/openvpn&lt;/string&gt;
+</span><span class='line'>&lt;key&gt;ProgramArguments&lt;/key&gt;
+</span><span class='line'>&lt;array&gt;
+</span><span class='line'>&lt;string&gt;openvpn&lt;/string&gt;
+</span><span class='line'>&lt;string&gt;--config&lt;/string&gt;
+</span><span class='line'>&lt;string&gt;YOURCONFIGFILE.conf&lt;/string&gt;
+</span><span class='line'>&lt;/array&gt;
+</span><span class='line'>&lt;key&gt;RunAtLoad&lt;/key&gt;
+</span><span class='line'>&lt;true/&gt;
+</span><span class='line'>&lt;key&gt;TimeOut&lt;/key&gt;
+</span><span class='line'>&lt;integer&gt;90&lt;/integer&gt;
+</span><span class='line'>&lt;key&gt;WorkingDirectory&lt;/key&gt;
+</span><span class='line'>&lt;string&gt;YOUR/CONFIG/FOLDER&lt;/string&gt;
+</span><span class='line'>&lt;/dict&gt;
+</span><span class='line'>&lt;/plist&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>save each script into <em>/Library/LaunchDaemons/</em> folder using a name for the file like <em>org.openvpn.YOURVPNNAME.plist</em>, then change the user and group to root:wheel with the following command in a terminal window:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo chown root:wheel /Library/LaunchDaemon/org.openvpn.YOURVPNNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>last commands to register and execute your Launch scripts are:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo launchctl load /Library/LaunchDaemon/org.openvpn.YOURVPNNAME.plist
+</span><span class='line'>sudo launchctl start org.openvpn.YOURVPNNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>a restart should be the very last thing to do and once your mac has started you shoud be connected to your vpn network(s)!</p>
+
+<p>enjoy ;)</p>
+
+<p><strong>UPDATE: </strong>the new version of tunnelblick 3.2beta26 does have the the &ldquo;connect when computer starts&rdquo; functionality that automatically makes this post obsolete. I&rsquo;ll just keep it for the records :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Exclude files and directories from Apache Auth]]></title>
+    <link href="http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth/"/>
+    <updated>2011-01-04T11:35:52+01:00</updated>
+    <id>http://zekus.github.io/blog/2011/01/04/exclude-files-and-directories-from-apache-auth</id>
+    <content type="html"><![CDATA[<p>It would have made sense to use LocationMatch with a negative lookahead regex pattern like &ldquo;^/(?!admin)&rdquo; but that doesnt work. Neither work a rule like !&ldquo;^/admin&rdquo; so here is a workaround:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;Location "/"&gt;  
+</span><span class='line'>AuthType Basic  
+</span><span class='line'>AuthName "Restricted Files"  
+</span><span class='line'>AuthUserFile /var/www/clients/client12/web17/passwd  
+</span><span class='line'>AuthGroupFile /dev/null  
+</span><span class='line'>Require valid-user  
+</span><span class='line'>SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
+</span><span class='line'>SetEnvIf Request_URI "^/favicon.ico$" allow  
+</span><span class='line'>Order allow,deny  
+</span><span class='line'>Allow from env=allow  
+</span><span class='line'>Satisfy Any  
+</span><span class='line'>&lt;/Location&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VIM and the clipboard on Ubuntu]]></title>
+    <link href="http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu/"/>
+    <updated>2010-12-07T13:16:56+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/12/07/vim-and-the-clipboard-on-ubuntu</id>
+    <content type="html"><![CDATA[<p>If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command &ldquo;+y !</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails and PostgreSQL]]></title>
+    <link href="http://zekus.github.io/blog/2010/06/21/rails-and-postgresql/"/>
+    <updated>2010-06-21T23:17:54+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/06/21/rails-and-postgresql</id>
+    <content type="html"><![CDATA[<p>Complaining, screaming, sweating, swearing &hellip;. why it doesnt work &hellip; jeeeeeezzz</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/opt/local/lib/ruby/gems/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_specification.rb:76:in </span></code></pre></td></tr></table></div></figure>
+
+
+<p>establish_connection&#8217;: Please install the postgres adapter:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install activerecord-postgres-adapter</span></code></pre></td></tr></table></div></figure>
+
+
+<p> (no such file to load &mdash; active_record/connection_adapters/postgres_adapter) (RuntimeError)
+&#8220;`</p>
+
+<p>And then a light &hellip; &ldquo;I upgraded postgresql recently!&rdquo;</p>
+
+<p>Just reinstall the postgres gem and you are done&hellip;</p>
+
+<p>What a night!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[map and grep: from Perl to PHP]]></title>
+    <link href="http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
+    <updated>2010-05-17T15:57:29+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
+    <content type="html"><![CDATA[<p>Probably many of you already know but here is the correspondent in PHP of the two fundamentals Perl functions:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map =&gt; array_map  
+</span><span class='line'>grep =&gt; array_filter</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Too lazy to give you examples .. I think you can work it out yourself.</p>
+
+<p>;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[PHP-FPM on Ubuntu Lucid Lynx]]></title>
+    <link href="http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx/"/>
+    <updated>2010-05-11T00:47:53+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/05/11/php-fpm-on-ubuntu-lucid-lynx</id>
+    <content type="html"><![CDATA[<p>I have been using the dotdeb repository on karmic for a while, but today, when I installed the new Lucid Lynx, it just became a mess so I decided to keep all the original ubuntu packages (Lucid ships php 5.3.2) and find an alternative repo for php-fpm which I use on my dev machine. <br/>
+Here it is:<a href="https://launchpad.net/%7Ebrianmercer/+archive/php/">Brian&rsquo;s php5-fpm : Brian Mercer</a></p>
+
+<p>Happy 10.04! :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google Website Optimiser and the bugged Techie Guide]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide/"/>
+    <updated>2010-03-31T10:00:21+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/31/google-website-optimiser-and-the-bugged-techie-guide</id>
+    <content type="html"><![CDATA[<p>I spent hours yesterday to implement the GWO that, instead, should take literally minutes!<br/>
+You want to know why? The bugged <a href="http://www.google.com/en//websiteoptimizer/techieguide.pdf">Techie Guide</a>!!!</p>
+
+<p>On page 19, the script is completely wrong and drove me mad: variation-content should be <strong>variation_content</strong> and document.write(“&lt;/nosc” + “ript>”) should be <strong>document.write(“&lt;nosc” + “ript>”)</strong>;</p>
+
+<p>So, here is he complete correct script:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script&gt;  
+</span><span class='line'>var v = utmx(‘variation_content’, ‘Section1’);  
+</span><span class='line'>if (v) {  
+</span><span class='line'>document.write(  
+</span><span class='line'>v.replace(“%%product_name%%”, “&lt;? print $product_name ?&gt;”).  
+</span><span class='line'>replace(“%%product_price%%”, “&lt;? print $product_price ?&gt;”).  
+</span><span class='line'>replace(“%%product_id%%”, “&lt;? print $product_id ?&gt;”));  
+</span><span class='line'>document.write(“&lt;nosc” + “ript&gt;”);  
+</span><span class='line'>}  
+</span><span class='line'>&lt;/script&gt;  
+</span><span class='line'>&lt;ul&gt;  
+</span><span class='line'>&lt;li&gt;Product name: &lt;? print $product_name ?&gt;  
+</span><span class='line'>&lt;li&gt;Product price: &lt;? print $product_price ?&gt;  
+</span><span class='line'>&lt;li&gt;&lt;a href=’buy.php?prod-id=&lt;? print $product_id ?&gt;’&gt;  
+</span><span class='line'>Buy Now&lt;/a&gt;  
+</span><span class='line'>&lt;/ul&gt;  
+</span><span class='line'>&lt;/noscript&gt;  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Adapt it to your code and be happy!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Nginx and $_SERVER['HTTPS']]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps/"/>
+    <updated>2010-03-22T17:50:06+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps</id>
+    <content type="html"><![CDATA[<p>When you are using the FastCGI Php version, you would set HTTPS variable if you are serving parts of you website with SSL.
+To do that, add the following function into the http section of your nginx configuration</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map $scheme $fastcgi_https { ## Detect when HTTPS is used
+</span><span class='line'>default off;
+</span><span class='line'>https on;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and use the variable into your server section</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>fastcgi_param  HTTPS $fastcgi_https;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Lazy explanation as usual :P</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=b551158c-e2e9-8fde-ae41-d8c9797abc56" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[svn: Inconsistent line ending style]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
+    <updated>2010-03-19T10:38:30+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
+    <content type="html"><![CDATA[<p>I hate svn! It&rsquo;s official!
+if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don&rsquo;t forget the -a option!</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>shell$ dos2unix -a /the/affected/file.php </span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=17e62287-9b5f-808e-aa5e-5f8b6e6450ee" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[upstream sent too big header while reading response header from upstream]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
+    <updated>2010-03-10T17:21:46+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
+    <content type="html"><![CDATA[<p>if you have this error from nginx with php-fpm and output_buffers = On in your php.ini then try to increment the buffer size in nginx:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  
+</span><span class='line'>fastcgi_buffers 8 16k;  
+</span><span class='line'>fastcgi_buffer_size 32k;  </span></code></pre></td></tr></table></div></figure>
+
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=17e62287-9b5f-808e-aa5e-5f8b6e6450ee" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BASH: rename files]]></title>
+    <link href="http://zekus.github.io/blog/2010/02/26/bash-rename-files/"/>
+    <updated>2010-02-26T11:46:38+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/02/26/bash-rename-files</id>
+    <content type="html"><![CDATA[<p>A simple rename example using again the mighty awk and xargs</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explanation:<br/>
+**</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls -l *.xml</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> &ndash;> easy! list the xml files in a folder<br/>
+</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>awk '{print $9}'</span></code></pre></td></tr></table></div></figure>
+
+
+<p><strong> &ndash;> output just the name of the file<br/>
+</strong></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>xargs -t -i mv {} {}.old</span></code></pre></td></tr></table></div></figure>
+
+
+<p>** &ndash;> rename it adding at the same filename the extension &ldquo;.old&rdquo;</p>
+
+<p>I know, I know &hellip; my explanation is crap: blame my laziness :)</p>
+]]></content>
+  </entry>
+  
+</feed>

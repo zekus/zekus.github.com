@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: SVN | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/blog/categories/svn/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[svn: Inconsistent line ending style]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style/"/>
+    <updated>2010-03-19T10:38:30+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/19/svn-inconsistent-line-ending-style</id>
+    <content type="html"><![CDATA[<p>I hate svn! It&rsquo;s official!
+if you have this stupid error, what you have to do is run dos2unix on the file specified by the error. Don&rsquo;t forget the -a option!
+<code>
+shell$ dos2unix -a /the/affected/file.php
+</code></p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=17e62287-9b5f-808e-aa5e-5f8b6e6450ee" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[svn revert cleanup]]></title>
+    <link href="http://zekus.github.io/blog/2009/06/26/svn-revert-cleanup/"/>
+    <updated>2009-06-26T13:17:27+02:00</updated>
+    <id>http://zekus.github.io/blog/2009/06/26/svn-revert-cleanup</id>
+    <content type="html"><![CDATA[<p>You have reverted an svn merge and you have a lot of files not tracked (with exclamation mark, basically)?<br/>
+Clean it up:<br/>
+<code>
+svn status | awk '$1 == "?" {print $2}' | xargs -t -i rm -r {}
+</code></p>
+
+<p>Again, knowing awk and xargs turn helpful!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[the correct procedure for compiling subversion 1.6.2]]></title>
+    <link href="http://zekus.github.io/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2/"/>
+    <updated>2009-06-22T10:44:35+02:00</updated>
+    <id>http://zekus.github.io/blog/2009/06/22/the-correct-procedure-for-compiling-subversion-1-6-2</id>
+    <content type="html"><![CDATA[<p>Not sure if this is the complete way of doing it (I&rsquo;m not telling you which .deb to install), but it worked for me:</p>
+
+<p>Remove some waste from eventual previous compilations:<br/>
+```</p>
+
+<p>$ rm -rf /usr/loca/lib/libsvn<em><br/>
+$ rm -rf /usr/local/lib/libapr</em><br/>
+$ rm -rf /usr/local/lib/libexpat<em><br/>
+$ rm -rf /usr/local/lib/libneon</em><br/>
+```</p>
+
+<p>Run autogen<br/>
+```</p>
+
+<p>$ ./autogen.sh <br/>
+```</p>
+
+<p>Configure and install (it is important to follow the order)<br/>
+```</p>
+
+<p>$ ./configure<br/>
+$ make -j external-all<br/>
+$ make -j local-all<br/>
+$ sudo make install<br/>
+```</p>
+
+<p>That&rsquo;s it. Hope to have helped someone as usual.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[svn: Entry has unexpectedly changed special status]]></title>
+    <link href="http://zekus.github.io/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status/"/>
+    <updated>2008-09-29T19:38:51+02:00</updated>
+    <id>http://zekus.github.io/blog/2008/09/29/svn-entry-has-unexpectedly-changed-special-status</id>
+    <content type="html"><![CDATA[<p>If you have this error after tryin a commit, for sure you have replaced a standard file with a symlink or viceversa, haven&rsquo;t you?</p>
+
+<p>In that case, what you have to do is just <strong>svn add <the resource changed></strong> and svn will replace the file with the new one!</p>
+
+<p>Were you already scared :D ?</p>
+
+<p>Anyway, the correct procedure to replace a real file with a symlink in svn is the following:</p>
+
+<ol>
+<li><p> <strong>svn remove</strong> of the file you want to link</p></li>
+<li><p> <strong>ln -s <link></strong></p></li>
+<li><p> <strong>svn add</strong> of the new link</p></li>
+</ol>
+
+
+<p>;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[quick solution to "svn: Checksum mismatch ..."]]></title>
+    <link href="http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2/"/>
+    <updated>2008-06-11T17:20:30+02:00</updated>
+    <id>http://zekus.github.io/blog/2008/06/11/quick-solution-to-svn-checksum-mismatch-2</id>
+    <content type="html"><![CDATA[<p>If this error afflict your quiet development day, I&rsquo;m sorry :D
+I had this problem today and I solved in few steps:</p>
+
+<ol>
+<li> make a backup of the working copy in a different directory</li>
+<li> delete only the corrupted directory from your working copy</li>
+<li> make an svn update</li>
+<li> copy back only the modified files you need from the backup copy to the current working copy</li>
+<li> commit your changes
+Now breath deeply and take a cold shower: I suppose you must be sweat! :D</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

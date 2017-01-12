@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[libxml2 and failing capybara tests]]></title>
+    <link href="http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests/"/>
+    <updated>2013-07-29T23:04:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/07/29/libxml2-and-failing-capybara-tests</id>
+    <content type="html"><![CDATA[<p>Checkout a repo, brand new gemset, run the test suite which for sure is running green on
+at least 3 of your colleagues machines and <strong>Boom!</strong> the tests are not passing on yours!</p>
+
+<p>And there it starts the infinite debugging.</p>
+
+<p>One of the Cucumber tests not passing had a css selector like the following:
+```ruby
+Then /^I can edit something$/ do
+  within(&ldquo;#something tr td:nth-child(2)&rdquo;) do</p>
+
+<pre><code>click_link "Edit"
+</code></pre>
+
+<p>  end</p>
+
+<p>  # [&hellip;]</p>
+
+<p>end
+```
+which had nothing strange in it; plus I could actually see in the browser, using <em>save_and_open_page</em>
+that the elements that Capybara was supposed to select, were actually there.</p>
+
+<h3>WTF THEN?!?</h3>
+
+<p>After some time shooting in the dark, reinstalling and banging the head against the desk, I figured that the
+problem should have been related to some system library I was using and it turned out I was right.</p>
+
+<p>Capybara has a wrapper around our friend <strong>Nokogiri</strong> that wraps <strong>libxml2</strong> and the only difference between
+my machine and my colleagues ones could have been exactly the version of <em>libxml2</em>.
+To prove the theory at that point, I just had to install and older version of libxml2 and reinstall nokogiri
+before running the test suite again:
+<code>bash
+~&gt; brew versions libxml2                    
+2.9.1    git checkout 31caa27 /usr/local/Library/Formula/libxml2.rb
+2.9.0    git checkout 5dd45d7 /usr/local/Library/Formula/libxml2.rb
+2.8.0    git checkout 763d946 /usr/local/Library/Formula/libxml2.rb
+2.7.8    git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+2.7.7    git checkout f4a925d /usr/local/Library/Formula/libxml2.rb
+2.7.6    git checkout 8939a91 /usr/local/Library/Formula/libxml2.rb
+~&gt; brew tap homebrew/versions
+~&gt; cd /usr/local
+~&gt; git checkout 497b13a /usr/local/Library/Formula/libxml2.rb
+~&gt; brew install libxml2
+~&gt; brew link --force libxml2
+</code>
+and libxslt:
+<code>bash
+~&gt; brew versions libxslt                                  
+1.1.28   git checkout 98d5e91 Library/Formula/libxslt.rb
+1.1.26   git checkout 2053036 Library/Formula/libxslt.rb
+~&gt; git checkout 2053036 Library/Formula/libxslt.rb
+~&gt; brew install libxslt
+~&gt; brew link --force libxslt
+</code>
+then nokogiri:
+<code>bash
+~&gt; gem uninstall nokogiri
+~&gt; gem install nokogiri
+</code>
+That was it! Tests running, all green! <strong>F@#k YEAH!</strong></p>
+
+<p>Now surely we can update the test suite to work with the latest <em>libxml2</em> :P</p>
+
+<p>Happy coding.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[nokogiri again, but not its fault this time]]></title>
+    <link href="http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time/"/>
+    <updated>2013-06-24T19:38:00+02:00</updated>
+    <id>http://zekus.github.io/blog/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id>
+    <content type="html"><![CDATA[<p>Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset.
+First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
+Second thing was that libxslt was not getting compiled because it could not find an &ldquo;acceptable grep&rdquo;! Go figure! After many trials and unfruitful google
+searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
+It turned out that I was correct and the problem was related to my <em>GREP_OPTIONS</em>. I had the following in my .zshrc
+<code>bash
+export GREP_OPTIONS="--exclude-dir=.svn --exclude-dir=.git -nR --color"
+</code>
+and, after removing the <em>-nR</em> options, I was finally able to install nokogiri correctly.</p>
+]]></content>
+  </entry>
+  
+</feed>

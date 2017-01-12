@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Perl | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/blog/categories/perl/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[map and grep: from Perl to PHP]]></title>
+    <link href="http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php/"/>
+    <updated>2010-05-17T15:57:29+02:00</updated>
+    <id>http://zekus.github.io/blog/2010/05/17/map-and-grep-from-perl-to-php</id>
+    <content type="html"><![CDATA[<p>Probably many of you already know but here is the correspondent in PHP of the two fundamentals Perl functions:<br/>
+<code>
+map =&gt; array_map  
+grep =&gt; array_filter
+</code></p>
+
+<p>Too lazy to give you examples .. I think you can work it out yourself.</p>
+
+<p>;)</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[in_array() in Perl?]]></title>
+    <link href="http://zekus.github.io/blog/2008/07/09/in_array-in-perl/"/>
+    <updated>2008-07-09T12:27:51+02:00</updated>
+    <id>http://zekus.github.io/blog/2008/07/09/in_array-in-perl</id>
+    <content type="html"><![CDATA[<p>I was looking for this useful function I always use in php and found this simple <a href="http://assasiner.wordpress.com/2006/12/03/is-in-array/trackback/">article</a>.
+Basically, the function that permit you to do that is <strong>grep </strong>used in this way:
+<code>
+my $string = ‘fin_helm’;
+my @array = qw/full_plate manteau boots two_handed_sword fin_helm/;
+if(grep $_ eq $string, @array)
+{
+print “$string is in the array”;
+}
+</code>
+easy?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[just a note for me: Perl references]]></title>
+    <link href="http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references/"/>
+    <updated>2008-07-08T19:02:46+02:00</updated>
+    <id>http://zekus.github.io/blog/2008/07/08/just-a-note-for-me-perl-references</id>
+    <content type="html"><![CDATA[<p>I said not to jump the chapter 4 of the Camel book (the Dromedary one) otherwise you&rsquo;ll not know what @{&hellip;} (literally: at plus curly brackets) do!!<br/>
+As explained in page 252, that expression, dereferenciate an array reference returning the array itself.<br/>
+Remember that arghh..</p>
+
+<p>ps. why Perl should be so complicated?</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Perl reference]]></title>
+    <link href="http://zekus.github.io/blog/2008/05/30/perl-reference/"/>
+    <updated>2008-05-30T18:19:24+02:00</updated>
+    <id>http://zekus.github.io/blog/2008/05/30/perl-reference</id>
+    <content type="html"><![CDATA[<p>Study it! if you are beginning with perl, that chapter is the one you will never jump over!<br/>
+<a href="http://perldoc.perl.org/perlreftut.html">http://perldoc.perl.org/perlreftut.html</a></p>
+]]></content>
+  </entry>
+  
+</feed>

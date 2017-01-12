@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: nginx | antoniolorusso.com]]></title>
+  <link href="http://zekus.github.io/blog/categories/nginx/atom.xml" rel="self"/>
+  <link href="http://zekus.github.io/"/>
+  <updated>2013-07-30T01:06:03+02:00</updated>
+  <id>http://zekus.github.io/</id>
+  <author>
+    <name><![CDATA[Antonio Lorusso]]></name>
+    <email><![CDATA[antonio.lorusso@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Nginx and $_SERVER['HTTPS']]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps/"/>
+    <updated>2010-03-22T17:50:06+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/22/nginx-and-_serverhttps</id>
+    <content type="html"><![CDATA[<p>When you are using the FastCGI Php version, you would set HTTPS variable if you are serving parts of you website with SSL.
+To do that, add the following function into the http section of your nginx configuration
+<code>
+map $scheme $fastcgi_https { ## Detect when HTTPS is used
+default off;
+https on;
+}
+</code>
+and use the variable into your server section
+<code>
+fastcgi_param  HTTPS $fastcgi_https;
+</code></p>
+
+<p>Lazy explanation as usual :P</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=b551158c-e2e9-8fde-ae41-d8c9797abc56" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[upstream sent too big header while reading response header from upstream]]></title>
+    <link href="http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream/"/>
+    <updated>2010-03-10T17:21:46+01:00</updated>
+    <id>http://zekus.github.io/blog/2010/03/10/upstream-sent-too-big-header-while-reading-response-header-from-upstream</id>
+    <content type="html"><![CDATA[<p>if you have this error from nginx with php-fpm and output_buffers = On in your php.ini then try to increment the buffer size in nginx:<br/>
+```</p>
+
+<p>fastcgi_buffers 8 16k;<br/>
+fastcgi_buffer_size 32k;<br/>
+```</p>
+
+<p><img src="http://img.zemanta.com/pixy.gif?x-id=17e62287-9b5f-808e-aa5e-5f8b6e6450ee" alt="" /></p>
+]]></content>
+  </entry>
+  
+</feed>
