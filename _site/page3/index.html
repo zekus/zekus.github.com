@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://zekus.github.io/page3/">
+  <link rel="canonical" href="http://localhost:4000/page3/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -169,6 +169,62 @@
   <ol class="post-list">
     
       <li>
+        <h2 class="post-list__post-title post-title"><a href="/2010/02/26/bash-rename-files/" title="BASH: rename files">BASH: rename files</a></h2>
+        <p class="excerpt">A simple rename example using again the mighty awk and xargs
+<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old
+</code></pre>
+</div>
+
+Explanation:<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml
+</code></pre>
+</div>
+** -&gt; easy! list the xml files in a folder<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>awk '{print $9}'
+</code></pre>
+</div>
+** -&gt; output just the name of the file<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>xargs -t -i mv {} {}.old
+</code></pre>
+</div>
+** -&gt; rename it adding at the same filename the extension “.old”
+
+I know, I know … my explanation is crap: blame my laziness :)
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="26 Feb 2010" class="post-list__meta--date date">26 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#awk">awk</a> <a href="tags/#bash">bash</a> <a href="tags/#rename">rename</a> <a href="tags/#xargs">xargs</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2010/02/06/disable-pure-ftpd-logging-on-syslog/" title="disable Pure-ftpd logging on syslog">disable Pure-ftpd logging on syslog</a></h2>
+        <p class="excerpt">Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="6 Feb 2010" class="post-list__meta--date date">6 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#Linux">Linux</a> <a href="tags/#log">log</a> <a href="tags/#pure-ftpd">pure-ftpd</a> <a href="tags/#ubuntu">ubuntu</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2010/02/02/firefox-3-6-stable-on-karmic/" title="Firefox 3.6 stable on Karmic">Firefox 3.6 stable on Karmic</a></h2>
+        <p class="excerpt">I’ll just paste here the usual simple steps to install the latest firefox 3.6 on your ubuntu:
+<div class="highlighter-rouge"><pre class="highlight"><code>  
+sudo add-apt-repository ppa:mozillateam/firefox-stable  
+sudo apt-get update  
+sudo apt-get install firefox-3.6  
+</code></pre>
+</div>
+
+Have fun ;)
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="2 Feb 2010" class="post-list__meta--date date">2 Feb 2010</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
         <h2 class="post-list__post-title post-title"><a href="/2010/01/18/suhosin-and-memory_limit/" title="Suhosin and memory_limit">Suhosin and memory_limit</a></h2>
         <p class="excerpt">I had some problem with a script that needed more memory to be executed and was using <strong>ini_set(‘memory_limit’, ‘50M’).</strong> For some reasons the memory was not incremented as expected.<br />
 After googleing around for a solution I just had an intuition: could be <em>suhosin</em>? Indeed, the problem was in the <em>suhosin</em> module that is enable by default on Ubuntu: it does not allow to redefine the memory limit over the limit specified in the php.ini file.<br />
@@ -274,47 +330,6 @@ $ sudo port upgrade --force installed
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="12 Oct 2009" class="post-list__meta--date date">12 Oct 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/09/07/sudo-gem-update-system-under-ubuntudebian/" title="sudo gem update --system under ubuntu/debian">sudo gem update --system under ubuntu/debian</a></h2>
-        <p class="excerpt">If you have tried that command, you already know that doesn’t work!<br />
-Here is the correct procedure to update gem under ubuntu/debian without using apt-get/aptitude
-<div class="highlighter-rouge"><pre class="highlight"><code>  
-$ sudo gem install rubygems-update  
-$ cd /var/lib/gems/1.8/bin  
-$ sudo ./update_rubygems  
-$ gem -v  
-$ 1.3.5  
-</code></pre>
-</div>
-
-Happy rubying :)
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="7 Sep 2009" class="post-list__meta--date date">7 Sep 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/08/29/the-git-cheatsheet/" title="the GIT cheatsheet">the GIT cheatsheet</a></h2>
-        <p class="excerpt">Finally the cheatsheet I was waiting for <a href="http://zrusin.blogspot.com/2007/09/git-cheat-sheet.html">available here</a>
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Aug 2009" class="post-list__meta--date date">29 Aug 2009</time> &#8226; <span class="post-meta__tags">on <a href="tags/#cheatsheet">cheatsheet</a> <a href="tags/#GIT">GIT</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/08/23/php-5-3-time-and-date-functions-and-timezone/" title="php 5.3, time and date functions and timezone ">php 5.3, time and date functions and timezone </a></h2>
-        <p class="excerpt">After installing PHP 5.3, you may get a warning for every function involving date and time like
-<div class="highlighter-rouge"><pre class="highlight"><code>Warning: strtotime() [function.strtotime]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Europe/London' for [...]
-</code></pre>
-</div>
-To fix this, you can set the timezone in your script using <strong><a href="http://uk.php.net/manual/en/function.date-default-timezone-set.php">date_default_timezone_set(‘Europe/London’);</a></strong> or set it into the php.ini file with <strong><a href="http://uk.php.net/manual/en/datetime.configuration.php#ini.date.timezone">date.timezone = ‘Europe/London’</a></strong>
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="23 Aug 2009" class="post-list__meta--date date">23 Aug 2009</time> &#8226; <span class="post-meta__tags">on <a href="tags/#5.3">5.3</a> <a href="tags/#date">date</a> <a href="tags/#PHP">PHP</a> <a href="tags/#time">time</a> <a href="tags/#timezone">timezone</a> </span></div>
         <hr class="post-list__divider">
       </li>
     

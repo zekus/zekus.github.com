@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://zekus.github.io/page2/">
+  <link rel="canonical" href="http://localhost:4000/page2/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -167,6 +167,48 @@
         <div class="main-post-list">
 
   <ol class="post-list">
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2011/05/09/openvpn-at-startup-in-osx/" title="OpenVPN at startup in OSX">OpenVPN at startup in OSX</a></h2>
+        <p class="excerpt">The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="9 May 2011" class="post-list__meta--date date">9 May 2011</time> &#8226; <span class="post-meta__tags">on <a href="tags/#mac">mac</a> <a href="tags/#openvpn">openvpn</a> <a href="tags/#osx">osx</a> <a href="tags/#tunnelblick">tunnelblick</a> <a href="tags/#vpn">vpn</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2011/01/04/exclude-files-and-directories-from-apache-auth/" title="Exclude files and directories from Apache Auth">Exclude files and directories from Apache Auth</a></h2>
+        <p class="excerpt">It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Location "/"&gt;  
+AuthType Basic  
+AuthName "Restricted Files"  
+AuthUserFile /var/www/clients/client12/web17/passwd  
+AuthGroupFile /dev/null  
+Require valid-user  
+SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
+SetEnvIf Request_URI "^/favicon.ico$" allow  
+Order allow,deny  
+Allow from env=allow  
+Satisfy Any  
+&lt;/Location&gt;
+</code></pre>
+</div>
+
+This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="4 Jan 2011" class="post-list__meta--date date">4 Jan 2011</time> &#8226; <span class="post-meta__tags">on <a href="tags/#Apache">Apache</a> <a href="tags/#authentication">authentication</a> <a href="tags/#location">location</a> <a href="tags/#locationmatch">locationmatch</a> <a href="tags/#setenvif">setenvif</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2010/12/07/vim-and-the-clipboard-on-ubuntu/" title="VIM and the clipboard on Ubuntu">VIM and the clipboard on Ubuntu</a></h2>
+        <p class="excerpt">If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="7 Dec 2010" class="post-list__meta--date date">7 Dec 2010</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
     
       <li>
         <h2 class="post-list__post-title post-title"><a href="/2010/06/21/rails-and-postgresql/" title="Rails and PostgreSQL">Rails and PostgreSQL</a></h2>
@@ -296,62 +338,6 @@ fastcgi_buffer_size 32k;
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="10 Mar 2010" class="post-list__meta--date date">10 Mar 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#buffer">buffer</a> <a href="tags/#fastcgi">fastcgi</a> <a href="tags/#nginx">nginx</a> <a href="tags/#PHP">PHP</a> <a href="tags/#php-fpm">php-fpm</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2010/02/26/bash-rename-files/" title="BASH: rename files">BASH: rename files</a></h2>
-        <p class="excerpt">A simple rename example using again the mighty awk and xargs
-<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old
-</code></pre>
-</div>
-
-Explanation:<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml
-</code></pre>
-</div>
-** -&gt; easy! list the xml files in a folder<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>awk '{print $9}'
-</code></pre>
-</div>
-** -&gt; output just the name of the file<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>xargs -t -i mv {} {}.old
-</code></pre>
-</div>
-** -&gt; rename it adding at the same filename the extension “.old”
-
-I know, I know … my explanation is crap: blame my laziness :)
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="26 Feb 2010" class="post-list__meta--date date">26 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#awk">awk</a> <a href="tags/#bash">bash</a> <a href="tags/#rename">rename</a> <a href="tags/#xargs">xargs</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2010/02/06/disable-pure-ftpd-logging-on-syslog/" title="disable Pure-ftpd logging on syslog">disable Pure-ftpd logging on syslog</a></h2>
-        <p class="excerpt">Pure-ftpd is a bit tricky to configure because do not handle the configuration like any other daemon in Linux so you will not find any /etc/pure-ftpd.conf.
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="6 Feb 2010" class="post-list__meta--date date">6 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#Linux">Linux</a> <a href="tags/#log">log</a> <a href="tags/#pure-ftpd">pure-ftpd</a> <a href="tags/#ubuntu">ubuntu</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2010/02/02/firefox-3-6-stable-on-karmic/" title="Firefox 3.6 stable on Karmic">Firefox 3.6 stable on Karmic</a></h2>
-        <p class="excerpt">I’ll just paste here the usual simple steps to install the latest firefox 3.6 on your ubuntu:
-<div class="highlighter-rouge"><pre class="highlight"><code>  
-sudo add-apt-repository ppa:mozillateam/firefox-stable  
-sudo apt-get update  
-sudo apt-get install firefox-3.6  
-</code></pre>
-</div>
-
-Have fun ;)
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="2 Feb 2010" class="post-list__meta--date date">2 Feb 2010</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     
