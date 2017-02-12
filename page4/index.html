@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://zekus.github.io/page4/">
+  <link rel="canonical" href="http://localhost:4000/page4/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -169,6 +169,47 @@
   <ol class="post-list">
     
       <li>
+        <h2 class="post-list__post-title post-title"><a href="/2009/09/07/sudo-gem-update-system-under-ubuntudebian/" title="sudo gem update --system under ubuntu/debian">sudo gem update --system under ubuntu/debian</a></h2>
+        <p class="excerpt">If you have tried that command, you already know that doesn’t work!<br />
+Here is the correct procedure to update gem under ubuntu/debian without using apt-get/aptitude
+<div class="highlighter-rouge"><pre class="highlight"><code>  
+$ sudo gem install rubygems-update  
+$ cd /var/lib/gems/1.8/bin  
+$ sudo ./update_rubygems  
+$ gem -v  
+$ 1.3.5  
+</code></pre>
+</div>
+
+Happy rubying :)
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="7 Sep 2009" class="post-list__meta--date date">7 Sep 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2009/08/29/the-git-cheatsheet/" title="the GIT cheatsheet">the GIT cheatsheet</a></h2>
+        <p class="excerpt">Finally the cheatsheet I was waiting for <a href="http://zrusin.blogspot.com/2007/09/git-cheat-sheet.html">available here</a>
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="29 Aug 2009" class="post-list__meta--date date">29 Aug 2009</time> &#8226; <span class="post-meta__tags">on <a href="tags/#cheatsheet">cheatsheet</a> <a href="tags/#GIT">GIT</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2009/08/23/php-5-3-time-and-date-functions-and-timezone/" title="php 5.3, time and date functions and timezone ">php 5.3, time and date functions and timezone </a></h2>
+        <p class="excerpt">After installing PHP 5.3, you may get a warning for every function involving date and time like
+<div class="highlighter-rouge"><pre class="highlight"><code>Warning: strtotime() [function.strtotime]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'Europe/London' for [...]
+</code></pre>
+</div>
+To fix this, you can set the timezone in your script using <strong><a href="http://uk.php.net/manual/en/function.date-default-timezone-set.php">date_default_timezone_set(‘Europe/London’);</a></strong> or set it into the php.ini file with <strong><a href="http://uk.php.net/manual/en/datetime.configuration.php#ini.date.timezone">date.timezone = ‘Europe/London’</a></strong>
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="23 Aug 2009" class="post-list__meta--date date">23 Aug 2009</time> &#8226; <span class="post-meta__tags">on <a href="tags/#5.3">5.3</a> <a href="tags/#date">date</a> <a href="tags/#PHP">PHP</a> <a href="tags/#time">time</a> <a href="tags/#timezone">timezone</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
         <h2 class="post-list__post-title post-title"><a href="/2009/08/14/macports-php-5-3-and-mysqlnd/" title="MacPorts, PHP 5.3 and Mysqlnd">MacPorts, PHP 5.3 and Mysqlnd</a></h2>
         <p class="excerpt">If you have recently upgraded to php 5.3 and you have done it using
 <div class="highlighter-rouge"><pre class="highlight"><code>sudo port install php5 +apache2+macosx+mysqlnd+pear
@@ -266,37 +307,6 @@ To understand what this line does, you need to know a bit about <a href="http://
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="6 Jun 2009" class="post-list__meta--date date">6 Jun 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/05/31/migrated/" title="Migrated">Migrated</a></h2>
-        <p class="excerpt">Me and Antonello have finally bought our server and this blog has been the first to be migrated.<br />
-Totally happy! Expect great new things :D
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="31 May 2009" class="post-list__meta--date date">31 May 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/05/11/long-time/" title="long time">long time</a></h2>
-        <p class="excerpt">Wow, I just noticed that my last post was 50 days old… I must have been busy, haven’t I?<br />
-So, what am I doing? The first part time website in Ruby on Rails is going to be published and I was working on that almost every evening and weekend with Antonello.<br />
-I should have written something about Rails and Ruby in here but … there is already a lot of material around the web.
-
-Maybe I’ll post something on GIT that is a bit more obscure :)
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="11 May 2009" class="post-list__meta--date date">11 May 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2009/03/22/rails-and-passenger-aka-mod_rails/" title="Rails and Passenger ( aka mod_rails )">Rails and Passenger ( aka mod_rails )</a></h2>
-        <p class="excerpt">We tried to setup a rails application in a server subfolder in a way that could have been accessible through an URL like http://servername/rails,  so we followed the configuration manual for mod_rails.We found that, to make rails works in a subfolder, should have used the Apache parameter RailsBaseURI.
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="22 Mar 2009" class="post-list__meta--date date">22 Mar 2009</time> &#8226; <span class="post-meta__tags">on <a href="tags/#Apache">Apache</a> <a href="tags/#composite primary keys">composite primary keys</a> <a href="tags/#gem">gem</a> <a href="tags/#mod_rails">mod_rails</a> <a href="tags/#passenger">passenger</a> <a href="tags/#Rails">Rails</a> <a href="tags/#Ruby">Ruby</a> </span></div>
         <hr class="post-list__divider">
       </li>
     

@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://zekus.github.io/">
+  <link rel="canonical" href="http://localhost:4000/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -169,6 +169,38 @@
   <ol class="post-list">
     
       <li>
+        <h2 class="post-list__post-title post-title"><a href="/2017/02/12/tdd-with-docker/" title="Neovim, TDD and Docker">Neovim, TDD and Docker</a></h2>
+        <p class="excerpt">If you, like me, have shortcuts and muscle memory built in neovim (or vim) to
+run tests while you develop, you might get frustrated when you change from a
+local development environment to a local dockerized development environment.
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="12 Feb 2017" class="post-list__meta--date date">12 Feb 2017</time> &#8226; <span class="post-meta__tags">on <a href="tags/#neovim">neovim</a> <a href="tags/#vim">vim</a> <a href="tags/#docker">docker</a> <a href="tags/#tdd">tdd</a> <a href="tags/#ruby">ruby</a> <a href="tags/#rspec">rspec</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2017/01/29/rmagick-and-imagemagick-7/" title="rmagick and imagemagick 7">rmagick and imagemagick 7</a></h2>
+        <p class="excerpt">The new imagemagick 7 is not compatible (yet) to rmagick (2.16 in my case) so you might have errors like
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="29 Jan 2017" class="post-list__meta--date date">29 Jan 2017</time> &#8226; <span class="post-meta__tags">on <a href="tags/#ruby,">ruby,</a> <a href="tags/#rails,">rails,</a> <a href="tags/#rmagick,">rmagick,</a> <a href="tags/#imagemagick">imagemagick</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2017/01/29/rails-update-json-fields/" title="rails update json fields">rails update json fields</a></h2>
+        <p class="excerpt">model with json field
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">the</span> <span class="n">model</span>
+</code></pre>
+</div>
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="29 Jan 2017" class="post-list__meta--date date">29 Jan 2017</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
         <h2 class="post-list__post-title post-title"><a href="/2013/06/24/nokogiri-again-but-not-its-fault-this-time/" title="nokogiri again, but not its fault this time">nokogiri again, but not its fault this time</a></h2>
         <p class="excerpt">Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset. 
 First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
@@ -256,48 +288,6 @@ sudo dpkg-reconfigure locales
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="11 Jun 2011" class="post-list__meta--date date">11 Jun 2011</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2011/05/09/openvpn-at-startup-in-osx/" title="OpenVPN at startup in OSX">OpenVPN at startup in OSX</a></h2>
-        <p class="excerpt">The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="9 May 2011" class="post-list__meta--date date">9 May 2011</time> &#8226; <span class="post-meta__tags">on <a href="tags/#mac">mac</a> <a href="tags/#openvpn">openvpn</a> <a href="tags/#osx">osx</a> <a href="tags/#tunnelblick">tunnelblick</a> <a href="tags/#vpn">vpn</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2011/01/04/exclude-files-and-directories-from-apache-auth/" title="Exclude files and directories from Apache Auth">Exclude files and directories from Apache Auth</a></h2>
-        <p class="excerpt">It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;Location "/"&gt;  
-AuthType Basic  
-AuthName "Restricted Files"  
-AuthUserFile /var/www/clients/client12/web17/passwd  
-AuthGroupFile /dev/null  
-Require valid-user  
-SetEnvIf Request_URI "^/(admin|skin|js|index)(.*)$" allow  
-SetEnvIf Request_URI "^/favicon.ico$" allow  
-Order allow,deny  
-Allow from env=allow  
-Satisfy Any  
-&lt;/Location&gt;
-</code></pre>
-</div>
-
-This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="4 Jan 2011" class="post-list__meta--date date">4 Jan 2011</time> &#8226; <span class="post-meta__tags">on <a href="tags/#Apache">Apache</a> <a href="tags/#authentication">authentication</a> <a href="tags/#location">location</a> <a href="tags/#locationmatch">locationmatch</a> <a href="tags/#setenvif">setenvif</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2010/12/07/vim-and-the-clipboard-on-ubuntu/" title="VIM and the clipboard on Ubuntu">VIM and the clipboard on Ubuntu</a></h2>
-        <p class="excerpt">If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="7 Dec 2010" class="post-list__meta--date date">7 Dec 2010</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     

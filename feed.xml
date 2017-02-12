@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://zekus.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://zekus.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://zekus.github.io/" rel="alternate" type="text/html" /><updated>2017-01-13T18:08:51+01:00</updated><id>http://zekus.github.io//</id><title type="html">antoniolorusso.com</title><subtitle>dev life in blog pills</subtitle><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><entry><title type="html">nokogiri again, but not its fault this time</title><link href="http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time/" rel="alternate" type="text/html" title="nokogiri again, but not its fault this time" /><published>2013-06-24T19:38:00+02:00</published><updated>2013-06-24T19:38:00+02:00</updated><id>http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id><content type="html" xml:base="http://zekus.github.io/2013/06/24/nokogiri-again-but-not-its-fault-this-time/">&lt;p&gt;Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset. 
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://localhost:4000/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-02-12T15:52:55+01:00</updated><id>http://localhost:4000//</id><title type="html">antoniolorusso.com</title><subtitle>dev life in blog pills</subtitle><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><entry><title type="html">Neovim, TDD and Docker</title><link href="http://localhost:4000/2017/02/12/tdd-with-docker/" rel="alternate" type="text/html" title="Neovim, TDD and Docker" /><published>2017-02-12T00:00:00+01:00</published><updated>2017-02-12T00:00:00+01:00</updated><id>http://localhost:4000/2017/02/12/tdd-with-docker</id><content type="html" xml:base="http://localhost:4000/2017/02/12/tdd-with-docker/">&lt;p&gt;If you, like me, have shortcuts and muscle memory built in neovim (or vim) to
+run tests while you develop, you might get frustrated when you change from a
+local development environment to a local dockerized development environment.&lt;/p&gt;
+
+&lt;p&gt;I use the plugin &lt;a href=&quot;https://github.com/janko-m/vim-test&quot;&gt;vim-test&lt;/a&gt; with
+&lt;strong&gt;Neoterm&lt;/strong&gt; and four shortcuts in neovim to run the tests which DO NOT work when
+you are working on a dockerized rails application.&lt;/p&gt;
+
+&lt;p&gt;After banging my head on the keyboard because I had to run &lt;strong&gt;rspec&lt;/strong&gt; manually,
+it came to my mind: &lt;em&gt;“I can bloody setup an alias in the shell and I can just go
+back to my super productive flow! - idiot”&lt;/em&gt;. I ran the following in neoterm:&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;rspec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'docker exec -it &amp;lt;container&amp;gt; rspec'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and changed the executable in then neovim configuration for vim-test (by default it
+uses &lt;code class=&quot;highlighter-rouge&quot;&gt;bundle exec rspec&lt;/code&gt;)&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; test#&lt;span class=&quot;k&quot;&gt;ruby&lt;/span&gt;#rspec#executable &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'rspec'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and that’s it, the speed was back!&lt;/p&gt;
+
+&lt;p&gt;Happy TDDing.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="neovim" /><category term="vim" /><category term="docker" /><category term="tdd" /><category term="ruby" /><category term="rspec" /><summary type="html">If you, like me, have shortcuts and muscle memory built in neovim (or vim) to
+run tests while you develop, you might get frustrated when you change from a
+local development environment to a local dockerized development environment.</summary></entry><entry><title type="html">rmagick and imagemagick 7</title><link href="http://localhost:4000/2017/01/29/rmagick-and-imagemagick-7/" rel="alternate" type="text/html" title="rmagick and imagemagick 7" /><published>2017-01-29T00:00:00+01:00</published><updated>2017-01-29T00:00:00+01:00</updated><id>http://localhost:4000/2017/01/29/rmagick-and-imagemagick-7</id><content type="html" xml:base="http://localhost:4000/2017/01/29/rmagick-and-imagemagick-7/">&lt;p&gt;The new imagemagick 7 is not compatible (yet) to rmagick (2.16 in my case) so you might have errors like&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    /Users/zekus/.rubies/ruby-2.1.2/bin/ruby extconf.rb
+checking &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; /usr/bin/gcc... yes
+checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;Magick-config... no
+checking &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;pkg-config... yes
+Package MagickCore was not found &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the pkg-config search path.
+Perhaps you should add the directory containing &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;MagickCore.pc&lt;span class=&quot;s1&quot;&gt;'
+to the PKG_CONFIG_PATH environment variable
+No package '&lt;/span&gt;MagickCore&lt;span class=&quot;s1&quot;&gt;' found
+checking for outdated ImageMagick version (&amp;lt;= 6.4.9)... *** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/Users/zekus/.rubies/ruby-2.1.2/bin/ruby
+
+extconf failed, exit code 1
+
+Gem files will remain installed in /Users/zekus/.gem/ruby/2.1.2/gems/rmagick-2.16.0 for inspection.
+Results logged to /Users/zekus/.gem/ruby/2.1.2/extensions/x86_64-darwin-14/2.1.0-static/rmagick-2.16.0/gem_make.out
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you have such an error, your only option at the moment, is to rollback imagemagick to version 6:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;brew uninstall imagemagick
+brew install imagemagick@6
+brew link imagemagick@6 --force
+bundle
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That should fix it.&lt;/p&gt;
+
+&lt;p&gt;Happy coding!&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="ruby, rails" /><category term="ruby," /><category term="rails," /><category term="rmagick," /><category term="imagemagick" /><summary type="html">The new imagemagick 7 is not compatible (yet) to rmagick (2.16 in my case) so you might have errors like</summary></entry><entry><title type="html">rails update json fields</title><link href="http://localhost:4000/2017/01/29/rails-update-json-fields/" rel="alternate" type="text/html" title="rails update json fields" /><published>2017-01-29T00:00:00+01:00</published><updated>2017-01-29T00:00:00+01:00</updated><id>http://localhost:4000/2017/01/29/rails-update-json-fields</id><content type="html" xml:base="http://localhost:4000/2017/01/29/rails-update-json-fields/">&lt;p&gt;model with json field&lt;/p&gt;
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;permit parameters&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;permitted_params&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;data_keys&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:fetch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;keys&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:scanned_pig_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;scanned_pig_event: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;data: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_keys&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;the form&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simple_form_for&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;url: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;scanned_pig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;error_notification&lt;/span&gt;
+
+  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;simple_fields_for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;OpenStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@scanned_pig_event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ff&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_sym&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;happy coding!&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">model with json field
+the model</summary></entry><entry><title type="html">nokogiri again, but not its fault this time</title><link href="http://localhost:4000/2013/06/24/nokogiri-again-but-not-its-fault-this-time/" rel="alternate" type="text/html" title="nokogiri again, but not its fault this time" /><published>2013-06-24T19:38:00+02:00</published><updated>2013-06-24T19:38:00+02:00</updated><id>http://localhost:4000/2013/06/24/nokogiri-again-but-not-its-fault-this-time</id><content type="html" xml:base="http://localhost:4000/2013/06/24/nokogiri-again-but-not-its-fault-this-time/">&lt;p&gt;Today it was a total waste of time as I was trying to figure out why the F* nokogiri was not getting installed into my new project gemset. 
 First thing I had to figure out, was that Nokogiri now ships with libxml2 and libxslt that get compiled and installed with the gem itself.
 Second thing was that libxslt was not getting compiled because it could not find an “acceptable grep”! Go figure! After many trials and unfruitful google
 searches I decided to try with a different user and that maybe, if google was not returning any useful result, it was my configuration that was weird.
@@ -14,7 +115,7 @@ It turned out that I was correct and the problem was related to my GREP_OPTIONS.
 export GREP_OPTIONS=&quot;--exclude-dir=.svn --exclude-dir=.git -nR --color&quot;
 
 
-and, after removing the -nR options, I was finally able to install nokogiri correctly.</summary></entry><entry><title type="html">moving to Octopress</title><link href="http://zekus.github.io/2012/06/24/moving-to-octopress/" rel="alternate" type="text/html" title="moving to Octopress" /><published>2012-06-24T23:43:00+02:00</published><updated>2012-06-24T23:43:00+02:00</updated><id>http://zekus.github.io/2012/06/24/moving-to-octopress</id><content type="html" xml:base="http://zekus.github.io/2012/06/24/moving-to-octopress/">&lt;p&gt;I’ve been delaying this migrations for ages now but here we are, it finally happened:
+and, after removing the -nR options, I was finally able to install nokogiri correctly.</summary></entry><entry><title type="html">moving to Octopress</title><link href="http://localhost:4000/2012/06/24/moving-to-octopress/" rel="alternate" type="text/html" title="moving to Octopress" /><published>2012-06-24T23:43:00+02:00</published><updated>2012-06-24T23:43:00+02:00</updated><id>http://localhost:4000/2012/06/24/moving-to-octopress</id><content type="html" xml:base="http://localhost:4000/2012/06/24/moving-to-octopress/">&lt;p&gt;I’ve been delaying this migrations for ages now but here we are, it finally happened:
 I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git… that’s too many emotions for one single day :P&lt;/p&gt;
 
 &lt;h3 id=&quot;so-how-did-i-do-it&quot;&gt;So, how did I do it?&lt;/h3&gt;
@@ -38,7 +139,7 @@ comments: true
 &lt;/ul&gt;
 
 &lt;p&gt;The next step will be playing with the theme to make it more “personal” :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">I’ve been delaying this migrations for ages now but here we are, it finally happened:
-I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git… that’s too many emotions for one single day :P</summary></entry><entry><title type="html">mod_rpaf and ubuntu 12.04</title><link href="http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04/" rel="alternate" type="text/html" title="mod_rpaf and ubuntu 12.04" /><published>2012-05-23T16:57:38+02:00</published><updated>2012-05-23T16:57:38+02:00</updated><id>http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04</id><content type="html" xml:base="http://zekus.github.io/2012/05/23/mod_rpaf-and-ubuntu-12-04/">&lt;rant&gt; Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess! &lt;/rant&gt;
+I can write a blog post with my favourite editor now (Vim) and publish it to the web like a pro on my favourite dev website (GitHub) using git… that’s too many emotions for one single day :P</summary></entry><entry><title type="html">mod_rpaf and ubuntu 12.04</title><link href="http://localhost:4000/2012/05/23/mod_rpaf-and-ubuntu-12-04/" rel="alternate" type="text/html" title="mod_rpaf and ubuntu 12.04" /><published>2012-05-23T16:57:38+02:00</published><updated>2012-05-23T16:57:38+02:00</updated><id>http://localhost:4000/2012/05/23/mod_rpaf-and-ubuntu-12-04</id><content type="html" xml:base="http://localhost:4000/2012/05/23/mod_rpaf-and-ubuntu-12-04/">&lt;rant&gt; Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess! &lt;/rant&gt;
 
 &lt;p&gt;So, you upgraded and mod_rpaf behind your proxy is not working anymore? Do this:&lt;/p&gt;
 
@@ -60,11 +161,11 @@ RPAFproxy_ips 127.0.0.1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Find the differences and thank &lt;a href=&quot;http://ffnz.tumblr.com/post/23078644987/rpaf-mod-not-working-on-ubuntu-12-04&quot;&gt;this guy&lt;/a&gt; that find it before me.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess!</summary></entry><entry><title type="html">send headers with Selenium and PHPUnit?</title><link href="http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit/" rel="alternate" type="text/html" title="send headers with Selenium and PHPUnit?" /><published>2012-05-02T22:37:09+02:00</published><updated>2012-05-02T22:37:09+02:00</updated><id>http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit</id><content type="html" xml:base="http://zekus.github.io/2012/05/02/send-headers-with-selenium-and-phpunit/">&lt;p&gt;Just dont waste your life and use curl if you need to do that.&lt;/p&gt;
+&lt;p&gt;Find the differences and thank &lt;a href=&quot;http://ffnz.tumblr.com/post/23078644987/rpaf-mod-not-working-on-ubuntu-12-04&quot;&gt;this guy&lt;/a&gt; that find it before me.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Canonical, seriously, what's wrong with you people? How dare you calling the 12.04 a LTS version? Have you testend on EC2? and cloud-init? It's a bloody mess!</summary></entry><entry><title type="html">send headers with Selenium and PHPUnit?</title><link href="http://localhost:4000/2012/05/02/send-headers-with-selenium-and-phpunit/" rel="alternate" type="text/html" title="send headers with Selenium and PHPUnit?" /><published>2012-05-02T22:37:09+02:00</published><updated>2012-05-02T22:37:09+02:00</updated><id>http://localhost:4000/2012/05/02/send-headers-with-selenium-and-phpunit</id><content type="html" xml:base="http://localhost:4000/2012/05/02/send-headers-with-selenium-and-phpunit/">&lt;p&gt;Just dont waste your life and use curl if you need to do that.&lt;/p&gt;
 
 &lt;p&gt;I know, this is a useless post but I just wasted a huge amount of time trying to find a solution and I feel like giving this advice to someone.&lt;/p&gt;
 
-&lt;p&gt;happy testing :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Just dont waste your life and use curl if you need to do that.</summary></entry><entry><title type="html">perl: warning: Setting locale failed.</title><link href="http://zekus.github.io/2012/04/01/409/" rel="alternate" type="text/html" title="perl: warning: Setting locale failed." /><published>2012-04-01T14:58:51+02:00</published><updated>2012-04-01T14:58:51+02:00</updated><id>http://zekus.github.io/2012/04/01/409</id><content type="html" xml:base="http://zekus.github.io/2012/04/01/409/">&lt;p&gt;Tired of this:&lt;/p&gt;
+&lt;p&gt;happy testing :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Just dont waste your life and use curl if you need to do that.</summary></entry><entry><title type="html">perl: warning: Setting locale failed.</title><link href="http://localhost:4000/2012/04/01/409/" rel="alternate" type="text/html" title="perl: warning: Setting locale failed." /><published>2012-04-01T14:58:51+02:00</published><updated>2012-04-01T14:58:51+02:00</updated><id>http://localhost:4000/2012/04/01/409</id><content type="html" xml:base="http://localhost:4000/2012/04/01/409/">&lt;p&gt;Tired of this:&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
 LANGUAGE = &quot;en_US:en&quot;,
@@ -104,7 +205,7 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 sudo locale-gen en_US.UTF-8
-sudo dpkg-reconfigure locales</summary></entry><entry><title type="html">Ruby 1.9.3-p125 and RVM on Mac</title><link href="http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/" rel="alternate" type="text/html" title="Ruby 1.9.3-p125 and RVM on Mac" /><published>2012-02-18T15:32:41+01:00</published><updated>2012-02-18T15:32:41+01:00</updated><id>http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id><content type="html" xml:base="http://zekus.github.io/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/">&lt;p&gt;A &lt;a href=&quot;http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/&quot;&gt;new ruby version&lt;/a&gt; is out and it’s time to upgrade! The first try gave me this error:&lt;/p&gt;
+sudo dpkg-reconfigure locales</summary></entry><entry><title type="html">Ruby 1.9.3-p125 and RVM on Mac</title><link href="http://localhost:4000/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/" rel="alternate" type="text/html" title="Ruby 1.9.3-p125 and RVM on Mac" /><published>2012-02-18T15:32:41+01:00</published><updated>2012-02-18T15:32:41+01:00</updated><id>http://localhost:4000/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac</id><content type="html" xml:base="http://localhost:4000/2012/02/18/ruby-1-9-3-p125-and-rvm-on-mac/">&lt;p&gt;A &lt;a href=&quot;http://www.ruby-lang.org/en/news/2012/02/16/ruby-1-9-3-p125-is-released/&quot;&gt;new ruby version&lt;/a&gt; is out and it’s time to upgrade! The first try gave me this error:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?  ~  rvm install 1.9.3-p125
 Error running ' ./configure --prefix=/Users/antonio/.rvm/rubies/ruby-1.9.3-p125 --enable-shared --disable-install-doc --with-libyaml --with-opt-dir=/Users/antonio/.rvm/usr ', please read /Users/antonio/.rvm/log/ruby-1.9.3-p125/configure.log
@@ -119,7 +220,7 @@ Install of ruby-1.9.3-p125 - #complete
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;enjoy Ruby :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">A new ruby version is out and it’s time to upgrade! The first try gave me this error:</summary></entry><entry><title type="html">Nokogiri, RVM, Homebrew and headhache!!!</title><link href="http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache/" rel="alternate" type="text/html" title="Nokogiri, RVM, Homebrew and headhache!!!" /><published>2011-06-11T14:32:48+02:00</published><updated>2011-06-11T14:32:48+02:00</updated><id>http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id><content type="html" xml:base="http://zekus.github.io/2011/06/11/nokogiri-rvm-homebrew-and-headhache/">&lt;p&gt;Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:&lt;/p&gt;
+&lt;p&gt;enjoy Ruby :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">A new ruby version is out and it’s time to upgrade! The first try gave me this error:</summary></entry><entry><title type="html">Nokogiri, RVM, Homebrew and headhache!!!</title><link href="http://localhost:4000/2011/06/11/nokogiri-rvm-homebrew-and-headhache/" rel="alternate" type="text/html" title="Nokogiri, RVM, Homebrew and headhache!!!" /><published>2011-06-11T14:32:48+02:00</published><updated>2011-06-11T14:32:48+02:00</updated><id>http://localhost:4000/2011/06/11/nokogiri-rvm-homebrew-and-headhache</id><content type="html" xml:base="http://localhost:4000/2011/06/11/nokogiri-rvm-homebrew-and-headhache/">&lt;p&gt;Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request
 &lt;/pre&gt;&lt;/noscript&gt;
@@ -131,94 +232,4 @@ Install of ruby-1.9.3-p125 - #complete
 &lt;/div&gt;
 &lt;p&gt;and try again.&lt;/p&gt;
 
-&lt;p&gt;Enjoy :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</summary></entry><entry><title type="html">OpenVPN at startup in OSX</title><link href="http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx/" rel="alternate" type="text/html" title="OpenVPN at startup in OSX" /><published>2011-05-09T00:11:25+02:00</published><updated>2011-05-09T00:11:25+02:00</updated><id>http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx</id><content type="html" xml:base="http://zekus.github.io/2011/05/09/openvpn-at-startup-in-osx/">&lt;p&gt;The easiest way of getting an OpenVPN client on mac is with &lt;a href=&quot;http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2&quot;&gt;Tunnelblick&lt;/a&gt; but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:&lt;/p&gt;
-
-&lt;p&gt;create /etc/rc.local and copy/paste the following three lines in it:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
-/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tap.kext
-/sbin/kextload /Applications/Tunnelblick.app/Contents/Resources/tun.kext
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;then create a Launch script like this for each of the vpn you want to connect to, replacing &lt;em&gt;YOURVPNNAME&lt;/em&gt;, &lt;em&gt;YOURCONFIGFILE&lt;/em&gt;, &lt;em&gt;YOUR/CONFIG/FOLDER&lt;/em&gt; accordingly:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;plist&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;dict&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Label&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;org.openvpn.YOURVPNNAME&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;OnDemand&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;false/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;Program&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;/Applications/Tunnelblick.app/Contents/Resources/openvpn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;ProgramArguments&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;array&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;openvpn&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;--config&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;YOURCONFIGFILE.conf&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/array&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;RunAtLoad&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;true/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;TimeOut&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;integer&amp;gt;&lt;/span&gt;90&lt;span class=&quot;nt&quot;&gt;&amp;lt;/integer&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;key&amp;gt;&lt;/span&gt;WorkingDirectory&lt;span class=&quot;nt&quot;&gt;&amp;lt;/key&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;string&amp;gt;&lt;/span&gt;YOUR/CONFIG/FOLDER&lt;span class=&quot;nt&quot;&gt;&amp;lt;/string&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dict&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plist&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;save each script into &lt;em&gt;/Library/LaunchDaemons/&lt;/em&gt; folder using a name for the file like &lt;em&gt;org.openvpn.YOURVPNNAME.plist&lt;/em&gt;, then change the user and group to root:wheel with the following command in a terminal window:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chown root:wheel /Library/LaunchDaemon/org.openvpn.YOURVPNNAME
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;last commands to register and execute your Launch scripts are:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo launchctl load /Library/LaunchDaemon/org.openvpn.YOURVPNNAME.plist
-sudo launchctl start org.openvpn.YOURVPNNAME
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;a restart should be the very last thing to do and once your mac has started you shoud be connected to your vpn network(s)!&lt;/p&gt;
-
-&lt;p&gt;enjoy ;)&lt;/p&gt;
-
-&lt;p&gt;**UPDATE: **the new version of tunnelblick 3.2beta26 does have the the “connect when computer starts” functionality that automatically makes this post obsolete. I’ll just keep it for the records :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="mac" /><category term="openvpn" /><category term="osx" /><category term="tunnelblick" /><category term="vpn" /><summary type="html">The easiest way of getting an OpenVPN client on mac is with Tunnelblick but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:</summary></entry><entry><title type="html">Exclude files and directories from Apache Auth</title><link href="http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth/" rel="alternate" type="text/html" title="Exclude files and directories from Apache Auth" /><published>2011-01-04T11:35:52+01:00</published><updated>2011-01-04T11:35:52+01:00</updated><id>http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth</id><content type="html" xml:base="http://zekus.github.io/2011/01/04/exclude-files-and-directories-from-apache-auth/">&lt;p&gt;It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;Location &quot;/&quot;&amp;gt;  
-AuthType Basic  
-AuthName &quot;Restricted Files&quot;  
-AuthUserFile /var/www/clients/client12/web17/passwd  
-AuthGroupFile /dev/null  
-Require valid-user  
-SetEnvIf Request_URI &quot;^/(admin|skin|js|index)(.*)$&quot; allow  
-SetEnvIf Request_URI &quot;^/favicon.ico$&quot; allow  
-Order allow,deny  
-Allow from env=allow  
-Satisfy Any  
-&amp;lt;/Location&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><category term="Apache" /><category term="authentication" /><category term="location" /><category term="locationmatch" /><category term="setenvif" /><summary type="html">It would have made sense to use LocationMatch with a negative lookahead regex pattern like “^/(?!admin)” but that doesnt work. Neither work a rule like !”^/admin” so here is a workaround:
-
-&amp;lt;Location &quot;/&quot;&amp;gt;  
-AuthType Basic  
-AuthName &quot;Restricted Files&quot;  
-AuthUserFile /var/www/clients/client12/web17/passwd  
-AuthGroupFile /dev/null  
-Require valid-user  
-SetEnvIf Request_URI &quot;^/(admin|skin|js|index)(.*)$&quot; allow  
-SetEnvIf Request_URI &quot;^/favicon.ico$&quot; allow  
-Order allow,deny  
-Allow from env=allow  
-Satisfy Any  
-&amp;lt;/Location&amp;gt;
-
-
-
-This basically allow the access without authentication to the directories/files that start with admin, skin, js or index. The other rule allow the favicon too.</summary></entry><entry><title type="html">VIM and the clipboard on Ubuntu</title><link href="http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu/" rel="alternate" type="text/html" title="VIM and the clipboard on Ubuntu" /><published>2010-12-07T13:16:56+01:00</published><updated>2010-12-07T13:16:56+01:00</updated><id>http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu</id><content type="html" xml:base="http://zekus.github.io/2010/12/07/vim-and-the-clipboard-on-ubuntu/">&lt;p&gt;If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">If you want to copy and paste from Vim to the clipboard, install the package vim.gtk and enjoy the command “+y !</summary></entry></feed>
+&lt;p&gt;Enjoy :)&lt;/p&gt;</content><author><name>Antonio Lorusso</name><email>antonio.lorusso@gmail.com</email></author><summary type="html">Thanks to a gist (which I forked and slightly changed) I was able to finally install Nokogiri on my mac:</summary></entry></feed>

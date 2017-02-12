@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://zekus.github.io/page11/">
+  <link rel="canonical" href="http://localhost:4000/page11/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -169,6 +169,55 @@
   <ol class="post-list">
     
       <li>
+        <h2 class="post-list__post-title post-title"><a href="/2005/10/18/ipv6-problems-again/" title="ipv6 problems AGAIN">ipv6 problems AGAIN</a></h2>
+        <p class="excerpt">AGAIN since 9.1 version, ipv6 still break your internet connection, delaying DNS answere and giving the TIMEOUT ERROR!
+
+To disable this annoying thing, just edit /etc/modules.conf, go to the line containing “net-pf-10 ipv6” and change to “net-pf-10 off”.<br />
+Restart your machine and the world will smile again!
+
+happy suse!<br />
+antonio
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="18 Oct 2005" class="post-list__meta--date date">18 Oct 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2005/10/17/use-common-yast-sources-on-every-pc/" title="use common YaST sources on every PC">use common YaST sources on every PC</a></h2>
+        <p class="excerpt">If you want to transfer all YaST source installation settings to another machine without adding every source manually copy this folder from the configured machine to the other one :)
+
+/var/adm/YaST/InstSrcManager
+
+enjoy your suse!<br />
+antonio
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="17 Oct 2005" class="post-list__meta--date date">17 Oct 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2005/10/11/opensuse-100-is-out/" title="openSUSE 10.0 is out">openSUSE 10.0 is out</a></h2>
+        <p class="excerpt"><img src="http://www.opensuse.org/skins/monobook/opensuse.gif" alt="" /><br />
+After a long wait, the first community release of openSUSE is OUT and I’m really happy to update my systems.
+
+Here I’ll give you some reference links even if you dont really need it cause it’s easy to find it on google :)
+
+Download: <a href="http://www.opensuse.org/Mirrors_Released_Version">http://www.opensuse.org/Mirrors_Released_Version</a>
+
+After the installation <strong>add more Yast</strong> sources to have a Complete operating system with all plugins you need for your browser, Java and more: <a href="http://www.opensuse.org/index.php/Package_Repositories">http://www.opensuse.org/index.php/Package_Repositories</a>
+
+Other third parties YaST repositories: <a href="http://www.opensuse.org/YaST_package_repository">http://www.opensuse.org/YaST_package_repository</a>
+
+Happy openSUSE!
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="11 Oct 2005" class="post-list__meta--date date">11 Oct 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
         <h2 class="post-list__post-title post-title"><a href="/2005/09/17/ntfs-howto/" title="NTFS HowTO">NTFS HowTO</a></h2>
         <p class="excerpt">Sometimes, in this world, it happen that you need to read from an NTFS partition with your fantastic SuSE 9.3 and you think it’s easy to configure it with YaST -&gt; patition … and … you find a bad surprise: IT DOESN’T WORK !!!!<br />
 Don’t disperate babe, you always have the command line ;) and my instructions!!!
@@ -268,57 +317,6 @@ cp /lib/modules/$(uname -r)/misc/ndiswrapper.ko /lib/modules/$(uname -r)/extra
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="13 Apr 2005" class="post-list__meta--date date">13 Apr 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2005/04/04/apache2-and-virtual-hosts-vhost/" title="Apache2 and Virtual Hosts (VHost)">Apache2 and Virtual Hosts (VHost)</a></h2>
-        <p class="excerpt">In this article, i’ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.
-
-First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br />
-After that you’ll have all apache configuration files under /etc/apache2 directory.<br />
-Well DONT TOUCH ANY FILE THERE!<br />
-The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br />
-I created mysites.conf in my public_html for my personal comfort :)
-
-What about mysites.conf content? HERE to you a simple example:
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="4 Apr 2005" class="post-list__meta--date date">4 Apr 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2005/03/28/backup-mysql-tables-and-restore/" title="backup mysql tables and restore">backup mysql tables and restore</a></h2>
-        <p class="excerpt">it’s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that’s it.<br />
-If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:
-
-chmod -R 766 *<br />
-chmod -R 700 mysql/
-
-and all will work fine again!
-
-go backup guys! ;)
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="28 Mar 2005" class="post-list__meta--date date">28 Mar 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2005/03/18/apache2-settings/" title="Apache2 settings">Apache2 settings</a></h2>
-        <p class="excerpt">after installing all needed rpms about apache2 and php4, just open /etc/apache2/httpd.conf and add following two lines on bottom to make UserDir and Alias work:<br />
-Include /etc/apache2/mod_userdir.conf<br />
-Include /etc/apache2/conf.d/*<br />
-UserDir permit you to use /home//public_html directory as server directories and make users publish their own files.<br />
-Alias permit to use any directory on you server for publish contents.<br />
-For more infos, consult apache documentation or contact me!
-
-bye<br />
-antonio
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="18 Mar 2005" class="post-list__meta--date date">18 Mar 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     
