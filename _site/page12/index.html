@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/page12/">
+  <link rel="canonical" href="http://zekus.github.io/page12/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -169,23 +169,6 @@
   <ol class="post-list">
     
       <li>
-        <h2 class="post-list__post-title post-title"><a href="/2005/04/04/apache2-and-virtual-hosts-vhost/" title="Apache2 and Virtual Hosts (VHost)">Apache2 and Virtual Hosts (VHost)</a></h2>
-        <p class="excerpt">In this article, i’ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.
-
-First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br />
-After that you’ll have all apache configuration files under /etc/apache2 directory.<br />
-Well DONT TOUCH ANY FILE THERE!<br />
-The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br />
-I created mysites.conf in my public_html for my personal comfort :)
-
-What about mysites.conf content? HERE to you a simple example:
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="4 Apr 2005" class="post-list__meta--date date">4 Apr 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
         <h2 class="post-list__post-title post-title"><a href="/2005/03/28/backup-mysql-tables-and-restore/" title="backup mysql tables and restore">backup mysql tables and restore</a></h2>
         <p class="excerpt">it’s easy to backup all you mysql tables: just go to /var/lib/mysql (on SuSE linux distro) and copy all folders, that’s it.<br />
 If you record this forlders on a cd or dvd as backup and you lost all privilege settings, this is what you have to do after you copy back your backup on mysql folder:
@@ -293,6 +276,17 @@ Well I demistyfied that, to change the name of folders, there is an hidden file 
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="22 Sep 2004" class="post-list__meta--date date">22 Sep 2004</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2004/09/13/mysql-wont-startup/" title="MYSQL wont startup">MYSQL wont startup</a></h2>
+        <p class="excerpt">Today, mysql wont startup and dont know why (or maybe!)
+
+First of all I looked at “/var/lib/mysql/&lt;\your host name&gt;.err” log and this was the error:
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="13 Sep 2004" class="post-list__meta--date date">13 Sep 2004</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     

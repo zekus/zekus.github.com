@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/page2/">
+  <link rel="canonical" href="http://zekus.github.io/page2/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -167,15 +167,6 @@
         <div class="main-post-list">
 
   <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2011/05/09/openvpn-at-startup-in-osx/" title="OpenVPN at startup in OSX">OpenVPN at startup in OSX</a></h2>
-        <p class="excerpt">The easiest way of getting an OpenVPN client on mac is with <a href="http://code.google.com/p/tunnelblick/wiki/DownloadsEntry?tm=2">Tunnelblick</a> but you will join the VPN only when you have logged in. Sometimes you need your mac to connect at startup instead and I’ll show you how to do it:
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="9 May 2011" class="post-list__meta--date date">9 May 2011</time> &#8226; <span class="post-meta__tags">on <a href="tags/#mac">mac</a> <a href="tags/#openvpn">openvpn</a> <a href="tags/#osx">osx</a> <a href="tags/#tunnelblick">tunnelblick</a> <a href="tags/#vpn">vpn</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
     
       <li>
         <h2 class="post-list__post-title post-title"><a href="/2011/01/04/exclude-files-and-directories-from-apache-auth/" title="Exclude files and directories from Apache Auth">Exclude files and directories from Apache Auth</a></h2>
@@ -338,6 +329,36 @@ fastcgi_buffer_size 32k;
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="10 Mar 2010" class="post-list__meta--date date">10 Mar 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#buffer">buffer</a> <a href="tags/#fastcgi">fastcgi</a> <a href="tags/#nginx">nginx</a> <a href="tags/#PHP">PHP</a> <a href="tags/#php-fpm">php-fpm</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2010/02/26/bash-rename-files/" title="BASH: rename files">BASH: rename files</a></h2>
+        <p class="excerpt">A simple rename example using again the mighty awk and xargs
+<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old
+</code></pre>
+</div>
+
+Explanation:<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml
+</code></pre>
+</div>
+** -&gt; easy! list the xml files in a folder<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>awk '{print $9}'
+</code></pre>
+</div>
+** -&gt; output just the name of the file<br />
+**
+<div class="highlighter-rouge"><pre class="highlight"><code>xargs -t -i mv {} {}.old
+</code></pre>
+</div>
+** -&gt; rename it adding at the same filename the extension “.old”
+
+I know, I know … my explanation is crap: blame my laziness :)
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="26 Feb 2010" class="post-list__meta--date date">26 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#awk">awk</a> <a href="tags/#bash">bash</a> <a href="tags/#rename">rename</a> <a href="tags/#xargs">xargs</a> </span></div>
         <hr class="post-list__divider">
       </li>
     
