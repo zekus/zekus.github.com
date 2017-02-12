@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/page3/">
+  <link rel="canonical" href="http://zekus.github.io/page3/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -167,36 +167,6 @@
         <div class="main-post-list">
 
   <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2010/02/26/bash-rename-files/" title="BASH: rename files">BASH: rename files</a></h2>
-        <p class="excerpt">A simple rename example using again the mighty awk and xargs
-<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml | awk '{print $9}' | xargs -t -i mv {} {}.old
-</code></pre>
-</div>
-
-Explanation:<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>ls -l *.xml
-</code></pre>
-</div>
-** -&gt; easy! list the xml files in a folder<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>awk '{print $9}'
-</code></pre>
-</div>
-** -&gt; output just the name of the file<br />
-**
-<div class="highlighter-rouge"><pre class="highlight"><code>xargs -t -i mv {} {}.old
-</code></pre>
-</div>
-** -&gt; rename it adding at the same filename the extension “.old”
-
-I know, I know … my explanation is crap: blame my laziness :)
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="26 Feb 2010" class="post-list__meta--date date">26 Feb 2010</time> &#8226; <span class="post-meta__tags">on <a href="tags/#awk">awk</a> <a href="tags/#bash">bash</a> <a href="tags/#rename">rename</a> <a href="tags/#xargs">xargs</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
     
       <li>
         <h2 class="post-list__post-title post-title"><a href="/2010/02/06/disable-pure-ftpd-logging-on-syslog/" title="disable Pure-ftpd logging on syslog">disable Pure-ftpd logging on syslog</a></h2>
@@ -330,6 +300,25 @@ $ sudo port upgrade --force installed
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="12 Oct 2009" class="post-list__meta--date date">12 Oct 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2009/09/07/sudo-gem-update-system-under-ubuntudebian/" title="sudo gem update --system under ubuntu/debian">sudo gem update --system under ubuntu/debian</a></h2>
+        <p class="excerpt">If you have tried that command, you already know that doesn’t work!<br />
+Here is the correct procedure to update gem under ubuntu/debian without using apt-get/aptitude
+<div class="highlighter-rouge"><pre class="highlight"><code>  
+$ sudo gem install rubygems-update  
+$ cd /var/lib/gems/1.8/bin  
+$ sudo ./update_rubygems  
+$ gem -v  
+$ 1.3.5  
+</code></pre>
+</div>
+
+Happy rubying :)
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="7 Sep 2009" class="post-list__meta--date date">7 Sep 2009</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     

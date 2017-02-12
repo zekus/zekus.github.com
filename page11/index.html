@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/page11/">
+  <link rel="canonical" href="http://zekus.github.io/page11/">
   <link rel="alternate" type="application/rss+xml" title="antoniolorusso.com" href="feed.xml">
 </head>
 
@@ -167,21 +167,6 @@
         <div class="main-post-list">
 
   <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2005/10/18/ipv6-problems-again/" title="ipv6 problems AGAIN">ipv6 problems AGAIN</a></h2>
-        <p class="excerpt">AGAIN since 9.1 version, ipv6 still break your internet connection, delaying DNS answere and giving the TIMEOUT ERROR!
-
-To disable this annoying thing, just edit /etc/modules.conf, go to the line containing “net-pf-10 ipv6” and change to “net-pf-10 off”.<br />
-Restart your machine and the world will smile again!
-
-happy suse!<br />
-antonio
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="18 Oct 2005" class="post-list__meta--date date">18 Oct 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
-        <hr class="post-list__divider">
-      </li>
     
       <li>
         <h2 class="post-list__post-title post-title"><a href="/2005/10/17/use-common-yast-sources-on-every-pc/" title="use common YaST sources on every PC">use common YaST sources on every PC</a></h2>
@@ -317,6 +302,23 @@ cp /lib/modules/$(uname -r)/misc/ndiswrapper.ko /lib/modules/$(uname -r)/extra
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="13 Apr 2005" class="post-list__meta--date date">13 Apr 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
+        <h2 class="post-list__post-title post-title"><a href="/2005/04/04/apache2-and-virtual-hosts-vhost/" title="Apache2 and Virtual Hosts (VHost)">Apache2 and Virtual Hosts (VHost)</a></h2>
+        <p class="excerpt">In this article, i’ll explain you how to set your Apache configuration on SuSE 9.2 to make your local websites visible on you machine. This is particularly useful for people like me who make websites and need to test them on their local machines before publish.
+
+First of all, you need Apache installed on you machine via YaST with eventually PHP and MySql.<br />
+After that you’ll have all apache configuration files under /etc/apache2 directory.<br />
+Well DONT TOUCH ANY FILE THERE!<br />
+The simplest thing you have to do is create a mysites.conf file wherever you want and hardlink it to /etc/apache2/vhosts.d<br />
+I created mysites.conf in my public_html for my personal comfort :)
+
+What about mysites.conf content? HERE to you a simple example:
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="4 Apr 2005" class="post-list__meta--date date">4 Apr 2005</time> &#8226; <span class="post-meta__tags">on </span></div>
         <hr class="post-list__divider">
       </li>
     
